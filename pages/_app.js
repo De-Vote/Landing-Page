@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import {Alert, Navbar,Nav} from 'react-bootstrap'
 import VoteData from "../public/voteData.json"
+import Link from 'next/link'
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null)
@@ -45,13 +46,13 @@ function MyApp({ Component, pageProps }) {
         </Navbar.Brand>
         <Nav>
         <Nav.Item style={{marginRight:"10%"}}>
-          <a href="/login" style={{color: "white"}}>Login</a>
+          <Link href="/login" ><a style={{color: "white"}}>Login</a></Link>
         </Nav.Item>
         <Nav.Item style={{marginRight:"10%"}}>
-          <a href="/menu" style={{color: "white"}}>Vote</a>
+          <Link href="/menu"><a style={{color: "white"}}>Vote</a></Link>
         </Nav.Item>
         <Nav.Item style={{marginRight:"10%"}}>
-          <a href="/result" style={{color: "white"}}>Result</a>
+          <Link href="/result"><a style={{color: "white"}}>Result</a></Link>
         </Nav.Item>
         </Nav>
       </Navbar>
