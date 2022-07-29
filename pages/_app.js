@@ -34,10 +34,10 @@ function MyApp({ Component, pageProps }) {
         crossOrigin="anonymous" />
       </Head>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/Vote_Frontend">
           <img
             alt=""
-            src={"./devotelogo.png"}
+            src={"/devotelogo.png"}
             width="30"
             height="30"
             className="d-inline-block align-top"
