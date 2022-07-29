@@ -1,7 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { Table, Modal, Button } from "react-bootstrap";
+import AppContext from '../context/AppContext';
 
 function Result(props) {
+const { result } = useContext(AppContext);
+
   return (
     <Fragment>
       <Modal.Dialog>
@@ -10,7 +13,7 @@ function Result(props) {
         </Modal.Header>
 
         <Modal.Body>
-        {props.result.map((self, index) => (
+        {result.map((self, index) => (
           <>
           <b>{self.title}</b><br/>
             {self.content.map((self, index) => (

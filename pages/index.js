@@ -11,25 +11,26 @@ export default function Home() {
         <div className={styles.grid}>
           <a href="/login" className={styles.card}>
             <h2>Log in &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <p>Log in as vote admin to create and edit the vote.</p>
           </a>
 
           <a href="/menu" className={styles.card}>
             <h2>Vote &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+            <p>Log in as voter to cast a vote</p>
           </a>
 
           <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
+            href="/result"
             className={styles.card}
           >
             <h2>Result &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <p>Discover and see every vote result.</p>
           </a>
 
           <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="/"
             className={styles.card}
+            style={{visibility: "hidden"}}
           >
             <h2>Others &rarr;</h2>
             <p>

@@ -5,6 +5,7 @@ import VotingItems from '../components/Vote/votingItems';
 
 import { FaPen, FaCheck, FaChevronRight } from 'react-icons/fa';
 import VoteData from "../public/voteData.json"
+import AppContext from '../context/AppContext';
 
 const initialState = {
   case: 0,
@@ -18,11 +19,12 @@ const initialState = {
 };
 
 class VotingMenu extends React.Component {
+  static contextType = AppContext
   constructor(props) {
     super(props);
     this.state = initialState;
     this.state.votingData = VoteData;
-    this.state.shares = this.props.shares;
+    // this.state.shares = this.context.shares;
   }
 
   handleCaseSelect = (id,answer) => {
@@ -161,8 +163,8 @@ class VotingMenu extends React.Component {
     const { status, answers_id, votingData, page } = this.state;
     const selected = this.state.selected_id;
     let qid, title, content, button, case_titles;
-    const role = this.props.role;
-    const voting = this.props.voting;
+    const role = this.context.role;
+    const voting = this.context.voting;
     switch (status) {
       case 'start':
         qid = false;
@@ -173,7 +175,7 @@ class VotingMenu extends React.Component {
           <Button onClick={this.handleStart}>確認</Button>&nbsp;
           {(role == 'admin') &&
            <>{
-           (this.props.voting == false)?<>
+           (this.context.voting == false)?<>
            <Button onClick={this.handleNewVoteCase}>新增議案</Button>&nbsp;
            <Button onClick={this.handleStartVoting}>開始投票</Button>&nbsp;</>:
            <Button onClick={this.handleTally}>開票</Button>
@@ -188,13 +190,13 @@ class VotingMenu extends React.Component {
         const editing = this.state.editing
         title = <>
         {
-          (this.props.role == 'admin' && this.props.voting == false) ?
+          (this.context.role == 'admin' && this.context.voting == false) ?
             <input type="text" disabled={!editing} value={case_obj.text} onChange={(e) => { this.setCaseText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="28"></input>
             :
             <>{case_obj.text}</>
         }
 
-        {(this.props.role == 'admin' && this.props.voting == false) ?
+        {(this.context.role == 'admin' && this.context.voting == false) ?
           (!editing) ?
             <><Button onClick={this.edit} width="sm" style={{ padding: 3, float: "", backgroundColor: 'transparent', color: 'grey', border: 'none' }}><FaPen /></Button></>
             :

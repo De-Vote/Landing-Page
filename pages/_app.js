@@ -4,15 +4,23 @@ import AppContext from '../context/AppContext';
 import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import {Alert, Navbar,Nav} from 'react-bootstrap'
+import VoteData from "../public/voteData.json"
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null)
-  const [result, setResult] = useState(null)
+  const [result, setResult] = useState(VoteData)
+  const [shares, setShares] = useState(2)
+  const [role, setRole] = useState("admin")
+  const [voting, setVoting] = useState(false)
+
 
   return (
     <AppContext.Provider value={{
       user: user,
-      setUser: setUser
+      setUser: setUser,
+      role: role,
+      voting:voting,
+      result:result
     }}>
       <Head>
         <title>De.Vote</title>
@@ -39,8 +47,11 @@ function MyApp({ Component, pageProps }) {
         <Nav.Item style={{marginRight:"10%"}}>
           <a href="/login" style={{color: "white"}}>Login</a>
         </Nav.Item>
-        <Nav.Item>
+        <Nav.Item style={{marginRight:"10%"}}>
           <a href="/menu" style={{color: "white"}}>Vote</a>
+        </Nav.Item>
+        <Nav.Item style={{marginRight:"10%"}}>
+          <a href="/result" style={{color: "white"}}>Result</a>
         </Nav.Item>
         </Nav>
       </Navbar>

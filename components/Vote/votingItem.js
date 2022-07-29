@@ -40,7 +40,7 @@ function VotingItem(props) {
         </span>
         {
           (props.role == 'admin' && props.voting==false) ?
-            <input type="text" disabled={!editing} value={text} onChange={(e) => { SetText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="30"></input>
+            <input type="text" disabled={!editing} value={text} onChange={(e) => { SetText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="25"></input>
             :
             <>{props.text}</>
         }
