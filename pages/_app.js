@@ -7,13 +7,15 @@ import {Alert, Navbar,Nav} from 'react-bootstrap'
 import VoteData from "../public/voteData.json"
 import Link from 'next/link'
 
+const base = process.env.NODE_ENV === 'production' ? ".": "";
+
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null)
   const [result, setResult] = useState(VoteData)
   const [shares, setShares] = useState(2)
   const [role, setRole] = useState("admin")
   const [voting, setVoting] = useState(false)
-
+  
 
   return (
     <AppContext.Provider value={{
@@ -37,7 +39,7 @@ function MyApp({ Component, pageProps }) {
         <Navbar.Brand href="/Vote_Frontend">
           <img
             alt=""
-            src={"/devotelogo.png"}
+            src={`${base}/devotelogo.png`}
             width="30"
             height="30"
             className="d-inline-block align-top"

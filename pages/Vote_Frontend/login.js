@@ -8,6 +8,7 @@ export default function Login(){
         <>
         <h1>Hi Hi</h1>
         <div>{role}</div>
+        <div>{process.env.NODE_ENV}</div>
         </>
     )
 }
