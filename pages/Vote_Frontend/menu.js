@@ -1,11 +1,11 @@
 import React from "react";
 import Button from 'react-bootstrap/Button'
-import VotingModal from '../components/Vote/votingModal';
-import VotingItems from '../components/Vote/votingItems';
+import VotingModal from '../../components/Vote/votingModal';
+import VotingItems from '../../components/Vote/votingItems';
 
 import { FaPen, FaCheck, FaChevronRight } from 'react-icons/fa';
-import VoteData from "../public/voteData.json"
-import AppContext from '../context/AppContext';
+import VoteData from "../../public/voteData.json"
+import AppContext from '../../context/AppContext';
 
 const initialState = {
   case: 0,

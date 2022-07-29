@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import { Table, Modal, Button } from "react-bootstrap";
-import AppContext from '../context/AppContext';
+import AppContext from '../../context/AppContext';
 
 function Result(props) {
 const { result } = useContext(AppContext);

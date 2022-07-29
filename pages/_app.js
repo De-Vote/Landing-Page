@@ -46,13 +46,13 @@ function MyApp({ Component, pageProps }) {
         </Navbar.Brand>
         <Nav>
         <Nav.Item style={{marginRight:"10%"}}>
-          <Link href="/login" ><a style={{color: "white"}}>Login</a></Link>
+          <Link href="/Vote_Frontend/login" ><a style={{color: "white"}}>Login</a></Link>
         </Nav.Item>
         <Nav.Item style={{marginRight:"10%"}}>
-          <Link href="/menu"><a style={{color: "white"}}>Vote</a></Link>
+          <Link href="/Vote_Frontend/menu"><a style={{color: "white"}}>Vote</a></Link>
         </Nav.Item>
         <Nav.Item style={{marginRight:"10%"}}>
-          <Link href="/result"><a style={{color: "white"}}>Result</a></Link>
+          <Link href="/Vote_Frontend/result"><a style={{color: "white"}}>Result</a></Link>
         </Nav.Item>
         </Nav>
       </Navbar>

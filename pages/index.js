@@ -8,21 +8,21 @@ export default function Home() {
       </h1>
 
       <div className={styles.grid}>
-        <Link href="/login" >
+        <Link href="/Vote_Frontend/login" >
           <a className={styles.card}>
             <h2>Log in &rarr;</h2>
             <p>Log in as vote admin to create and edit the vote.</p>
           </a>
         </Link>
 
-        <Link href="/menu" >
+        <Link href="/Vote_Frontend/menu" >
           <a className={styles.card}>
             <h2>Vote &rarr;</h2>
             <p>Log in as voter to cast votes</p>
           </a>
         </Link>
 
-        <Link href="/result">
+        <Link href="/Vote_Frontend/result">
           <a className={styles.card}>
             <h2>Result &rarr;</h2>
             <p>Discover and see every vote result.</p>
