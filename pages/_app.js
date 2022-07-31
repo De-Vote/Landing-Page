@@ -58,11 +58,11 @@ function MyApp({ Component, pageProps }) {
         </Navbar.Brand>
         <Nav>
           <Nav.Item style={{ marginRight: "10%" }}>
-            <Link href="/Vote_Frontend" ><a style={{ color: "white" }}>Home</a></Link>
+            <Link href="Vote_Frontend" ><a style={{ color: "white" }}>Home</a></Link>
           </Nav.Item>
           {(!user) ?
             <Nav.Item style={{ marginRight: "10%" }}>
-              <Link href="/Vote_Frontend/login" ><a style={{ color: "white" }}>Login</a></Link>
+              <Link href="Vote_Frontend/login" ><a style={{ color: "white" }}>Login</a></Link>
             </Nav.Item>
             :
             <Nav.Item style={{ marginRight: "10%" }}>
