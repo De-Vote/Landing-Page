@@ -18,7 +18,7 @@ function VotingItem(props) {
       Setqid(props.qid)
       SetText(props.text)
     }
-  })
+  },[status, props.status, props.qid, props.text, qid])
 
   function edit() {
     console.log("edit")

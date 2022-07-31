@@ -4,20 +4,16 @@ import { Button, Form, Col, InputGroup, Row, FormControl, Container, Table } fro
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify';
 
-export default function Login() {
+export default function Register() {
     const router = useRouter()
     const { role, setRole, setUser } = useContext(AppContext);
     const [account, setAccount] = useState("")
     const [password, setPassword] = useState("")
-    const [admin, setAdmin] = useState(false)
-    function login(e) {
+    function register(e) {
         e.preventDefault();
-        // Todo: /api/v1/auth/authenticate
-        if(admin)setRole("admin")
-        else setRole("voter")
-        setUser("Vincent")
-        toast("Log in successfully");
-        router.push("/Vote_Frontend/")
+        // Todo: /api/v1/accounts
+        toast("Create account successfully")
+        router.push("/Vote_Frontend/login")
     }
     return (
         <>
@@ -25,7 +21,7 @@ export default function Login() {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-body">
-                            <Form onSubmit={(e) => { login(e) }}>
+                            <Form onSubmit={(e) => { register(e) }}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Account</Form.Label>
                                     <Form.Control type="text" value={account} onChange={(e) => { setAccount(e.target.value) }} placeholder="Enter username" />
@@ -35,12 +31,9 @@ export default function Login() {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
                                 </Form.Group>
-                                <Form.Group className="mb-3">
-                                    <Form.Check type="checkbox" label="Is Admin ?" value={admin} onChange={(e) => {setAdmin(e.target.checked)}} />
-                                </Form.Group>
                                 <div align="center">
                                     <Button className="w-100" variant="primary" type="submit">
-                                        Submit
+                                        Create Account
                                     </Button>
                                 </div>
                             </Form>

@@ -2,6 +2,8 @@ import '../styles/globals.css'
 import React, { useEffect, useState } from "react";
 import AppContext from '../context/AppContext';
 import styles from '../styles/Home.module.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Head from 'next/head'
 import { Alert, Navbar, Nav } from 'react-bootstrap'
 import VoteData from "../public/voteData.json"
@@ -22,7 +24,7 @@ function MyApp({ Component, pageProps }) {
     e.preventDefault();
     setRole(null)
     setUser(null)
-    console.log("click")
+    toast("Log out successfully")    
     router.push("/Vote_Frontend/")
   }
 
@@ -47,22 +49,25 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>
+        <picture>
           <img
             alt=""
             src={`${base}/devotelogo.png`}
             width="30"
             height="30"
             className="d-inline-block align-top"
-          />{' '}
+          />
+          </picture>
+          {' '}
           Devote
         </Navbar.Brand>
         <Nav>
           <Nav.Item style={{ marginRight: "10%" }}>
-            <Link href="Vote_Frontend" ><a style={{ color: "white" }}>Home</a></Link>
+            <Link href="/Vote_Frontend" ><a style={{ color: "white" }}>Home</a></Link>
           </Nav.Item>
           {(!user) ?
             <Nav.Item style={{ marginRight: "10%" }}>
-              <Link href="Vote_Frontend/login" ><a style={{ color: "white" }}>Login</a></Link>
+              <Link href="/Vote_Frontend/login" ><a style={{ color: "white" }}>Login</a></Link>
             </Nav.Item>
             :
             <Nav.Item style={{ marginRight: "10%" }}>
@@ -71,6 +76,15 @@ function MyApp({ Component, pageProps }) {
           }
         </Nav>
       </Navbar>
+      <ToastContainer position="top-center"
+        autoClose={500}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover />
       <Component {...pageProps} />
     </AppContext.Provider>
   )

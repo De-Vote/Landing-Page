@@ -18,12 +18,12 @@ export default function Home() {
               <p>Log in to enjoy Devote Vote system.</p>
             </a>
           </Link>
-          {/* <Link href="/">
-            <a className={styles.card} style={{ visibility: "hidden" }}>
-              <h2>Result &rarr;</h2>
-              <p>Discover and see every vote result.</p>
+          <Link href="Vote_Frontend/register">
+            <a className={styles.card}>
+              <h2>Register &rarr;</h2>
+              <p>Create an account to become a vote admin</p>
             </a>
-          </Link> */}
+          </Link>
         </>
           : ""}
         {(user) ? <>
