@@ -10,7 +10,7 @@ function VotingModal(props) {
     <>
       <VoterList role={props.role} show={show} setShow={setShow} />
       <div className="container-fluid">
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="modal-header" style={{ display: "inline-block" }}>
               <h3>

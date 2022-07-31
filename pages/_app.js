@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null)
   const [result, setResult] = useState(VoteData)
   const [shares, setShares] = useState(2)
-  const [role, setRole] = useState("admin")
+  const [role, setRole] = useState(null)
   const [voting, setVoting] = useState(false)
   
 
@@ -22,6 +22,7 @@ function MyApp({ Component, pageProps }) {
       user: user,
       setUser: setUser,
       role: role,
+      setRole: setRole,
       voting:voting,
       result:result
     }}>
@@ -36,7 +37,7 @@ function MyApp({ Component, pageProps }) {
         crossOrigin="anonymous" />
       </Head>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/Vote_Frontend">
+        <Navbar.Brand>
           <img
             alt=""
             src={`${base}/devotelogo.png`}
@@ -47,6 +48,9 @@ function MyApp({ Component, pageProps }) {
           Devote
         </Navbar.Brand>
         <Nav>
+        <Nav.Item style={{marginRight:"10%"}}>
+          <Link href="/Vote_Frontend" ><a style={{color: "white"}}>Home</a></Link>
+        </Nav.Item>
         <Nav.Item style={{marginRight:"10%"}}>
           <Link href="/Vote_Frontend/login" ><a style={{color: "white"}}>Login</a></Link>
         </Nav.Item>
