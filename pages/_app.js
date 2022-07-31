@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
     setRole(null)
     setUser(null)
     toast("Log out successfully")    
-    router.push("/Vote_Frontend/")
+    router.push("/")
   }
 
   return (
@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps }) {
         </Navbar.Brand>
         <Nav>
           <Nav.Item style={{ marginRight: "10%" }}>
-            <Link href="/Vote_Frontend" ><a style={{ color: "white" }}>Home</a></Link>
+            <Link href="/" as={"/Vote_Frontend"} ><a style={{ color: "white" }}>Home</a></Link>
           </Nav.Item>
           {(!user) ?
             <Nav.Item style={{ marginRight: "10%" }}>
