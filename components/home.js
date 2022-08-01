@@ -30,7 +30,7 @@ export default function Home() {
           : ""}
         {(user) ? <>
           {/* <Link href="menu" as={"Vote_Frontend/menu"}> */}
-            <a className={styles.card} onClick={(e)=>{e.preventDefault(); router.push("/menu")}}>
+            <a className={styles.card} onClick={(e)=>{e.preventDefault(); router.push("/menu", "Vote_Frontend/menu")}}>
               <h2>Vote &rarr;</h2>
               {(role == "voter") ?
                 <p>Enter as voter to cast votes</p> :

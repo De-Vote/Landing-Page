@@ -17,7 +17,7 @@ export default function Login() {
         else setRole("voter")
         setUser("Vincent")
         toast("Log in successfully");
-        router.push("/")
+        router.push("/","/Vote_Frontend")
     }
     return (
         <>
