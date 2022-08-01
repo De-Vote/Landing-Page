@@ -13,7 +13,7 @@ export default function Register() {
         e.preventDefault();
         // Todo: /api/v1/accounts
         toast("Create account successfully")
-        router.push("/Vote_Frontend/login")
+        router.push("/login")
     }
     return (
         <>

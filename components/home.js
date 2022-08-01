@@ -12,13 +12,13 @@ export default function Home() {
 
         {console.log(user)}
         {(!user) ? <>
-          <Link href="Vote_Frontend/login" >
+          <Link href="/login" as={"/Vote_Frontend/login"}>
             <a className={styles.card}>
               <h2>Log in &rarr;</h2>
               <p>Log in to enjoy Devote Vote system.</p>
             </a>
           </Link>
-          <Link href="Vote_Frontend/register">
+          <Link href="/register" as={"/Vote_Frontend/register"}>
             <a className={styles.card}>
               <h2>Register &rarr;</h2>
               <p>Create an account to become a vote admin</p>
@@ -27,7 +27,7 @@ export default function Home() {
         </>
           : ""}
         {(user) ? <>
-          <Link href="Vote_Frontend/menu" >
+          <Link href="/menu" as={"/Vote_Frontend/menu"}>
             <a className={styles.card}>
               <h2>Vote &rarr;</h2>
               {(role == "voter") ?
@@ -37,7 +37,7 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href="Vote_Frontend/result">
+          <Link href="/result" as={"/Vote_Frontend/result"}>
             <a className={styles.card}>
               <h2>Result &rarr;</h2>
               <p>Discover and see every vote result.</p>
