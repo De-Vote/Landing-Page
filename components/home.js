@@ -27,7 +27,7 @@ export default function Home() {
         </>
           : ""}
         {(user) ? <>
-          <Link href="/menu" as={"/Vote_Frontend/menu"}>
+          <Link href="menu" as={"Vote_Frontend/menu"}>
             <a className={styles.card}>
               <h2>Vote &rarr;</h2>
               {(role == "voter") ?
@@ -37,7 +37,7 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href="/result" as={"/Vote_Frontend/result"}>
+          <Link href="result" as={"Vote_Frontend/result"}>
             <a className={styles.card}>
               <h2>Result &rarr;</h2>
               <p>Discover and see every vote result.</p>
