@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import AppContext from '../../context/AppContext';
+import AppContext from '../context/AppContext';
 import { Button, Form, Col, InputGroup, Row, FormControl, Container, Table } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify';
