@@ -2,8 +2,10 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { useState, useContext } from 'react';
 import AppContext from '../context/AppContext';
+import { useRouter } from 'next/router'
 
 export default function Home() {
+  const router = useRouter()
   const { role, user } = useContext(AppContext);
   return (
     <main className={styles.main}>
@@ -27,15 +29,15 @@ export default function Home() {
         </>
           : ""}
         {(user) ? <>
-          <Link href="menu" as={"Vote_Frontend/menu"}>
-            <a className={styles.card}>
+          {/* <Link href="menu" as={"Vote_Frontend/menu"}> */}
+            <a className={styles.card} onClick={(e)=>{e.preventDefault(); router.push("/menu")}}>
               <h2>Vote &rarr;</h2>
               {(role == "voter") ?
                 <p>Enter as voter to cast votes</p> :
                 <p>Enter as vote admin to create and edit the vote.</p>
               }
             </a>
-          </Link>
+          {/* </Link> */}
 
           <Link href="result" as={"Vote_Frontend/result"}>
             <a className={styles.card}>
