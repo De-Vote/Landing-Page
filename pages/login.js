@@ -3,21 +3,32 @@ import AppContext from '../context/AppContext';
 import { Button, Form, Col, InputGroup, Row, FormControl, Container, Table } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify';
+import authhelper from '../lib/auth';
+import votehelper from '../lib/vote'
 
 export default function Login() {
     const router = useRouter()
-    const { role, setRole, setUser } = useContext(AppContext);
-    const [account, setAccount] = useState("")
-    const [password, setPassword] = useState("")
+    const { role, setRole, setUser, setOwnedVotes } = useContext(AppContext);
+    const [account, setAccount] = useState("jessie")
+    const [password, setPassword] = useState("pinkman")
     const [admin, setAdmin] = useState(false)
-    function login(e) {
+    async function login(e) {
         e.preventDefault();
         // Todo: /api/v1/auth/authenticate
-        if(admin)setRole("admin")
-        else setRole("voter")
-        setUser("Vincent")
-        toast("Log in successfully");
-        router.push("/","/Vote_Frontend")
+        let result = await authhelper.login(account, password);
+        if(result.ok){
+            if(admin)setRole("admin")
+            else setRole("voter")
+            setUser(result.data.attributes)
+            let token = result.data.attributes.auth_token
+            result = await votehelper.getOwnedVote(token)
+            if(result.ok)setOwnedVotes(result.data.data)
+            toast("Log in successfully");
+            router.push("/","/Vote_Frontend")
+        }
+        else{
+            toast.error("log in fail")
+        }
     }
     return (
         <>

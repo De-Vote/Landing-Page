@@ -11,8 +11,6 @@ export default function Home() {
     <main className={styles.main}>
 
       <div className={styles.grid}>
-
-        {console.log(user)}
         {(!user) ? <>
           <Link href="/login" as={"/Vote_Frontend/login"}>
             <a className={styles.card}>

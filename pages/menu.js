@@ -4,8 +4,8 @@ import VotingModal from '../components/Vote/votingModal';
 import VotingItems from '../components/Vote/votingItems';
 
 import { FaPen, FaCheck, FaChevronRight } from 'react-icons/fa';
-import VoteData from "../public/voteData.json"
 import AppContext from '../context/AppContext';
+import votehelper from '../lib/vote'
 
 const initialState = {
   case: 0,
@@ -20,10 +20,10 @@ const initialState = {
 
 class VotingMenu extends React.Component {
   static contextType = AppContext
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = initialState;
-    this.state.votingData = VoteData;
+    this.state.votingData = context.ownedVotes;
     // this.state.shares = this.context.shares;
   }
 
@@ -39,13 +39,17 @@ class VotingMenu extends React.Component {
     }
   };
 
-  handleStart = () => {
-    this.setState({ status: 'voting', selected_id: [] });
+  handleStart = async () => {
+    let id = this.state.votingData[this.state.selected_id[0]].data.attributes.id
+    let result =await votehelper.getVoteQuestion(this.context.user.auth_token, id)
+    console.log(result)
+    if(!result.ok)this.setState({ votingData: result.data,status: 'end', selected_id: [] });
+    else this.setState({ votingData: result.data,status: 'voting', selected_id: [] });
   };
 
   handleNext = () => {
     let { page, votingData } = this.state;
-    let len = votingData[this.state.case].content.length;
+    let len = votingData.data.length;
     if (page + 1 < len) {
       this.setState({
         page: page + 1,
@@ -65,6 +69,7 @@ class VotingMenu extends React.Component {
 
   handleReset = () => { this.setState(initialState) };
 
+  // Todo: connect to backend
   handleUpdateVoteItem = (status, qid, text, index) => {
     const { votingData } = this.state
     switch (status) {
@@ -101,7 +106,21 @@ class VotingMenu extends React.Component {
 
   handleNewVoteCase = () => {
     const data = this.state.votingData
-    data.push({title: "", content: [{text: "", answers: [{text: "", count: 0}]}]})
+    console.log(data)
+    let insertObj = {
+      "data": {
+          "type": "vote",
+          "attributes": {
+              "title": "",
+              "description": "",
+              "voting_status": "not started",
+              "registration_status": "not registered",
+              "num_of_voters": 0,
+              "voteurl": null
+          }
+      }
+  }
+    data.push(insertObj)
     this.setState({
       votingData: data
     })
@@ -115,6 +134,7 @@ class VotingMenu extends React.Component {
     })
   }
 
+  // Todo: connect to backend
   handleTally = () => {
     const data = this.state.votingData;
     this.props.handleTally(data);
@@ -122,23 +142,27 @@ class VotingMenu extends React.Component {
     this.setState({votingData: this.state.original});
   }
 
+  // Todo: connect to backend
   handleVote = () => {
-    let data = this.state.votingData
-    this.state.answers_id.forEach((questions, index) => {
-      questions.forEach((selected, i) => {
-        data[this.state.case].content[index].answers[selected].count += 1 * this.state.shares
-      })
+    let result = []
+    this.state.answers_id.forEach((ele, index) => {
+      let case_obj = this.state.votingData.data[index].data.attributes;
+      let temp = {
+        id:case_obj.id,
+        vote: JSON.parse(case_obj.options)[ele[0]]
+      }
+      result.push(temp)
     })
-    console.log(data)
-    this.setState({
-      votingData: data
-    }) 
-    this.props.handleLogout();
+    console.log(result)
+    // Todo: post result to api server
+    // logout
+    this.context.logout("vote sent and logout successfully");
   }
 
+  // Todo: connect to backend
   handleStartVoting = () => {
     this.props.handleStartVoting();
-    this.props.handleLogout();
+    this.context.logout("vote start and logout successfully")
   }
 
   edit = () => {
@@ -169,7 +193,8 @@ class VotingMenu extends React.Component {
       case 'start':
         qid = false;
         title = "Ureka Voting Machine";
-        case_titles = votingData.map(votingCase => votingCase.title)
+        console.log(votingData)
+        case_titles = votingData.map(votingCase => votingCase.data.attributes.title)
         content = <VotingItems status={status} voting={voting} qid={qid} role={role} items={case_titles} selected={selected} handleClick={this.handleCaseSelect} handleUpdate={this.handleUpdateVoteItem} />
         button = <>
           <Button onClick={this.handleStart}>確認</Button>&nbsp;
@@ -184,16 +209,16 @@ class VotingMenu extends React.Component {
         </>;
         break;
       case 'voting':
-        qid = page + 1;
+        qid = page+1;
         // console.log(votingData)
-        let case_obj = votingData[this.state.case].content[page]
+        let case_obj = votingData.data[page].data.attributes
         const editing = this.state.editing
         title = <>
         {
           (this.context.role == 'admin' && this.context.voting == false) ?
-            <input type="text" disabled={!editing} value={case_obj.text} onChange={(e) => { this.setCaseText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="28"></input>
+            <input type="text" disabled={!editing} value={case_obj.title} onChange={(e) => { this.setCaseText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="28"></input>
             :
-            <>{case_obj.text}</>
+            <>{case_obj.title}</>
         }
 
         {(this.context.role == 'admin' && this.context.voting == false) ?
@@ -204,7 +229,7 @@ class VotingMenu extends React.Component {
           :
           <></>}
         </>
-        case_titles = case_obj.answers.map(answer => answer.text);
+        case_titles = JSON.parse(case_obj.options);
         content = <VotingItems status={status} voting={voting} qid={qid} role={role} items={case_titles} selected={selected} handleClick={this.handleAnswerSelect} handleUpdate={this.handleUpdateVoteItem} />
         button = <>
           <Button onClick={this.handleNext}>確認</Button>&nbsp;
@@ -214,8 +239,12 @@ class VotingMenu extends React.Component {
 
       case 'end':
         title = "結束";
+        console.log(answers_id)
         content = 
-        answers_id[0].map((ele) => votingData[this.state.case].content[0].answers[ele].text)
+        answers_id.map((ele, index) => {
+          let case_obj = votingData.data[index].data.attributes;
+          return <div>{index+1}. {case_obj.title}: {JSON.parse(case_obj.options)[ele[0]]}</div>
+        })
         button = 
         (role == "voter")?
           <>

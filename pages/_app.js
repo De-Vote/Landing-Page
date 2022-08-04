@@ -19,12 +19,12 @@ function MyApp({ Component, pageProps }) {
   const [shares, setShares] = useState(2)
   const [role, setRole] = useState(null)
   const [voting, setVoting] = useState(false)
+  const [ownedVotes, setOwnedVotes] = useState([])
 
-  function logout(e) {
-    e.preventDefault();
+  function logout(message) {
     setRole(null)
     setUser(null)
-    toast("Log out successfully")    
+    toast(message)    
     router.push("/")
   }
 
@@ -35,7 +35,10 @@ function MyApp({ Component, pageProps }) {
       role: role,
       setRole: setRole,
       voting: voting,
-      result: result
+      result: result,
+      ownedVotes: ownedVotes,
+      setOwnedVotes: setOwnedVotes,
+      logout: logout
     }}>
       <Head>
         <title>De.Vote</title>
@@ -71,7 +74,7 @@ function MyApp({ Component, pageProps }) {
             </Nav.Item>
             :
             <Nav.Item style={{ marginRight: "10%" }}>
-              <a style={{ color: "white" }} onClick={logout}>Logout</a>
+              <a style={{ color: "white" }} onClick={(e)=>{e.preventDefault();logout("Log out successfully")}}>Logout</a>
             </Nav.Item>
           }
         </Nav>
