@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
   const [role, setRole] = useState(null)
   const [voting, setVoting] = useState(false)
   const [ownedVotes, setOwnedVotes] = useState([])
+  const [voteId, setVoteId] = useState(null)
 
   function logout(message) {
     setRole(null)
@@ -38,7 +39,9 @@ function MyApp({ Component, pageProps }) {
       result: result,
       ownedVotes: ownedVotes,
       setOwnedVotes: setOwnedVotes,
-      logout: logout
+      logout: logout,
+      voteId:voteId, 
+      setVoteId: setVoteId
     }}>
       <Head>
         <title>De.Vote</title>
