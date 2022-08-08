@@ -6,9 +6,9 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from 'react-bootstrap';
+import Link from 'next/link'
 const base = process.env.NODE_ENV === 'production' ? "." : "";
 
 
@@ -32,7 +32,7 @@ export default function NewHeader(props){
   return (
     <>
       <div className={`header${sticky ? ' sticky' : ''}`}>
-      <Navbar light expand="md">
+      <Navbar bg="light" expand="md">
         <Container>
         <Navbar.Brand>
           Devote
@@ -41,19 +41,19 @@ export default function NewHeader(props){
           <Navbar.Collapse isOpen={isOpen} navbar>
             <Nav className="m-auto" navbar>
               <NavItem>
-                <NavLink href="/#">Home</NavLink>
+                <Link href="/#" as={`/${process.env.GHPAGE_ROUTE}/#`}>Home</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/#feature">Features</NavLink>
+                <Link href="/#feature" as={`/${process.env.GHPAGE_ROUTE}/#feature`}>Features</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/#about">About</NavLink>
+                <Link href="/#about" as={`/${process.env.GHPAGE_ROUTE}/#about`}>About</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/privacy">Privacy</NavLink>
+                <Link href="/privacy"as={`/${process.env.GHPAGE_ROUTE}/privacy`}>Privacy</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/faq">FAQs</NavLink>
+                <Link href="/faq"as={`/${process.env.GHPAGE_ROUTE}/faq`}>FAQs</Link>
               </NavItem>
             </Nav>
           </Navbar.Collapse>
