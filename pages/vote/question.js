@@ -53,14 +53,14 @@ export default function Question() {
                 </div>
                 <br/><br/><br/>
                 <ol>
-                {questions.map((question)=>{
+                {questions.map((question,index)=>{
                     let detail = question.data.attributes
                     let options = JSON.parse(detail.options)
-                    return <li>
+                    return <li key={index}>
                         {detail.title}
                         <QuestionModal variant='info' style={{marginLeft:"2%"}} buttonName={"update"} detail={detail} options={options} type={"update"}/>
                         <ol>
-                            {options.map((option)=><li>{option}</li>)}
+                            {options.map((option, i)=><li key={`options-${index}-${i}`}>{option}</li>)}
                         </ol>
                     </li>
                 })}

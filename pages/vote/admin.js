@@ -58,10 +58,10 @@ export default function Admin() {
                         </tr>
                     </thead>
                     <tbody>
-                        {votes.map((vote)=>{
+                        {votes.map((vote, index)=>{
                             let detail = vote.data.attributes
                             return (
-                                <tr>
+                                <tr key={index}>
                                     <td>{detail.id}</td>
                                     <td>{detail.title}</td>
                                     <td>{detail.voting_status}</td>
