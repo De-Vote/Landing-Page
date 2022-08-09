@@ -10,7 +10,7 @@ import styles from '../../styles/Home.module.css'
 import Link from 'next/link'
 import VoterList from '../../components/Vote/voterList';
 
-export default function Setting() {
+export default function VoteIndex() {
     const router = useRouter()
     const { backToHome } = useContext(AppContext);
     const [vote, setVote] = useState(null)
@@ -48,7 +48,7 @@ export default function Setting() {
             <Container>
             <VoterList role={"admin"} show={show} setShow={setShow} />
                 <div>
-                    <h2 style={{ float: "left" }}>Vote setting</h2>
+                    <h2 style={{ float: "left" }}>Election Dashboard</h2>
                     <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToHome() }}>
                         &larr;Back to home
                     </Button>
@@ -76,22 +76,11 @@ export default function Setting() {
                         </Col>
                         <Col lg={6}>
                             <div className={styles.grid}>
-                                <Link href={`/vote/meta?action=edit&vote_id=${vote_id}`} as={`/${process.env.GHPAGE_ROUTE}/vote/meta?action=edit&vote_id=${vote_id}`}>
-                                    <a className={styles.card} style={{ width: "40%" }}>
-                                        <h2>Edit vote</h2>
-                                    </a>
-                                </Link>
                                 <Link href={{pathname:`/vote/question`, query:{vote_id: vote_id}}} as={`/${process.env.GHPAGE_ROUTE}/vote/question?vote_id=${vote_id}`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
                                         <h2>Edit Question</h2>
                                     </a>
                                 </Link>
-                                <a className={styles.card} style={{ width: "40%" }} onClick={() => { setShow(!show) }}>
-                                    <h2>Edit voters</h2>
-                                </a>
-                                <a className={styles.card} style={{ width: "40%" }} onClick={() => { go_tally()}}>
-                                    <h2>tally</h2>
-                                </a>
                             </div>
                         </Col>
                     </Row>

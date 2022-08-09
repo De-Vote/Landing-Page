@@ -22,7 +22,7 @@ export default function Admin() {
                 'Content-Type': 'application/json'
             },
         };
-        let result = await fetch(`../../Mock_getOwnedVote.json`, requestOptions)
+        let result = await fetch(`../Mock_getOwnedVote.json`, requestOptions)
         result = await result.json()
         console.log(result)
         setVote(result.data)

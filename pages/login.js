@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import AppContext from '../context/AppContext';
 import { Button, Form, Col, InputGroup, Row, FormControl, Container, Table } from 'react-bootstrap'
 import { useRouter } from 'next/router'
@@ -13,7 +13,20 @@ export default function Login() {
     const { role, setRole, setUser, setOwnedVotes } = useContext(AppContext);
     const [account, setAccount] = useState("jessie")
     const [password, setPassword] = useState("pinkman")
-    const [admin, setAdmin] = useState(false)
+    const [admin, setAdmin] = useState(true)
+    const [vote_id, setId] = useState(null)
+
+    useEffect(() => {
+        if (!router.isReady) return;
+        init()
+    }, [router.isReady])
+
+    async function init() {
+        const { vote_id, role } = router.query
+        setId(vote_id)
+        if(role=="voter")setAdmin(false)
+    }
+
     async function logIn(e) {
         e.preventDefault();
         // Todo: /api/v1/auth/authenticate
@@ -58,7 +71,7 @@ export default function Login() {
                                     <Form.Control type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
-                                    <Form.Check type="checkbox" label="Is Admin ?" value={admin} onChange={(e) => {setAdmin(e.target.checked)}} />
+                                    <Form.Check type="checkbox" label="Is Admin ?" checked={admin} onChange={(e) => {setAdmin(e.target.checked)}} />
                                 </Form.Group>
                                 <div align="center">
                                     <Button style={{width:"45%"}} variant="primary" type="button" onClick={(e) => { logIn(e) }}>
