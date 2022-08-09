@@ -19,7 +19,7 @@ export default function DashBoard() {
                         <Col lg={6}>
                             {/* <div className="pr-lg-5"> */}
                                 <div className={styles.grid}>
-                                    <Link href="/vote/create" as={`/${process.env.GHPAGE_ROUTE}/vote/create`}>
+                                    <Link href="/vote/meta?action=create" as={`/${process.env.GHPAGE_ROUTE}/vote/meta?action=create`}>
                                         <a className={styles.card}>
                                             <h2>Create Vote &rarr;</h2>
                                         </a>
@@ -39,7 +39,7 @@ export default function DashBoard() {
                         </Col>
                         <Col lg={6}>
                             <div className="mt-5 mt-lg-0">
-                                <img src="/devotelogo.png" alt="" className="img-fluid mx-auto d-block" />
+                                <img src={`${process.env.GHPAGE_ROUTE}/devotelogo.png`} alt="" className="img-fluid mx-auto d-block" />
                             </div>
                         </Col>
                     </Row>

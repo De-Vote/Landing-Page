@@ -31,7 +31,7 @@ export default function Setting() {
                 'Content-Type': 'application/json'
             },
         };
-        let result = await fetch('../Mock_getOwnedVote.json', requestOptions)
+        let result = await fetch(`${process.env.GHPAGE_ROUTE}/Mock_getOwnedVote.json`, requestOptions)
         result = await result.json()
         console.log(result.data[vote_id-1].data.attributes)
         setVote(result.data[vote_id-1].data.attributes)
@@ -76,12 +76,12 @@ export default function Setting() {
                         </Col>
                         <Col lg={6}>
                             <div className={styles.grid}>
-                                <Link href="/vote/create" as={"/vote/create"}>
+                                <Link href={`/vote/meta?action=edit&vote_id=${vote_id}`} as={`${process.env.GHPAGE_ROUTE}/vote/meta?action=edit&vote_id=${vote_id}`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
                                         <h2>Edit vote</h2>
                                     </a>
                                 </Link>
-                                <Link href={{pathname:`/vote/question`, query:{vote_id: vote_id}}} as={`/vote/question?vote_id=${vote_id}`}>
+                                <Link href={{pathname:`/vote/question`, query:{vote_id: vote_id}}} as={`${process.env.GHPAGE_ROUTE}/vote/question?vote_id=${vote_id}`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
                                         <h2>Edit Question</h2>
                                     </a>
