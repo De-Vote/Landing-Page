@@ -10,10 +10,9 @@ import votehelper from '../lib/vote'
 
 export default function Login() {
     const router = useRouter()
-    const { role, setRole, setUser, setOwnedVotes } = useContext(AppContext);
+    // const { role, setRole, setUser, setOwnedVotes } = useContext(AppContext);
     const [account, setAccount] = useState("jessie")
     const [password, setPassword] = useState("pinkman")
-    const [admin, setAdmin] = useState(true)
     const [vote_id, setId] = useState(null)
 
     useEffect(() => {
@@ -24,7 +23,6 @@ export default function Login() {
     async function init() {
         const { vote_id, role } = router.query
         setId(vote_id)
-        if(role=="voter")setAdmin(false)
     }
 
     async function logIn(e) {
@@ -44,8 +42,11 @@ export default function Login() {
         // else{
         //     toast.error("log in fail")
         // }
-            toast("Log in successfully");
-            router.push("/vote",`/${process.env.GHPAGE_ROUTE}/vote`)
+        toast("Log in successfully");
+        const { vote_id, role } = router.query
+        if(role=="admin") router.push("/vote",`/${process.env.GHPAGE_ROUTE}/vote`)
+        if(role=="voter") router.push(`/voter?vote_id=${vote_id}`,`/${process.env.GHPAGE_ROUTE}/voter?vote_id=${vote_id}`)
+
     }
 
     async function createAccount(e){
@@ -70,9 +71,9 @@ export default function Login() {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
                                 </Form.Group>
-                                <Form.Group className="mb-3">
+                                {/* <Form.Group className="mb-3">
                                     <Form.Check type="checkbox" label="Is Admin ?" checked={admin} onChange={(e) => {setAdmin(e.target.checked)}} />
-                                </Form.Group>
+                                </Form.Group> */}
                                 <div align="center">
                                     <Button style={{width:"45%"}} variant="primary" type="button" onClick={(e) => { logIn(e) }}>
                                         Log in

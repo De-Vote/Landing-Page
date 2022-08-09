@@ -74,11 +74,11 @@ export default function VoteIndex() {
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
                             </div>
                         </Col>
-                        <Col lg={6}>
-                            <div className={styles.grid}>
-                                <Link href={{pathname:`/vote/question`, query:{vote_id: vote_id}}} as={`/${process.env.GHPAGE_ROUTE}/vote/question?vote_id=${vote_id}`}>
+                        <Col lg={6} >
+                            <div className={styles.grid} style={{justifyContent:"center", alignContent:"center"}}>
+                                <Link href={{pathname:`/voter/question`, query:{vote_id: vote_id}}} as={`/${process.env.GHPAGE_ROUTE}/voter/question?vote_id=${vote_id}`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
-                                        <h2>Edit Question</h2>
+                                        <h2>Start Voting!</h2>
                                     </a>
                                 </Link>
                             </div>

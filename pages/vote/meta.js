@@ -97,7 +97,7 @@ export default function DashBoard() {
     }
 
     function backToVote() {
-        router.push(`/vote/setting?vote_id=${vote_id}`)
+        router.push(`/vote/setting?vote_id=${vote_id}`, `/${process.env.GHPAGE_ROUTE}/vote/setting?vote_id=${vote_id}`)
     }
 
     return (
