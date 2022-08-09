@@ -41,19 +41,19 @@ export default function NewHeader(props){
           <Navbar.Collapse isOpen={isOpen} navbar>
             <Nav className="m-auto" navbar>
               <NavItem>
-                <Link href="/#" as={`/${process.env.GHPAGE_ROUTE}/#`}>Home</Link>
+                <Link href="/#" as={`${process.env.GHPAGE_ROUTE}/#`}>Home</Link>
               </NavItem>
               <NavItem>
-                <Link href="/#feature" as={`/${process.env.GHPAGE_ROUTE}/#feature`}>Features</Link>
+                <Link href="/#feature" as={`${process.env.GHPAGE_ROUTE}/#feature`}>Features</Link>
               </NavItem>
               <NavItem>
-                <Link href="/#about" as={`/${process.env.GHPAGE_ROUTE}/#about`}>About</Link>
+                <Link href="/#about" as={`${process.env.GHPAGE_ROUTE}/#about`}>About</Link>
               </NavItem>
               <NavItem>
-                <Link href="/privacy"as={`/${process.env.GHPAGE_ROUTE}/privacy`}>Privacy</Link>
+                <Link href="/privacy"as={`${process.env.GHPAGE_ROUTE}/privacy`}>Privacy</Link>
               </NavItem>
               <NavItem>
-                <Link href="/faq"as={`/${process.env.GHPAGE_ROUTE}/faq`}>FAQs</Link>
+                <Link href="/faq"as={`${process.env.GHPAGE_ROUTE}/faq`}>FAQs</Link>
               </NavItem>
             </Nav>
           </Navbar.Collapse>

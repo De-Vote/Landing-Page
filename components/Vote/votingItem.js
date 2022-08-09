@@ -6,19 +6,12 @@ import { Button } from 'react-bootstrap'
 // import '../../styles/votingItem.module.css';
 
 function VotingItem(props) {
-  const [status, SetStatus] = useState(props.status)
-  const [qid, Setqid] = useState(props.qid)
-  const [editing, SetEditing] = useState(false)
+  const [editing, SetEditing] = useState(true)
   const [text, SetText] = useState(props.text)
 
   useEffect(() => {
-    if (status != props.status || qid != props.qid) {
-      console.log('props change!')
-      SetStatus(props.status)
-      Setqid(props.qid)
       SetText(props.text)
-    }
-  },[status, props.status, props.qid, props.text, qid])
+  },[props.text])
 
   function edit() {
     console.log("edit")
@@ -29,23 +22,23 @@ function VotingItem(props) {
     SetEditing(false)
     // should write value to DB or file
     // status,qid,text,index
-    props.handleUpdate(status, qid, text, props.id)
+    props.handleUpdate(props.id, text)
   }
 
   return (
     <div className="d-grid">
-      <label className={`btn btn-lg btn-primary btn-block ${props.isSelected ? "btn-success" : ""}`} id={props.id} onClick={()=>{props.handleClick(props.id,text)}}>
-        <span className="btn-label">
+      <label className={`btn btn-lg btn-secondary btn-block ${props.isSelected ? "btn-success" : ""}`}>
+        <span className="btn-label" style={{float:"left"}}>
           <FaChevronRight />
         </span>
         {
-          (props.role == 'admin' && props.voting==false) ?
+          (props.action == 'update') ?
             <input type="text" disabled={!editing} value={text} onChange={(e) => { SetText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="25"></input>
             :
             <>{props.text}</>
         }
 
-        {(props.role == 'admin' && props.voting==false) ?
+        {(props.action == 'update') ?
           (!editing) ?
             <><Button onClick={edit} width="sm" style={{ padding: 0, float: "right", backgroundColor: 'transparent', border: 'none' }}><FaPen /></Button></>
             :

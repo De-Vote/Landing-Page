@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState, useRef } from "react";
 import { Table, Modal, Button } from "react-bootstrap";
+import { toast } from 'react-toastify';
 
 function VoterList(props) {
   const [initial, setInit] = useState(false)
@@ -21,26 +22,8 @@ function VoterList(props) {
     if (inputRef.current?.files) {
 
     }
+    toast.error("has not implement yet")
   };
-
-  function listenIPC(event, data) {
-    console.log('IPC message')
-    console.log(data)
-    if (data.result) {
-      if (data.command == 'LoadVoteList') {
-        setVoterList(data.data)
-        setInit(true)
-      }
-      else if (data.command == 'SetVoteList') {
-        console.log("upload success")
-        setResult(true)
-        setTimeout(() => {
-          setInit(false)
-          setResult(false)
-        }, 2000);
-      }
-    }
-  }
 
   function init() {
   }

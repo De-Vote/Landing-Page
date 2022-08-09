@@ -19,12 +19,12 @@ export default function DashBoard() {
                         <Col lg={6}>
                             {/* <div className="pr-lg-5"> */}
                                 <div className={styles.grid}>
-                                    <Link href="/vote/create" as={"/vote/create"}>
+                                    <Link href="/vote/create" as={`/${process.env.GHPAGE_ROUTE}/vote/create`}>
                                         <a className={styles.card}>
                                             <h2>Create Vote &rarr;</h2>
                                         </a>
                                     </Link>
-                                    <Link href="/vote/admin" as={"/vote/admin"}>
+                                    <Link href="/vote/admin" as={`/${process.env.GHPAGE_ROUTE}/vote/admin`}>
                                         <a className={styles.card}>
                                             <h2>Administration &rarr;</h2>
                                         </a>
