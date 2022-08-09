@@ -6,7 +6,6 @@ import styles from '../../styles/Home.module.css'
 import Link from 'next/link'
 import Footer from '../../components/Footer';
 import AppContext from '../../context/AppContext';
-import { toast } from 'react-toastify';
 import { useRouter } from 'next/router'
 import QuestionModal from '../../components/Vote/questionModal';
 import { FaOptinMonster } from 'react-icons/fa';
@@ -66,7 +65,7 @@ export default function Question() {
                 })}
                 </ol>
             </Container>
-    <Footer />
+        <Footer />
         </Layout>
     )
 }
