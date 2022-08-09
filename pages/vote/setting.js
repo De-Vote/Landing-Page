@@ -76,12 +76,12 @@ export default function Setting() {
                         </Col>
                         <Col lg={6}>
                             <div className={styles.grid}>
-                                <Link href={`/vote/meta?action=edit&vote_id=${vote_id}`} as={`${process.env.GHPAGE_ROUTE}/vote/meta?action=edit&vote_id=${vote_id}`}>
+                                <Link href={`/vote/meta?action=edit&vote_id=${vote_id}`} as={`./meta?action=edit&vote_id=${vote_id}`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
                                         <h2>Edit vote</h2>
                                     </a>
                                 </Link>
-                                <Link href={{pathname:`/vote/question`, query:{vote_id: vote_id}}} as={`${process.env.GHPAGE_ROUTE}/vote/question?vote_id=${vote_id}`}>
+                                <Link href={{pathname:`/vote/question`, query:{vote_id: vote_id}}} as={`/${process.env.GHPAGE_ROUTE}/vote/question?vote_id=${vote_id}`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
                                         <h2>Edit Question</h2>
                                     </a>

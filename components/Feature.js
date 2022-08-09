@@ -51,9 +51,9 @@ const FeatureBox = (props) => {
 const Feature = () => {
 
   const features = [
-    {id : 1, img : `${process.env.GHPAGE_ROUTE}/devotelogo.png`, title : "LOREM IPSUM", desc : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.", link : "/"},
-    {id : 2, img : `${process.env.GHPAGE_ROUTE}/devotelogo.png`, title : "LOREM IPSUM", desc : "Sed perspiciatis unde omnis natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo excepturi sint occaecati cupiditate architecto.", link : "/"},
-    {id : 3, img : `${process.env.GHPAGE_ROUTE}/devotelogo.png`, title : "LOREM IPSUM", desc : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.", link : "/"},
+    {id : 1, img : `./devotelogo.png`, title : "LOREM IPSUM", desc : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.", link : "/"},
+    {id : 2, img : `./devotelogo.png`, title : "LOREM IPSUM", desc : "Sed perspiciatis unde omnis natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo excepturi sint occaecati cupiditate architecto.", link : "/"},
+    {id : 3, img : `./devotelogo.png`, title : "LOREM IPSUM", desc : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.", link : "/"},
   ];
 
   return (
