@@ -22,7 +22,7 @@ export default function Admin() {
                 'Content-Type': 'application/json'
             },
         };
-        let result = await fetch(`../Mock_getOwnedVote.json`, requestOptions)
+        let result = await fetch(`../../Mock_getOwnedVote.json`, requestOptions)
         result = await result.json()
         console.log(result)
         setVote(result.data)
@@ -62,7 +62,7 @@ export default function Admin() {
                                     <td>{detail.title}</td>
                                     <td>{detail.voting_status}</td>
                                     <td>{detail.num_of_voters}</td>
-                                    <td><Button><Link href={{pathname:`/vote/setting`, query:{vote_id: detail.id}}} as={`./question?vote_id=${detail.id}`}>setting</Link></Button></td>
+                                    <td><Button><Link href={{pathname:`/vote/setting`, query:{vote_id: detail.id}}} as={`/${process.env.GHPAGE_ROUTE}/vote/question?vote_id=${detail.id}`}>setting</Link></Button></td>
                                 </tr>
                             )
                         })}
