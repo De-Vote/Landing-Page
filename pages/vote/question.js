@@ -30,7 +30,7 @@ export default function Question() {
                 'Content-Type': 'application/json'
             },
         };
-        let result = await fetch(`${process.env.GHPAGE_ROUTE}/Mock_getOwnedVoteQuestion.json`, requestOptions)
+        let result = await fetch(`../Mock_getOwnedVoteQuestion.json`, requestOptions)
         result = await result.json()
         setQuestions(result.data)
     }

@@ -36,7 +36,7 @@ export default function DashBoard() {
                     'Content-Type': 'application/json'
                 },
             };
-            let result = await fetch(`${process.env.GHPAGE_ROUTE}/Mock_getOwnedVote.json`, requestOptions)
+            let result = await fetch(`../Mock_getOwnedVote.json`, requestOptions)
             result = await result.json()
             let voteMeta = (result.data[vote_id - 1].data.attributes)
             setFormData(voteMeta);
