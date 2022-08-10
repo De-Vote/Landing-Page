@@ -1,0 +1,46 @@
+{
+    "data": [
+        {
+            "data": {
+                "type": "vote",
+                "attributes": {
+                    "id": 1,
+                    "title": "Logos Vote",
+                    "description": null,
+                    "voting_status": null,
+                    "registration_status": null,
+                    "num_of_voters": 0,
+                    "voteurl": null
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "vote",
+                "attributes": {
+                    "id": 2,
+                    "title": "NTHU Vote",
+                    "description": null,
+                    "voting_status": null,
+                    "registration_status": null,
+                    "num_of_voters": 0,
+                    "voteurl": null
+                }
+            }
+        },
+        {
+            "data": {
+                "type": "vote",
+                "attributes": {
+                    "id": 3,
+                    "title": "Other Vote",
+                    "description": null,
+                    "voting_status": null,
+                    "registration_status": null,
+                    "num_of_voters": 0,
+                    "voteurl": null
+                }
+            }
+        }
+    ]
+}

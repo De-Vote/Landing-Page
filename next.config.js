@@ -7,6 +7,9 @@ const nextConfig = {
   images: {
     loader: "custom",
   },
+  env:{
+    GHPAGE_ROUTE: process.env.GHPAGE_ROUTE
+  }
 }
 
 module.exports = nextConfig

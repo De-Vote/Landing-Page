@@ -29,7 +29,9 @@ function MyApp({ Component, pageProps }) {
     toast(message)    
     router.push("/")
   }
-
+  async function backToHome(){
+    router.push("/vote",`/${process.env.GHPAGE_ROUTE}/vote`)
+  }
   return (
     <AppContext.Provider value={{
       user: user,
@@ -42,7 +44,8 @@ function MyApp({ Component, pageProps }) {
       setOwnedVotes: setOwnedVotes,
       logout: logout,
       voteId:voteId, 
-      setVoteId: setVoteId
+      setVoteId: setVoteId,
+      backToHome:backToHome
     }}>
       <ToastContainer position="top-center"
         autoClose={500}

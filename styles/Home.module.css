@@ -68,7 +68,7 @@
 .grid {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   flex-wrap: wrap;
   max-width: 800px;
 }
@@ -84,7 +84,8 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
   background-color: #eaeaea;
-  height: 200px;
+  height: 100px;
+  width: 50%;
 }
 
 .card:hover,
