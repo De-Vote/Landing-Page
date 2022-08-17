@@ -1,26 +1,17 @@
-name: Build and Deploy
+name: Deploy
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          persist-credentials: false
-
-      - name: Build
-        run: |
-          npm ci
-          npm run build
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          # GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          # BRANCH: gh-pages
-          FOLDER: out
-          # CLEAN: true
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "devote-system" #Must be unique in Heroku
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
