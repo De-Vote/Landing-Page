@@ -1,16 +1,11 @@
 import '../styles/globals.css'
 import React, { useEffect, useState } from "react";
 import AppContext from '../context/AppContext';
-import styles from '../styles/Home.module.css'
 import '../styles/header.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Head from 'next/head'
-import { Alert, Navbar, Nav } from 'react-bootstrap'
 import VoteData from "../public/voteData.json"
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-
 const base = process.env.NODE_ENV === 'production' ? "." : "";
 
 function MyApp({ Component, pageProps }) {

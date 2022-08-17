@@ -9,7 +9,11 @@ const nextConfig = {
   },
   env:{
     GHPAGE_ROUTE: process.env.GHPAGE_ROUTE
-  }
+  },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh_hant'],
+},
 }
 
 module.exports = nextConfig
