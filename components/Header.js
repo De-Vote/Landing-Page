@@ -28,7 +28,7 @@ export default function NewHeader(props) {
             <Navbar.Collapse>
               <Nav className="m-auto">
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/#" as={`${process.env.GHPAGE_ROUTE}/#`} locale="zh_hant">
+                  <Link href="/#" as={`${process.env.GHPAGE_ROUTE}/#`}>
                     Home
                   </Link>
                 </NavItem>
