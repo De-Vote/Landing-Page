@@ -18,8 +18,8 @@ export default function NewHeader(props) {
   const isSlug = router.query.slug;
   return (
     <>
-      <div className={`header sticky`}>
-        <Navbar bg="light" expand="md">
+      {/* <div className={`header`}> */}
+        <Navbar bg="light" expand="md" sticky="top">
           <Container>
             <Navbar.Brand>
               Devote
@@ -63,7 +63,7 @@ export default function NewHeader(props) {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-      </div>
+      {/* </div> */}
     </>
   );
 }

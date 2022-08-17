@@ -27,7 +27,6 @@ export default function Privacy() {
         <Layout>
             <Header />
             <Container>
-                <br /><br /><br /><br />
                 <h1>{(locale == "zh_hant")?"隱私":"Privacy"}</h1>
                 {data && data.content?
                     <>
