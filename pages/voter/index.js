@@ -76,7 +76,7 @@ export default function VoteIndex() {
                         </Col>
                         <Col lg={6} >
                             <div className={styles.grid} style={{justifyContent:"center", alignContent:"center"}}>
-                                <Link href={{pathname:`/voter/question`, query:{vote_id: vote_id}}} as={`/${process.env.GHPAGE_ROUTE}/voter/question?vote_id=${vote_id}`}>
+                                <Link href={{pathname:`/voter/question`, query:{vote_id: vote_id}}} as={`/voter/question?vote_id=${vote_id}`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
                                         <h2>Start Voting!</h2>
                                     </a>

@@ -15,7 +15,7 @@ export default function ConfirmModal(props) {
         setShow(false)
         setTimeout(()=>{
             toast.info("Thanks for voting!")
-            router.push(`/voter?vote_id=${props.vote_id}`,`/${process.env.GHPAGE_ROUTE}/voter?vote_id=${props.vote_id}`)
+            router.push(`/voter?vote_id=${props.vote_id}`,`/voter?vote_id=${props.vote_id}`)
         },1000)
     }
 

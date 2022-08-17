@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
     router.push("/")
   }
   async function backToHome(){
-    router.push("/vote",`/${process.env.GHPAGE_ROUTE}/vote`)
+    router.push("/vote",`/vote`)
   }
   return (
     <AppContext.Provider value={{

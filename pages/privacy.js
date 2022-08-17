@@ -94,7 +94,7 @@ function TypeObjList(props){
     return (<>
         <h5>{props.title}</h5>
         <ul>
-        {props.content.map((item)=> <li><TypeObj small={true} title={null} content={item}/></li>)}
+        {props.content.map((item, index)=> <li key={index}><TypeObj small={true} title={null} content={item}/></li>)}
         </ul>
     </>)
 }

@@ -44,8 +44,8 @@ export default function Login() {
         // }
         toast("Log in successfully");
         const { vote_id, role } = router.query
-        if(role=="admin") router.push("/vote",`/${process.env.GHPAGE_ROUTE}/vote`)
-        if(role=="voter") router.push(`/voter?vote_id=${vote_id}`,`/${process.env.GHPAGE_ROUTE}/voter?vote_id=${vote_id}`)
+        if(role=="admin") router.push("/vote",`/vote`)
+        if(role=="voter") router.push(`/voter?vote_id=${vote_id}`,`/voter?vote_id=${vote_id}`)
 
     }
 
