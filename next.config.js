@@ -10,7 +10,9 @@ const nextConfig = {
     loader: "custom",
   },
   env:{
-    GHPAGE_ROUTE: process.env.GHPAGE_ROUTE
+    GHPAGE_ROUTE: process.env.GHPAGE_ROUTE,
+    API_URL: process.env.API_URL
+
   }
 }
 

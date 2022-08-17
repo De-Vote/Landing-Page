@@ -10,7 +10,7 @@ function VotingItem(props) {
   const [text, SetText] = useState(props.text)
 
   useEffect(() => {
-      SetText(props.text)
+      // SetText(props.text)
   },[props.text])
 
   function edit() {
@@ -33,18 +33,18 @@ function VotingItem(props) {
         </span>
         {
           (props.action == 'update') ?
-            <input type="text" disabled={!editing} value={text} onChange={(e) => { SetText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="25"></input>
+            <input type="text" disabled={!editing} value={text} onChange={(e) => {SetText(e.target.value); props.handleUpdate(props.id, e.target.value) }} style={{ backgroundColor: "#00000" }} size="25"></input>
             :
             <>{props.text}</>
         }
 
-        {(props.action == 'update') ?
+        {/* {(props.action == 'update') ?
           (!editing) ?
             <><Button onClick={edit} width="sm" style={{ padding: 0, float: "right", backgroundColor: 'transparent', border: 'none' }}><FaPen /></Button></>
             :
             <><Button onClick={save} width="sm" style={{ padding: 0, float: "right", backgroundColor: 'transparent', border: 'none' }}><FaCheck /></Button></>
           :
-          <></>}
+          <></>} */}
       </label>
     </div>
   );

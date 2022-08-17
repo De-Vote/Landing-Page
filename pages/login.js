@@ -7,10 +7,10 @@ import Layout from '../components/Layout';
 import Header from '../components/Header'
 import authhelper from '../lib/auth';
 import votehelper from '../lib/vote'
-
+import Cookies from 'js-cookie'
 export default function Login() {
     const router = useRouter()
-    // const { role, setRole, setUser, setOwnedVotes } = useContext(AppContext);
+    const { setUser, setOwnedVotes } = useContext(AppContext);
     const [account, setAccount] = useState("jessie")
     const [password, setPassword] = useState("pinkman")
     const [vote_id, setId] = useState(null)
@@ -28,30 +28,30 @@ export default function Login() {
     async function logIn(e) {
         e.preventDefault();
         // Todo: /api/v1/auth/authenticate
-        // let result = await authhelper.login(account, password);
-        // if(result.ok){
-        //     if(admin)setRole("admin")
-        //     else setRole("voter")
-        //     setUser(result.data.attributes)
-        //     let token = result.data.attributes.auth_token
-        //     result = await votehelper.getOwnedVote(token)
-        //     if(result.ok)setOwnedVotes(result.data.data)
-        //     toast("Log in successfully");
-        //     router.push("/","/Vote_Frontend")
-        // }
-        // else{
-        //     toast.error("log in fail")
-        // }
-        toast("Log in successfully");
-        const { vote_id, role } = router.query
-        if(role=="admin") router.push("/vote",`/vote`)
-        if(role=="voter") router.push(`/voter?vote_id=${vote_id}`,`/voter?vote_id=${vote_id}`)
-
+        let result = await authhelper.login(account, password);
+        if(result.ok){
+            setUser(result.data.attributes)
+            let token = result.data.attributes.auth_token
+            Cookies.set("token", token)
+            // result = await votehelper.getOwnedVote(token)
+            // if(result.ok)setOwnedVotes(result.data.data)
+            toast("Log in successfully");
+            const { vote_id, role } = router.query
+            if(role=="admin") router.push("/vote",`/vote`)
+            if(role=="voter") router.push(`/voter?vote_id=${vote_id}`,`/voter?vote_id=${vote_id}`)
+        }
+        else{
+            toast.error("log in fail")
+        }
     }
 
     async function createAccount(e){
         e.preventDefault();
         toast.error("not implement yet")
+        // let result = await authhelper.createAccount(account, password)
+        // console.log(result)
+        // toast.info("create account successfully");
+
     }
 
     return (

@@ -8,8 +8,8 @@ import Footer from '../../components/Footer';
 import AppContext from '../../context/AppContext';
 import { useRouter } from 'next/router'
 import QuestionModal from '../../components/Vote/questionModal';
-import { FaOptinMonster } from 'react-icons/fa';
-
+import votehelper from '../../lib/vote'
+import Cookies from 'js-cookie'
 export default function Question() {
     const router = useRouter()
     const { backToHome } = useContext(AppContext);
@@ -29,9 +29,9 @@ export default function Question() {
                 'Content-Type': 'application/json'
             },
         };
-        let result = await fetch(`../Mock_getOwnedVoteQuestion.json`, requestOptions)
-        result = await result.json()
-        setQuestions(result.data)
+        const token = Cookies.get('token');
+        let result = await votehelper.getVoteQuestion(token, vote_id)
+        setQuestions(result.data.data)
     }
 
     function backToVote(){
@@ -48,7 +48,7 @@ export default function Question() {
                 <Button variant="primary" type="button" style={{float:"right"}} onClick={(e)=>{backToVote()}}>
                     &larr;Back to vote
                 </Button>
-                <QuestionModal variant='info' style={{float:"right", marginRight:"1%"}} buttonName={"add question"} detail={{title:"new question"}} options={[]} type={"update"}/>
+                <QuestionModal vote_id={vote_id} variant='info' style={{float:"right", marginRight:"1%"}} buttonName={"add question"} detail={{title:"new question"}} options={[]} type={"update"} init={init}/>
                 </div>
                 <br/><br/><br/>
                 <ol>
@@ -57,7 +57,7 @@ export default function Question() {
                     let options = JSON.parse(detail.options)
                     return <li key={index}>
                         {detail.title}
-                        <QuestionModal variant='info' style={{marginLeft:"2%"}} buttonName={"update"} detail={detail} options={options} type={"update"}/>
+                        <QuestionModal vote_id={vote_id} variant='info' style={{marginLeft:"2%"}} buttonName={"update"} detail={detail} options={options} type={"update"} init={init}/>
                         <ol>
                             {options.map((option, i)=><li key={`options-${index}-${i}`}>{option}</li>)}
                         </ol>

@@ -7,6 +7,8 @@ import Link from 'next/link'
 import Footer from '../../components/Footer';
 import AppContext from '../../context/AppContext';
 import { toast } from 'react-toastify';
+import votehelper from '../../lib/vote'
+import Cookies from 'js-cookie'
 
 export default function Admin() {
     const { backToHome } = useContext(AppContext);
@@ -22,8 +24,8 @@ export default function Admin() {
                 'Content-Type': 'application/json'
             },
         };
-        let result = await fetch(`../Mock_getOwnedVote.json`, requestOptions)
-        result = await result.json()
+        const token = Cookies.get('token');
+        let result = await votehelper.getOwnedVote(token)
         console.log(result)
         setVote(result.data)
     }

@@ -9,6 +9,9 @@ import { useRouter } from 'next/router'
 import styles from '../../styles/Home.module.css'
 import Link from 'next/link'
 import VoterList from '../../components/Vote/voterList';
+import votehelper from '../../lib/vote'
+import tallyhelper from '../../lib/tally'
+import Cookies from 'js-cookie'
 
 export default function Setting() {
     const router = useRouter()
@@ -31,14 +34,16 @@ export default function Setting() {
                 'Content-Type': 'application/json'
             },
         };
-        let result = await fetch(`../Mock_getOwnedVote.json`, requestOptions)
-        result = await result.json()
-        console.log(result.data[vote_id-1].data.attributes)
-        setVote(result.data[vote_id-1].data.attributes)
+        const token = Cookies.get('token');
+        let result = await votehelper.getOneVote(token,vote_id)
+        console.log(result.data.data)
+        setVote(result.data.data.attributes)
     }
 
     async function go_tally(){
-        toast.error("has not implement yet")
+        // toast.error("has not implement yet")
+        await tallyhelper.Tally()
+        toast.info("start tally")
     }
 
     return (
@@ -46,7 +51,7 @@ export default function Setting() {
             <Header />
             {/* <section className="section position-relative"> */}
             <Container>
-            <VoterList role={"admin"} show={show} setShow={setShow} />
+            <VoterList role={"admin"} show={show} setShow={setShow} metaData={vote} />
                 <div>
                     <h2 style={{ float: "left" }}>Vote setting</h2>
                     <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToHome() }}>
@@ -68,8 +73,8 @@ export default function Setting() {
                                     <Col><p>end time: </p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p>status: </p></Col>
-                                    <Col><p>number of voters: </p></Col>
+                                    <Col><p>status: {vote.voting_status}</p></Col>
+                                    <Col><p>number of voters: {vote.num_of_voters}</p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
                             </div>
