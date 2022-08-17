@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import VoteData from "../public/voteData.json"
 import { useRouter } from 'next/router'
+import { appWithTranslation } from 'next-i18next';
 const base = process.env.NODE_ENV === 'production' ? "." : "";
 
 function MyApp({ Component, pageProps }) {
@@ -56,4 +57,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

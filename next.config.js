@@ -1,6 +1,8 @@
+const { i18n } = require('./next-i18next.config');
 /** @type {import('next').NextConfig} */
 const debug = process.env.NODE_ENV !== 'production';
 const nextConfig = {
+  i18n,
   reactStrictMode: true,
   swcMinify: true,
   assetPrefix: process.env.NODE_ENV === 'production' ? '.' : '',
@@ -9,11 +11,7 @@ const nextConfig = {
   },
   env:{
     GHPAGE_ROUTE: process.env.GHPAGE_ROUTE
-  },
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'zh_hant'],
-},
+  }
 }
 
 module.exports = nextConfig
