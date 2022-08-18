@@ -7,6 +7,8 @@ import Footer from '../../components/Footer';
 import AppContext from '../../context/AppContext';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router'
+import votehelper from '../../lib/vote'
+import Cookies from 'js-cookie'
 
 export default function DashBoard() {
     const router = useRouter()
@@ -30,21 +32,16 @@ export default function DashBoard() {
         const { vote_id, action } = router.query
         setId(vote_id)
         if (action == "edit") {
-            const requestOptions = {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            };
-            let result = await fetch(`../Mock_getOwnedVote.json`, requestOptions)
-            result = await result.json()
-            let voteMeta = (result.data[vote_id - 1].data.attributes)
+            const token = Cookies.get('token');
+            let result = await votehelper.getOneVote(token,vote_id)
+            console.log(result.data.data)
+            setVote(result.data.data.attributes)
             setFormData(voteMeta);
             setData(voteMeta)
         }
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -54,13 +51,23 @@ export default function DashBoard() {
 
         // Todo: Create vote api
         event.preventDefault();
-        toast("To be continue")
         const { action } = router.query
         console.log(getFormData())
         if (action == "create") {
-
+            const token = Cookies.get('token');
+            const data = {
+                "title": title,
+                "description": description,
+                "voting_status": "not started",
+                "registration_status": "not registered",
+                "num_of_voters": num,
+                "voteurl": null
+            }
+            let result = await votehelper.SetOwnedVotes(token,data)
+            if(result.ok) toast("Create vote succesfully")
+            router.push('/vote/admin')
         } else if (action == "edit") {
-
+            toast.error("not implement yet")
         }
         setTimeout(() => {
             setValidated(false);

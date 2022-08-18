@@ -9,6 +9,8 @@ import { useRouter } from 'next/router'
 import styles from '../../styles/Home.module.css'
 import Link from 'next/link'
 import VoterList from '../../components/Vote/voterList';
+import Cookies from 'js-cookie'
+import votehelper from '../../lib/vote'
 
 export default function VoteIndex() {
     const router = useRouter()
@@ -31,10 +33,10 @@ export default function VoteIndex() {
                 'Content-Type': 'application/json'
             },
         };
-        let result = await fetch(`./Mock_getOwnedVote.json`, requestOptions)
-        result = await result.json()
-        console.log(result.data[vote_id-1].data.attributes)
-        setVote(result.data[vote_id-1].data.attributes)
+        const token = Cookies.get('token');
+        let result = await votehelper.getOneVote(token,vote_id)
+        console.log(result.data.data)
+        setVote(result.data.data.attributes)
     }
 
     async function go_tally(){
@@ -68,8 +70,8 @@ export default function VoteIndex() {
                                     <Col><p>end time: </p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p>status: </p></Col>
-                                    <Col><p>number of voters: </p></Col>
+                                    <Col><p>status: {vote.voting_status}</p></Col>
+                                    <Col><p>number of voters: {vote.num_of_voters}</p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
                             </div>

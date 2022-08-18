@@ -7,34 +7,43 @@ import AppContext from '../../context/AppContext';
 import Footer from '../../components/Footer';
 import styles from '../../styles/Home.module.css'
 import ConfirmModal from '../../components/Vote/confirmModal';
-
+import Cookies from 'js-cookie'
+import votehelper from '../../lib/vote'
 export default function QuestionVoter(){
     const router = useRouter()
-    const { backToHome } = useContext(AppContext);
+    const { backToHome, user } = useContext(AppContext);
     const [questions, setQuestions] = useState([])
-    const [answers, setAnswer] = useState({0:[],1:[], 2:[]})
+    const [answers, setAnswer] = useState({})
     const [vote_id, setId] = useState(null)
     useEffect(() => {
         if (!router.isReady) return;
+        console.log(user)
         init()
     }, [router.isReady])
+
+    useEffect(() => {
+        setAnswerDataStructure()
+    }, [questions])
 
     async function init() {
         const { vote_id } = router.query
         setId(vote_id)
-        const requestOptions = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        };
-        let result = await fetch(`../Mock_getOwnedVoteQuestion.json`, requestOptions)
-        result = await result.json()
-        setQuestions(result.data)
+        const token = Cookies.get('token');
+        let result = await votehelper.getVoteQuestion(token, vote_id)
+        console.log(result)
+        setQuestions(result.data.data)
+    }
+
+    function setAnswerDataStructure(){
+        let temp = {}
+        questions.map((q,i)=>{
+            temp[i] = []
+        })
+        setAnswer(temp)
     }
 
     function backToVote(){
-        router.push(`/vote/setting?vote_id=${vote_id}`, `/vote/setting?vote_id=${vote_id}`)
+        router.push(`/voter?vote_id=${vote_id}`, `/voter?vote_id=${vote_id}`)
     }
 
     function handleSelect(i, j){
@@ -51,6 +60,7 @@ export default function QuestionVoter(){
     }
 
     function isSelected(i, j){
+        if(!answers) return false
         if(!answers[i])return false;
         if(answers[i].includes(j))return true;
         else return false

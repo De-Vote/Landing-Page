@@ -33,6 +33,7 @@ export default function Login() {
             setUser(result.data.attributes)
             let token = result.data.attributes.auth_token
             Cookies.set("token", token)
+            Cookies.set("userinfo", JSON.stringify(result.data.attributes.account.data.attributes))
             // result = await votehelper.getOwnedVote(token)
             // if(result.ok)setOwnedVotes(result.data.data)
             toast("Log in successfully");

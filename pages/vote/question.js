@@ -23,15 +23,10 @@ export default function Question() {
     async function init() {
         const { vote_id } = router.query
         setId(vote_id)
-        const requestOptions = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        };
         const token = Cookies.get('token');
         let result = await votehelper.getVoteQuestion(token, vote_id)
-        setQuestions(result.data.data)
+        console.log(result.data.data)
+        if(result.data.data != null)setQuestions(result.data.data)
     }
 
     function backToVote(){

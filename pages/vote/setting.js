@@ -28,12 +28,6 @@ export default function Setting() {
     async function init() {
         const { vote_id } = router.query
         setId(vote_id)
-        const requestOptions = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        };
         const token = Cookies.get('token');
         let result = await votehelper.getOneVote(token,vote_id)
         console.log(result.data.data)
@@ -42,8 +36,12 @@ export default function Setting() {
 
     async function go_tally(){
         // toast.error("has not implement yet")
-        await tallyhelper.Tally()
+        const { vote_id } = router.query
+        const token = Cookies.get('token');
+        await tallyhelper.Tally(token, vote_id)
         toast.info("start tally")
+        let ww = await tallyhelper.getTallyResult(token, vote_id)
+        console.log(ww)
     }
 
     return (
