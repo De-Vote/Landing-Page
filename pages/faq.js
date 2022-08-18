@@ -20,7 +20,7 @@ const config = {
     // tabFocus: true
 };
 
-export default function app() {
+export default function FaqView() {
     const { query, locale } = useRouter();
     const [data, setData] = useState({"title": "FAQs","rows": []})
 
