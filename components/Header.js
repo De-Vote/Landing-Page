@@ -14,8 +14,8 @@ import { useRouter } from 'next/router';
 
 
 export default function NewHeader(props) {
-  let router = useRouter();
-  const isSlug = router.query.slug;
+  const { query, locale, asPath } = useRouter();
+  const isSlug = query.slug;
   return (
     <>
       {/* <div className={`header`}> */}
@@ -27,32 +27,32 @@ export default function NewHeader(props) {
             <Navbar.Toggle />
             <Navbar.Collapse>
               <Nav className="m-auto">
-                <NavItem className="nav-link" style={{ marginRight: "3%" }}>
+                <NavItem className="nav-link" style={{ marginRight: "3%"}}>
                   <Link href="/#" as={`${process.env.GHPAGE_ROUTE}/#`}>
-                    Home
+                    {(locale=="zh_hant")?"主頁":"Home"}
                   </Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/#feature" as={`${process.env.GHPAGE_ROUTE}/#feature`}>Features</Link>
+                  <Link href="/#feature" as={`${process.env.GHPAGE_ROUTE}/#feature`}>{(locale=="zh_hant")?"特色":"Feature"}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/#about" as={`${process.env.GHPAGE_ROUTE}/#about`}>About</Link>
+                  <Link href="/#about" as={`${process.env.GHPAGE_ROUTE}/#about`}>{(locale=="zh_hant")?"關於":"About"}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/privacy" as={`${process.env.GHPAGE_ROUTE}/privacy`}>Privacy</Link>
+                  <Link href="/privacy" as={`${process.env.GHPAGE_ROUTE}/privacy`}>{(locale=="zh_hant")?"隱私":"Privacy"}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/faq" as={`${process.env.GHPAGE_ROUTE}/faq`}>FAQs</Link>
+                  <Link href="/faq" as={`${process.env.GHPAGE_ROUTE}/faq`}>{(locale=="zh_hant")?"問題":"Faqs"}</Link>
                 </NavItem>
-                <NavDropdown title="Language" style={{ padding: 0 }}>
+                <NavDropdown title={(locale=="zh_hant")?"語言":"Language"} style={{ padding: 0 }}>
                   <NavDropdown.Item style={{ textAlign: "center" }}>
-                    <Link href={!isSlug ? '/en' + router.asPath : '/en'} locale="en">
+                    <Link href={!isSlug ? '/en' + asPath : '/en'} locale="en">
                       <a>EN</a>
                     </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item style={{ textAlign: "center" }}>
                     <Link
-                      href={!isSlug ? '/zh_hant' + router.asPath : '/zh_hant'}
+                      href={!isSlug ? '/zh_hant' + asPath : '/zh_hant'}
                       locale="zh_hant"
                     >
                       <a>繁</a>

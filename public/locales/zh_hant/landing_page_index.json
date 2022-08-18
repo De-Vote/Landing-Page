@@ -1,0 +1,26 @@
+{
+    "hero":{
+        "title":["隱私、公平、信任","打造一個去中心化的投票社會"],
+        "description":"提供所有人具有 TrustZone 專利支持的可信賴運算技術及區塊鏈去中心化的投票系統"
+    },
+    "feature":[
+        {
+            "id":1,
+            "img":"/devotelogo.png",
+            "title":"隱私",
+            "desc":"我們的服務器永遠不會知道你是怎麼投票的"
+        },
+        {
+            "id":2,
+            "img":"/devotelogo.png",
+            "title":"公正",
+            "desc":"只解密選舉結果，不參與投票內容"
+        },
+        {
+            "id":3,
+            "img":"/devotelogo.png",
+            "title":"可驗證",
+            "desc":"提供所有使用者驗證服務"
+        }
+    ]
+}
