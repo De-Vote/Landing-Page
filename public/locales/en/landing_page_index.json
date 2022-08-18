@@ -22,5 +22,17 @@
             "title":"Verifiable",
             "desc":"Provide all user verification services."
         }
-    ]
+    ],
+    "about":{
+        "intro":"Devote is a nonpartisan organization led by Professor Ren-Song Tsay from Logos Lab.",
+        "left":"The most trusted provider of secure and anonymous votingsolutions.",
+        "middle":{
+            "title":"Our Team",
+            "content":"We are a team of information security experts, blockchain researchers and experienced product designers from National Tsing Hua University."
+        },
+        "right":{
+            "title":"Our Goal",
+            "content":"We focus on the people behind every secure vote. Security is easy to achieve if it is human-centred."
+        }
+    }
 }

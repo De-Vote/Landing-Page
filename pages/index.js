@@ -11,8 +11,9 @@ import { useRouter } from 'next/router';
 // Landing page
 export default function HomePage() {
   const { query, locale } = useRouter();
-  const [hero, setHero] = useState([])
+  const [hero, setHero] = useState({})
   const [feature, setFeature] = useState([])
+  const [about, setAbout] = useState({})
 
   useEffect(() => {
     init()
@@ -24,6 +25,7 @@ export default function HomePage() {
       result = await result.json();
       setHero(result.hero)
       setFeature(result.feature)
+      setAbout(result.about)
     } catch (e) {
       console.log(e.message)
     }
@@ -34,7 +36,7 @@ export default function HomePage() {
       <Header />
       <Hero content={hero} locale={locale}/>
       <Feature content={feature}/>
-      <About />
+      <About content={about}/>
       <Footer />
     </Layout>
   )
