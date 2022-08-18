@@ -32,7 +32,7 @@ export default function HomePage() {
   return (
     <Layout>
       <Header />
-      <Hero content={hero}/>
+      <Hero content={hero} locale={locale}/>
       <Feature content={feature}/>
       <About />
       <Footer />
