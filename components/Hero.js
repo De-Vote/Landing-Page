@@ -12,7 +12,7 @@ const Hero = ({ content }) => {
               {/* <p className="text-uppercase text-primary font-weight-medium f-14 mb-4">Lorem Ipsum</p> */}
               {content && content.title &&
                 <>
-                  {content.title.map((t)=>(<h1 className="mb-4 font-weight-normal line-height-1_4">{t}</h1>))}
+                  {content.title.map((t, index)=>(<h1 key={index} className="mb-4 font-weight-normal line-height-1_4">{t}</h1>))}
                   <p className="text-muted mb-4 pb-2">{content.description}</p>
                   <Link href={"login?role=admin"} as={`${process.env.GHPAGE_ROUTE}/login?role=admin`}>
                     <a href="login" className="btn btn-warning">
