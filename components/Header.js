@@ -28,21 +28,21 @@ export default function NewHeader(props) {
             <Navbar.Collapse>
               <Nav className="ml-auto">
                 <NavItem className="nav-link" style={{ marginRight: "3%"}}>
-                  <Link href="/#" as={`${process.env.GHPAGE_ROUTE}/#`}>
+                  <Link href="/#" as={`/#`}>
                     {(locale=="zh_hant")?"主頁":"Home"}
                   </Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/#feature" as={`${process.env.GHPAGE_ROUTE}/#feature`}>{(locale=="zh_hant")?"特色":"Feature"}</Link>
+                  <Link href="/#feature" as={`/#feature`}>{(locale=="zh_hant")?"特色":"Feature"}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/#about" as={`${process.env.GHPAGE_ROUTE}/#about`}>{(locale=="zh_hant")?"關於":"About"}</Link>
+                  <Link href="/#about" as={`/#about`}>{(locale=="zh_hant")?"關於":"About"}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/privacy" as={`${process.env.GHPAGE_ROUTE}/privacy`}>{(locale=="zh_hant")?"隱私":"Privacy"}</Link>
+                  <Link href="/privacy" as={`/privacy`}>{(locale=="zh_hant")?"隱私":"Privacy"}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/faq" as={`${process.env.GHPAGE_ROUTE}/faq`}>{(locale=="zh_hant")?"問題":"Faqs"}</Link>
+                  <Link href="/faq" as={`/faq`}>{(locale=="zh_hant")?"問題":"Faqs"}</Link>
                 </NavItem>
                 <NavDropdown title={(locale=="zh_hant")?"語言":"Language"} style={{ padding: 0 }}>
                   <NavDropdown.Item style={{ textAlign: "center" }}>

@@ -14,7 +14,7 @@ const Hero = ({ content, locale }) => {
                 <>
                   {content.title.map((t, index)=>(<h1 key={index} className="mb-4 font-weight-normal line-height-1_4">{t}</h1>))}
                   <p className="text-muted mb-4 pb-2">{content.description}</p>
-                  <Link href={"login?role=admin"} as={`${process.env.GHPAGE_ROUTE}/login?role=admin`}>
+                  <Link href={"login?role=admin"} as={`/login?role=admin`}>
                     <a href="login" className="btn btn-warning">
                     {(locale=="zh_hant")?"試試我們的投票系統":"try out our voting system"} <span className="ml-2 right-icon">&#8594;</span>
                     </a>

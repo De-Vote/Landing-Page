@@ -12,13 +12,13 @@ export default function Home() {
 
       <div className={styles.grid}>
         {(!user) ? <>
-          <Link href="/login" as={`${process.env.GHPAGE_ROUTE}/login`}>
+          <Link href="/login" as={`/login`}>
             <a className={styles.card}>
               <h2>Log in &rarr;</h2>
               <p>Log in to enjoy Devote Vote system.</p>
             </a>
           </Link>
-          <Link href="/register" as={`${process.env.GHPAGE_ROUTE}/Vote_Frontend/register`}>
+          <Link href="/register" as={`/Vote_Frontend/register`}>
             <a className={styles.card}>
               <h2>Register &rarr;</h2>
               <p>Create an account to become a vote admin</p>
