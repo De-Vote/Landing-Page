@@ -29,7 +29,7 @@ export default function Login() {
         e.preventDefault();
         // Todo: /api/v1/auth/authenticate
         let result = await authhelper.login(account, password);
-        if(result.ok){
+        if (result.ok) {
             setUser(result.data.attributes)
             let token = result.data.attributes.auth_token
             Cookies.set("token", token)
@@ -38,20 +38,36 @@ export default function Login() {
             // if(result.ok)setOwnedVotes(result.data.data)
             toast("Log in successfully");
             const { vote_id, role } = router.query
-            if(role=="admin") router.push("/vote",`/vote`)
-            if(role=="voter") router.push(`/voter?vote_id=${vote_id}`,`/voter?vote_id=${vote_id}`)
+            if (role == "admin") router.push("/vote", `/vote`)
+            if (role == "voter") router.push(`/voter?vote_id=${vote_id}`, `/voter?vote_id=${vote_id}`)
         }
-        else{
+        else {
             toast.error("log in fail")
         }
     }
 
-    async function createAccount(e){
+    async function createAccount(e) {
         e.preventDefault();
-        toast.error("not implement yet")
+        // toast.error("not implement yet")
         // let result = await authhelper.createAccount(account, password)
         // console.log(result)
         // toast.info("create account successfully");
+        try {
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({username: account, email: account, password}),
+            };
+            let result = await fetch('/api/account', requestOptions)
+            let response = await result.json();
+            console.log(response)
+            toast.info("create account successfully");
+        } catch (e) {
+            console.log(e.message)
+            toast.error("Oh no something wrong...")
+        }
 
     }
 
@@ -76,14 +92,14 @@ export default function Login() {
                                     <Form.Check type="checkbox" label="Is Admin ?" checked={admin} onChange={(e) => {setAdmin(e.target.checked)}} />
                                 </Form.Group> */}
                                 <div align="center">
-                                    <Button style={{width:"45%"}} variant="primary" type="button" onClick={(e) => { logIn(e) }}>
+                                    <Button style={{ width: "45%" }} variant="primary" type="button" onClick={(e) => { logIn(e) }}>
                                         Log in
                                     </Button>
                                     &nbsp;
-                                {/* </div>
+                                    {/* </div>
                                 <br/>
                                 <div align="center"> */}
-                                    <Button style={{width:"45%"}} variant="primary" type="button" onClick={(e) => { createAccount(e) }}>
+                                    <Button style={{ width: "45%" }} variant="primary" type="button" onClick={(e) => { createAccount(e) }}>
                                         Create Account
                                     </Button>
                                 </div>
