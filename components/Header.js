@@ -45,17 +45,17 @@ export default function NewHeader(props) {
                   <Link href="/faq" as={`/faq`}>{(locale=="zh_hant")?"問題":"FAQs"}</Link>
                 </NavItem>
                 <NavDropdown title={(locale=="zh_hant")?"語言":"Language"} style={{ padding: 0 }}>
-                  <NavDropdown.Item style={{ textAlign: "center" }}>
+                  <NavDropdown.Item style={{ textAlign: "center",padding: 0  }}>
                     <Link href={!isSlug ? '/en' + asPath : '/en'} locale="en">
-                      <a>EN</a>
+                      <a style={{display:"inline-block", width:"100%"}}>EN</a>
                     </Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Item style={{ textAlign: "center" }}>
+                  <NavDropdown.Item style={{ textAlign: "center",padding: 0  }}>
                     <Link
                       href={!isSlug ? '/zh_hant' + asPath : '/zh_hant'}
                       locale="zh_hant"
                     >
-                      <a>繁</a>
+                      <a style={{display:"inline-block", width:"100%"}}>繁</a>
                     </Link>
                   </NavDropdown.Item>
                 </NavDropdown>
