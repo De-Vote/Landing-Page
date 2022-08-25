@@ -12,13 +12,13 @@
         },
         {
             "id":2,
-            "img":"/devotelogo.png",
+            "img":"/justice.png",
             "title":"Justice",
             "desc":"Only decrypt the election results, do not participate in the voting content."
         },
         {
             "id":3,
-            "img":"/devotelogo.png",
+            "img":"/verify.png",
             "title":"Verifiable",
             "desc":"Provide all user verification services."
         }
