@@ -22,7 +22,7 @@ export default function NewHeader(props) {
         <Navbar bg="light" expand="md" sticky="top">
           <Container>
             <Navbar.Brand>
-              Devote
+              De.Vote
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
