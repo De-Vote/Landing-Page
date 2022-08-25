@@ -42,7 +42,7 @@ export default function NewHeader(props) {
                   <Link href="/privacy" as={`/privacy`}>{(locale=="zh_hant")?"隱私":"Privacy"}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
-                  <Link href="/faq" as={`/faq`}>{(locale=="zh_hant")?"問題":"Faqs"}</Link>
+                  <Link href="/faq" as={`/faq`}>{(locale=="zh_hant")?"問題":"FAQs"}</Link>
                 </NavItem>
                 <NavDropdown title={(locale=="zh_hant")?"語言":"Language"} style={{ padding: 0 }}>
                   <NavDropdown.Item style={{ textAlign: "center" }}>
