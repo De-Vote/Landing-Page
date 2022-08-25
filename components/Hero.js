@@ -16,7 +16,7 @@ const Hero = ({ content, locale }) => {
                   <p className="text-muted mb-4 pb-2">{content.description}</p>
                   <Link href={"login?role=admin"} as={`/login?role=admin`}>
                     <a href="login" className="btn btn-warning">
-                    {(locale=="zh_hant")?"試試我們的投票系統":"try out our voting system"} <span className="ml-2 right-icon">&#8594;</span>
+                    {(locale=="zh_hant")?"立即試用我們的投票系統":"Try out our voting system"} <span className="ml-2 right-icon">&#8594;</span>
                     </a>
                   </Link>
                 </>}
