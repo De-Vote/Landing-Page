@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
       backToHome:backToHome
     }}>
       <ToastContainer position="top-center"
-        autoClose={500}
+        autoClose={5000}
         hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
