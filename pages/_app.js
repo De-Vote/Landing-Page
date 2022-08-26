@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import VoteData from "../public/voteData.json"
 import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next';
-const base = process.env.NODE_ENV === 'production' ? "." : "";
+import SSRProvider from 'react-bootstrap/SSRProvider';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -18,42 +18,46 @@ function MyApp({ Component, pageProps }) {
   const [voting, setVoting] = useState(false)
   const [ownedVotes, setOwnedVotes] = useState([])
   const [voteId, setVoteId] = useState(null)
-
+  const getLayout = Component.getLayout || ((page) => page);
   function logout(message) {
     setRole(null)
     setUser(null)
-    toast(message)    
+    toast(message)
     router.push("/")
   }
-  async function backToHome(){
-    router.push("/vote",`/vote`)
+  async function backToHome() {
+    router.push("/vote", `/vote`)
   }
   return (
-    <AppContext.Provider value={{
-      user: user,
-      setUser: setUser,
-      role: role,
-      setRole: setRole,
-      voting: voting,
-      result: result,
-      ownedVotes: ownedVotes,
-      setOwnedVotes: setOwnedVotes,
-      logout: logout,
-      voteId:voteId, 
-      setVoteId: setVoteId,
-      backToHome:backToHome
-    }}>
-      <ToastContainer position="top-center"
-        autoClose={5000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover />
-      <Component {...pageProps} />
-    </AppContext.Provider>
+      <AppContext.Provider value={{
+        user: user,
+        setUser: setUser,
+        role: role,
+        setRole: setRole,
+        voting: voting,
+        result: result,
+        ownedVotes: ownedVotes,
+        setOwnedVotes: setOwnedVotes,
+        logout: logout,
+        voteId: voteId,
+        setVoteId: setVoteId,
+        backToHome: backToHome
+      }}>
+    <SSRProvider>
+    {getLayout( <>
+        <ToastContainer position="top-center"
+          autoClose={5000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover />
+        {/* <Component {...pageProps} /> */}
+        <Component {...pageProps} /></>)}
+      </SSRProvider>
+      </AppContext.Provider>
   )
 }
 
