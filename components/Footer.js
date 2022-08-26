@@ -48,7 +48,7 @@ const Footer = () => {
               <Col md={4}>
                 <h6 className="text-dark mb-3">Our Address</h6>
                 <p className="text-muted f-14">No.101, Sec. 2, Guangfu Rd., East Dist., Hsinchu City, Hsinchu, Hsinchu City, Taiwan 300</p>
-                <h6 className="text-muted pb-2">Email: email@email.com</h6>
+                <h6 className="text-muted pb-2">Email: contact@devote.tw</h6>
                 <ul className="list-unstyled footer-social-list mt-4">
                   <li className="list-inline-item"><a href="#"><i className="mdi mdi-facebook"></i></a></li>
                   <li className="list-inline-item"><a href="#"><i className="mdi mdi-instagram"></i></a></li>
