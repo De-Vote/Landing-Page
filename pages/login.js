@@ -42,7 +42,7 @@ export default function Login() {
             if (role == "voter") router.push(`/voter?vote_id=${vote_id}`, `/voter?vote_id=${vote_id}`)
         }
         else {
-            toast.error("The system is under alpha-test.")
+            toast.error("The system is under alpha test.")
         }
     }
 
@@ -63,7 +63,7 @@ export default function Login() {
             let result = await fetch('/api/account', requestOptions)
             let response = await result.json();
             console.log(response)
-            toast.info("The system is under alpha-test, please contact support@devote.tw for a testing account.");
+            toast.info("The system is under alpha test, please contact support@devote.tw for a testing account.");
         } catch (e) {
             console.log(e.message)
             toast.error("Oh no something wrong...")
