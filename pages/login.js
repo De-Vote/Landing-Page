@@ -11,8 +11,8 @@ import Cookies from 'js-cookie'
 export default function Login() {
     const router = useRouter()
     const { setUser, setOwnedVotes } = useContext(AppContext);
-    const [account, setAccount] = useState("jessie")
-    const [password, setPassword] = useState("pinkman")
+    const [account, setAccount] = useState("")
+    const [password, setPassword] = useState("")
     const [vote_id, setId] = useState(null)
 
     useEffect(() => {
@@ -42,7 +42,7 @@ export default function Login() {
             if (role == "voter") router.push(`/voter?vote_id=${vote_id}`, `/voter?vote_id=${vote_id}`)
         }
         else {
-            toast.error("log in fail")
+            toast.error("The system is under alpha-test.")
         }
     }
 
@@ -63,7 +63,7 @@ export default function Login() {
             let result = await fetch('/api/account', requestOptions)
             let response = await result.json();
             console.log(response)
-            toast.info("create account successfully");
+            toast.info("The system is under alpha-test, please contact support@devote.tw for a testing account.");
         } catch (e) {
             console.log(e.message)
             toast.error("Oh no something wrong...")
