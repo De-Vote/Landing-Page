@@ -6,19 +6,19 @@
     "feature":[
         {
             "id":1,
-            "img":"/devotelogo.png",
+            "img":"/privacy.png",
             "title":"隱私",
             "desc":"我們的服務器永遠不會知道你是怎麼投票的"
         },
         {
             "id":2,
-            "img":"/devotelogo.png",
+            "img":"/justice.png",
             "title":"公正",
             "desc":"只解密選舉結果，不參與投票內容"
         },
         {
             "id":3,
-            "img":"/devotelogo.png",
+            "img":"/verify.png",
             "title":"可驗證",
             "desc":"提供所有使用者驗證服務"
         }
