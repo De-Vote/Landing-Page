@@ -52,7 +52,6 @@ export default function DashBoard() {
         // Todo: Create vote api
         event.preventDefault();
         const { action } = router.query
-        console.log(getFormData())
         const token = Cookies.get('token');
         if (action == "create") {
             const data = {
@@ -60,8 +59,8 @@ export default function DashBoard() {
                 "description": description,
                 "voting_status": "not started",
                 "registration_status": "not registered",
-                "start_time": stime.getTime(),
-                "end_time": etime.getTime(),
+                "start_time": stime.toISOString(),
+                "end_time": etime.toISOString(),
                 "policy": JSON.stringify({type: type}),
                 "num_of_voters": num,
                 "voteurl": null

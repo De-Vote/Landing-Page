@@ -43,6 +43,7 @@ function VoterList(props) {
     document.body.appendChild(link); // Required for FF
     link.click(); // This will download the data file named "my_data.csv".
     toast.info(" voter generate successfully!\n please distribute voter account secretly")
+    props.init()
   }
 
   function init() {

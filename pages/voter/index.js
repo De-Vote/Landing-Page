@@ -11,6 +11,7 @@ import Link from 'next/link'
 import VoterList from '../../components/Vote/voterList';
 import Cookies from 'js-cookie'
 import votehelper from '../../lib/vote'
+import ResultModal from '../../components/Vote/tallyResultModal';
 
 export default function VoteIndex() {
     const router = useRouter()
@@ -43,6 +44,11 @@ export default function VoteIndex() {
         toast.error("has not implement yet")
     }
 
+    function GetDateTime(start_time){
+        let t = (new Date((start_time)))
+        return (new Date(t.getTime()+t.getTimezoneOffset()*60*1000)).toLocaleString()
+    }
+
     return (
         <Layout>
             <Header />
@@ -66,12 +72,12 @@ export default function VoteIndex() {
                                     {vote.title}
                                 </span></h1>
                                 <Row>
-                                    <Col><p>start time: </p></Col>
-                                    <Col><p>end time: </p></Col>
+                                    <Col><p>start: {GetDateTime(vote.start_time)}</p></Col>
+                                    <Col><p>end: {GetDateTime(vote.end_time)}</p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p>status: {vote.voting_status}</p></Col>
-                                    <Col><p>number of voters: {vote.num_of_voters}</p></Col>
+                                    <Col><p>vote status: {vote.voting_status}</p></Col>
+                                    <Col><p>voter status: {vote.registration_status}</p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
                             </div>
@@ -83,6 +89,7 @@ export default function VoteIndex() {
                                         <h2>Start Voting!</h2>
                                     </a>
                                 </Link>
+                            <ResultModal vote_id={vote_id} className={styles.card} style={{width: "40%"}} vote={vote} tally={go_tally} role={"voter"}/>
                             </div>
                         </Col>
                     </Row>

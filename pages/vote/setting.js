@@ -12,6 +12,8 @@ import VoterList from '../../components/Vote/voterList';
 import votehelper from '../../lib/vote'
 import tallyhelper from '../../lib/tally'
 import Cookies from 'js-cookie'
+import { propTypes } from 'react-bootstrap/esm/Image';
+import ResultModal from '../../components/Vote/tallyResultModal';
 
 export default function Setting() {
     const router = useRouter()
@@ -46,7 +48,7 @@ export default function Setting() {
 
     function GetDateTime(start_time){
         let t = (new Date((start_time)))
-        return t.toLocaleString()
+        return (new Date(t.getTime()+t.getTimezoneOffset()*60*1000)).toLocaleString()
     }
 
     return (
@@ -54,7 +56,7 @@ export default function Setting() {
             <Header />
             {/* <section className="section position-relative"> */}
             <Container>
-            <VoterList role={"admin"} show={show} setShow={setShow} metaData={vote} />
+            <VoterList role={"admin"} show={show} setShow={setShow} metaData={vote} init={init}/>
                 <div>
                     <h2 style={{ float: "left" }}>Vote setting</h2>
                     <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToHome() }}>
@@ -73,7 +75,7 @@ export default function Setting() {
                                 </span></h1>
                                 <Row>
                                     <Col><p>start: {GetDateTime(vote.start_time)}</p></Col>
-                                    <Col><p>end: {GetDateTime(vote.start_time)}</p></Col>
+                                    <Col><p>end: {GetDateTime(vote.end_time)}</p></Col>
                                 </Row>
                                 <Row>
                                     <Col><p>vote status: {vote.voting_status}</p></Col>
@@ -81,6 +83,7 @@ export default function Setting() {
                                 </Row>
                                 <Row>
                                     <Col><p>number of voters: {vote.num_of_voters}</p></Col>
+                                    <Col><p><a href={`../login?role=voter&vote_id=${vote_id}`} target="_blank">voter url</a></p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
                             </div>
@@ -100,9 +103,9 @@ export default function Setting() {
                                 <a className={styles.card} style={{ width: "40%" }} onClick={() => { setShow(!show) }}>
                                     <h2>Edit voters</h2>
                                 </a>
-                                <a className={styles.card} style={{ width: "40%" }} onClick={() => { go_tally()}}>
-                                    <h2>tally</h2>
-                                </a>
+                                {/* <a className={styles.card} style={{ width: "40%" }} onClick={() => { go_tally()}}> */}
+                                    <ResultModal vote_id={vote_id} className={styles.card} style={{width: "40%"}} vote={vote} tally={go_tally} role={"admin"}/>
+                                {/* </a> */}
                             </div>
                         </Col>
                     </Row>
