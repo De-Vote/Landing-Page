@@ -6,25 +6,25 @@
     "feature":[
         {
             "id":1,
-            "img":"/devotelogo.png",
+            "img":"/privacy.png",
             "title":"隱私",
             "desc":"我們的服務器永遠不會知道你是怎麼投票的"
         },
         {
             "id":2,
-            "img":"/devotelogo.png",
+            "img":"/justice.png",
             "title":"公正",
             "desc":"只解密選舉結果，不參與投票內容"
         },
         {
             "id":3,
-            "img":"/devotelogo.png",
+            "img":"/verify.png",
             "title":"可驗證",
             "desc":"提供所有使用者驗證服務"
         }
     ],
     "about":{
-        "intro":"Devote 是一個由 Logos Lab 的蔡仁松教授所領導的無黨派組織。",
+        "intro":"De.Vote 是一個由 Logos Lab 的蔡仁松教授所領導的無黨派組織。",
         "left":"最值得信賴的安全匿名投票解決方案提供商",
         "middle":{
             "title":"我們的團隊",
@@ -33,6 +33,19 @@
         "right":{
             "title":"我們的目標",
             "content":"我們專注於每一次安全投票背後的人。如果能做到以人為本，安全性就易於實現。"
+        },
+        "members":{
+            "row1":[
+                {"name":"蔡仁松 / Instructor","role":"曾在矽谷創立兩間高科技公司成功獲併購","specialty":"專長:嵌入式系統驗證 / 區塊鏈及其應用 / 高科技創業與營運 / 分散式 IoT 架構","mail":"instructor@devote.tw","src":"/images/song.jpg"},
+                {"name":"蔡惟恩 / CEO","role":"具豐富開發經歷,在新創相關競賽帶領團隊屢獲佳績","specialty":"專長:領導 / 技術開發 / 資安攻防","mail":"ceo@devote.tw","src":"/images/tsai.JPG"},
+                {"name":"李冠學 / COO","role":"博士論文鑽研高安全、高延展性的電子投票技術","specialty":"專長:密碼學、區塊鏈及其應用","mail":"coo@devote.tw","src":"/images/lee.png"}
+
+            ],
+            "row2":[
+                {"name":"蘇子軒 / CTO","role":"具豐富開發經歷,擅長區塊鏈項目開發、可延展系統架構設計","specialty":"專長:規模化系統設計、區塊鏈技術開發","mail":"cto@devote.tw","src":"/images/su.png"},
+                {"name":"彭湘婷 / CMO","role":"具豐富資料分析能力與統合能力","specialty":"專長:資安情資搜集分析、專案管理、分析市場現況能力","mail":"cmo@devote.tw","src":"/images/pon.png"},
+                {"name":"李柏翰 / Developer","role":"曾利用 TrustZone 開發硬體錢包,熟悉區塊鏈應用","specialty":"專長:程式開發、TrustZone 安全晶片開發","mail":"borhan@devote.tw","src":"/images/borhan.png"}
+            ]
         }
     }
 }
