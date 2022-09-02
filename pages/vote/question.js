@@ -43,7 +43,7 @@ export default function Question() {
                 <Button variant="primary" type="button" style={{float:"right"}} onClick={(e)=>{backToVote()}}>
                     &larr;Back to vote
                 </Button>
-                <QuestionModal vote_id={vote_id} variant='info' style={{float:"right", marginRight:"1%"}} buttonName={"add question"} detail={{title:"new question"}} options={[]} type={"update"} init={init}/>
+                <QuestionModal vote_id={vote_id} variant='info' style={{float:"right", marginRight:"1%"}} buttonName={"add question"} detail={{title:"new question"}} options={null} type={"update"} init={init}/>
                 </div>
                 <br/><br/><br/>
                 <ol>

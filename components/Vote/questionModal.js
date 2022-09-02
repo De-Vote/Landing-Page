@@ -12,9 +12,15 @@ export default function QuestionModal(props) {
     const [editing, SetEditing] = useState(false)
     const [text, SetText] = useState("")
 
-    useEffect(() => { setOptions(props.options) }, [props.options])
+    useEffect(() => { if(props.options)setOptions(props.options) }, [props.options])
     useEffect(() => { SetText(props.detail.title); console.log(props.detail)}, [props.detail.title])
-    useEffect(() => { }, [options])
+    useEffect(() => { 
+        if(show && props.buttonName == 'add question'){
+            setOptions([])
+        }
+
+    }, [show])
+
     function optionSave(index, value) {
         console.log(index, value)
         options[index] = value;
@@ -37,6 +43,25 @@ export default function QuestionModal(props) {
         await votehelper.SetVoteQuestion(token,props.vote_id, body)
         setShow(false)
         props.init()
+    }
+
+    async function UpdateQuestion(){
+        let body = {
+            id: props.detail.id,
+            title:text,
+            illustration:"This is a illustration.",
+            options:JSON.stringify(options),
+            counts:JSON.stringify(Array(options.length).fill(0))
+        }
+        const token = Cookies.get('token');
+        await votehelper.UpdateVoteQuestion(token,props.vote_id, body)
+        setShow(false)
+        props.init()
+    }
+
+    async function save(){
+        if(props.buttonName == 'add question') AddQuestion()
+        else if(props.buttonName == 'update') UpdateQuestion()
     }
 
     return (
@@ -62,7 +87,7 @@ export default function QuestionModal(props) {
                     {options.map((option, index) => <VotingItem text={option} key={index} id={index} action={props.type} handleUpdate={optionSave} />)}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" style={{ float: 'left' }} onClick={() => { AddQuestion() }}>
+                    <Button variant="secondary" style={{ float: 'left' }} onClick={() => { save() }}>
                         save
                     </Button>
                     <Button variant="secondary" style={{ float: 'left' }} onClick={() => { addOption() }}>
