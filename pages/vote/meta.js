@@ -20,8 +20,8 @@ export default function DashBoard() {
     const [description, setDescription] = useState("")
     const [type, setType] = useState(0)
     const [num, setNum] = useState(0)
-    const [stime, setstime] = useState(null)
-    const [etime, setetime] = useState(null)
+    const [stime, setstime] = useState(new Date())
+    const [etime, setetime] = useState(new Date())
 
     useEffect(() => {
         if (!router.isReady) return;
@@ -35,7 +35,7 @@ export default function DashBoard() {
             const token = Cookies.get('token');
             let result = await votehelper.getOneVote(token,vote_id)
             console.log(result.data.data)
-            setVote(result.data.data.attributes)
+            let voteMeta = result.data.data.attributes
             setFormData(voteMeta);
             setData(voteMeta)
         }
@@ -53,13 +53,16 @@ export default function DashBoard() {
         event.preventDefault();
         const { action } = router.query
         console.log(getFormData())
+        const token = Cookies.get('token');
         if (action == "create") {
-            const token = Cookies.get('token');
             const data = {
                 "title": title,
                 "description": description,
                 "voting_status": "not started",
                 "registration_status": "not registered",
+                "start_time": stime.getTime(),
+                "end_time": etime.getTime(),
+                "policy": JSON.stringify({type: type}),
                 "num_of_voters": num,
                 "voteurl": null
             }
@@ -67,7 +70,11 @@ export default function DashBoard() {
             if(result.ok) toast("Create vote succesfully")
             router.push('/vote/admin')
         } else if (action == "edit") {
-            toast.error("not implement yet")
+            const data = getFormData()
+            let result = await votehelper.UpdateOneVote(token,vote_id,data)
+            console.log(result)
+            if(result.ok) toast("Update vote succesfully")
+            router.push('/vote/admin')
         }
         setTimeout(() => {
             setValidated(false);
@@ -76,18 +83,23 @@ export default function DashBoard() {
 
     function setFormData(data) {
         setTitle(data.title)
-        setType(1)
+        let policy = JSON.parse(data.policy)
+        setType(policy.type)
         setDescription(data.description)
         setNum(data.num_of_voters)
-        setstime(new Date())
-        setetime(new Date())
+        setstime(new Date((data.start_time)))
+        setetime(new Date((data.end_time)))
     }
 
     function getFormData() {
         return {
             title: title,
             description: description,
-            type: type,
+            voting_status: data.voting_status,
+            registration_status: data.registration_status,
+            start_time: stime.toISOString(),
+            end_time: etime.toISOString(),
+            policy: JSON.stringify({type: type}),
             num_of_voters: num,
             start_time: stime,
             end_time: etime
@@ -155,14 +167,14 @@ export default function DashBoard() {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label>Vote Start Date</Form.Label>
-                                <Form.Control type="datetime-local" name="start time" value={timeToString(stime)} onChange={(e) => { setstime(e.target.value) }} />
+                                <Form.Control type="datetime-local" name="start time" value={timeToString(stime)} onChange={(e) => { setstime(new Date(e.target.value)) }} />
                                 <Form.Text className="text-muted">
                                     After vote start time, vote admin cannot change the setting
                                 </Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label>Vote End Date</Form.Label>
-                                <Form.Control type="datetime-local" name="end time" value={timeToString(etime)} onChange={(e) => { setetime(e.target.value) }} />
+                                <Form.Control type="datetime-local" name="end time" value={timeToString(etime)} onChange={(e) => { setetime(new Date(e.target.value)) }} />
                                 <Form.Text className="text-muted">
                                     After vote end time, vote admin can tally
                                 </Form.Text>

@@ -44,6 +44,11 @@ export default function Setting() {
         console.log(ww)
     }
 
+    function GetDateTime(start_time){
+        let t = (new Date((start_time)))
+        return t.toLocaleString()
+    }
+
     return (
         <Layout>
             <Header />
@@ -67,11 +72,14 @@ export default function Setting() {
                                     {vote.title}
                                 </span></h1>
                                 <Row>
-                                    <Col><p>start time: </p></Col>
-                                    <Col><p>end time: </p></Col>
+                                    <Col><p>start: {GetDateTime(vote.start_time)}</p></Col>
+                                    <Col><p>end: {GetDateTime(vote.start_time)}</p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p>status: {vote.voting_status}</p></Col>
+                                    <Col><p>vote status: {vote.voting_status}</p></Col>
+                                    <Col><p>voter status: {vote.registration_status}</p></Col>
+                                </Row>
+                                <Row>
                                     <Col><p>number of voters: {vote.num_of_voters}</p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
