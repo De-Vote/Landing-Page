@@ -27,15 +27,15 @@ export default function NewHeader(props) {
             <Navbar.Toggle />
             <Navbar.Collapse>
               <Nav className="ml-auto">
-                <NavItem className="nav-link" style={{ marginRight: "3%"}}>
+                <NavItem className="nav-link" style={{ marginRight: "1%"}}>
                   <Link href="/#" as={`/#`}>
                     {(locale=="zh_hant")?"主頁":"Home"}
                   </Link>
                 </NavItem>
-                <NavItem className="nav-link" style={{ marginRight: "3%" }}>
+                <NavItem className="nav-link" style={{ marginRight: "1%" }}>
                   <Link href="/#feature" as={`/#feature`}>{(locale=="zh_hant")?"特色":"Feature"}</Link>
                 </NavItem>
-                <NavItem className="nav-link" style={{ marginRight: "3%" }}>
+                <NavItem className="nav-link" style={{ marginRight: "1%" }}>
                   <Link href="/#about" as={`/#about`}>{(locale=="zh_hant")?"關於":"About"}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "3%" }}>
