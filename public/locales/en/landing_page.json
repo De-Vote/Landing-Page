@@ -12,7 +12,7 @@
         {
             "title":"Google Analytics ",
             "type": "string",
-            "content":"When someone visits Devote we use a third party service, GoogleAnalytics, to collect standard internet log information and detailsof visitor behavior patterns. We do this to track things such as the number of visitors to the various parts of the site and interactionswith the site. This information is processed in a way which does notidentify anyone. We do not make, and do not allow Google to make, anyattempt to find out the identities of visitors to our website."
+            "content":"When someone visits De.Vote we use a third party service, Google Analytics, to collect standard internet log information and detailsof visitor behavior patterns. We do this to track things such as the number of visitors to the various parts of the site and interactionswith the site. This information is processed in a way which does notidentify anyone. We do not make, and do not allow Google to make, anyattempt to find out the identities of visitors to our website."
         },
         {
             "title":"Website Comments",
