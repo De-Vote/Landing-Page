@@ -1,38 +1,38 @@
 {
     "hero":{
         "title":["A Decentralized-Voting System for a Better World"],
-        "description":"A blockchain-based decentralized-voting system with patented TrustZone-backed trusted computing technology"
+        "description": "A blockchain-based decentralized-voting system with patented TrustZone-backed trusted computing technology"
     },
     "feature":[
         {
             "id":1,
             "img":"/privacy.png",
             "title":"Privacy",
-            "desc":"Your Vote and De.Vote services are designed from the ground up to protect your privacy. We work hard to make your vote and personal data untrackable and make your voting experience better. "
+            "desc": "Your Vote and De.Vote services are designed from the ground up to protect your privacy. We work hard to make your vote and personal data untrackable and make your voting experience better. "
         },
         {
             "id":2,
             "img":"/justice.png",
             "title":"Justice",
-            "desc":"We only focusing on presenting the accurate election results and making your voting process become perfect, and won't participate or record your voting content."
+            "desc": "We only focus on presenting the accurate election results and making your voting process become perfect, and won't participate or record your voting content."
         },
         {
             "id":3,
             "img":"/verify.png",
             "title":"Verifiable",
-            "desc":"If anyone using De.Vote system and want to verify the vote, we have the verify process to make satisfy everyone"
+            "desc": "If anyone using De.Vote system and want to verify the vote, we have the verification process to satisfy everyone"
         }
     ],
     "about":{
         "intro":"De.Vote is a nonpartisan organization led by National Tsing Hua University Professor Ren-Song Tsay from Logos Lab.",
-        "left":"The Most Trusted Provider of Secure and Anonymous Voting Solutions.",
+        "left": "The Most Trusted Provider of Secure and Anonymous Voting Solutions.",
         "middle":{
             "title":"Our Team",
-            "content":"We are a team of information security experts, blockchain researchers and experienced product designers from National Tsing Hua University."
+            "content": "We are a team of information security experts, blockchain researchers, and experienced product designers from National Tsing Hua University."
         },
         "right":{
             "title":"Our Goal",
-            "content":"Making every voting and election trustworthy, highly efficient and secured with De.Vote system"
+            "content": "Making every voting and election trustworthy, highly efficient, and secured with De.Vote system"
         },
         "members":{
             "row1":[
