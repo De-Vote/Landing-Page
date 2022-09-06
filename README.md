@@ -3,6 +3,24 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Landing page 
 https://github.com/easywebsify/next-landing-page
 
+## 分工
+### DEADLINE 9/12
+* 邀請碼領票系統: 蘇子軒
+   * api:加一個產生隨機邀請碼、邀請碼隨機對上假帳號
+* progress bar:
+    * frontend: borhan lee
+* policy: 
+    * spec & requirement: 蘇子軒
+### DEADLINE 9/19
+* log table:
+    * api: 蘇子軒
+    * frontend: 彭湘婷 or borhan lee
+* policy: 
+    * implement: 李冠學
+* frontend role修正(晚一點)
+    * 新增query 選民可以參與的投票api: 蘇子軒
+    * frontend bugfix: 蘇子軒
+
 ## Getting Started
 
 First, run the development server:
