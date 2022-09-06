@@ -1,38 +1,38 @@
 {
     "hero":{
-        "title":["A Decentralized-Voting system for a better world"],
+        "title":["A Decentralized-Voting System for a Better World"],
         "description":"A blockchain-based decentralized-voting system with patented TrustZone-backed trusted computing technology"
     },
     "feature":[
         {
             "id":1,
             "img":"/privacy.png",
-            "title":"Private",
-            "desc":"No one knows how you vote."
+            "title":"Privacy",
+            "desc":"Your Vote and De.Vote services are designed from the ground up to protect your privacy. We work hard to make your vote and personal data untrackable and make your voting experience better. "
         },
         {
             "id":2,
             "img":"/justice.png",
             "title":"Justice",
-            "desc":"Only decrypt the election results, do not participate in the voting content."
+            "desc":"We only focusing on presenting the accurate election results and making your voting process become perfect, and won't participate or record your voting content."
         },
         {
             "id":3,
             "img":"/verify.png",
             "title":"Verifiable",
-            "desc":"Provide all user verification services."
+            "desc":"If anyone using De.Vote system and want to verify the vote, we have the verify process to make satisfy everyone"
         }
     ],
     "about":{
-        "intro":"De.Vote is a nonpartisan organization led by Professor Ren-Song Tsay from Logos Lab.",
-        "left":"The most trusted provider of secure and anonymous voting solutions.",
+        "intro":"De.Vote is a nonpartisan organization led by National Tsing Hua University Professor Ren-Song Tsay from Logos Lab.",
+        "left":"The Most Trusted Provider of Secure and Anonymous Voting Solutions.",
         "middle":{
             "title":"Our Team",
             "content":"We are a team of information security experts, blockchain researchers and experienced product designers from National Tsing Hua University."
         },
         "right":{
             "title":"Our Goal",
-            "content":"We focus on the people behind every secure vote. Security is easy to achieve if it is human-centred."
+            "content":"Making every voting and election trustworthy, highly efficient and secured with De.Vote system"
         },
         "members":{
             "row1":[
@@ -44,7 +44,7 @@
             "row2":[
                 {"name":"Tzu Hsuan Su / CTO","role":"Good at blockchain project development, scalable system architecture design","specialty":"Expertise: large-scale system design, blockchain technology development","mail":"cto@devote.tw","src":"/images/su.png"},
                 {"name":"Hsiang Ting Peng / CMO","role":"Rich data analysis and integration capabilities","specialty":"Expertise: information security information collection and analysis, project management","mail":"cmo@devote.tw","src":"/images/pon.png"},
-                {"name":"Bor Han Lee / Developer","role":"Used TrustZone to develop hardware wallets, familiar with blockchain applications","specialty":"Expertise: Program Development, TrustZone Security Chip Development","mail":"borhan@devote.tw","src":"/images/borhan.png"}
+                {"name":"Borhan Lee / Developer","role":"Experiecne in developing bitcoin hardware wallets based on TrustZone, familiar with blockchain and security issues","specialty":"Expertise: Program Development, TrustZone Security Chip Development","mail":"borhanlee@devote.tw","src":"/images/borhan.JPG"}
             ]
         }
     }
