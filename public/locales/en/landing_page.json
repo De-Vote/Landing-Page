@@ -31,7 +31,7 @@
                 "title": "Devote is designed with built-in privacy features, we only collect the information needed to provide a safe and trustworthy election and never sell any user's personal information.",
                 "type":"string list",
                 "content":[
-                    "For establishing election administrators: As the establishment election administrator, you have the right to specify who can vote, when to start, when to stop, and when to announce results. You don't have any powers other than establishing a vote",
+                    "For establishing election administrators: As the establishment election administrator, you have the right to specify who can vote, when to start, when to stop, and when to announce results. You don't have any powers other than establishing a vote.",
                     "For voters: We use SSL to transfer data between your browser and our servers. Your vote is encrypted with an election key. Our servers will never see your vote. We also do not give any power to decrypt your vote, only the election results, not individual votes."
                 ]
             }

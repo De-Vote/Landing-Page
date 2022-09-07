@@ -11,7 +11,7 @@
         },
         {
             "title": "How do De.Vote make profit?",
-            "content": "First is Voting Infrastructure (IaaS), we can make profit from users' \"Subscription Fee\" and \"Tallying Fee\". Second is Voting Hardware Rental, which contains \"Hardware Voting Machine\" and \"Voting Smart Card\". Third is software and hardware maintainance from\"Virtual Voting Web Service\" and Customized System Design"
+            "content": "First is Voting Infrastructure (IaaS), we can make profit from users' \"Subscription Fee\" and \"Tallying Fee\". Second is Voting Hardware Rental, which contains \"Hardware Voting Machine\" and \"Voting Smart Card\". Third is software and hardware maintainance from\"Virtual Voting Web Service\" and Customized System Design."
         },
         {
             "title": "What makes De.Vote different/better than other voting systems?",
@@ -20,7 +20,7 @@
     
         {
             "title": "Should we start using De.Vote for public-office elections? Maybe ROC(Taiwan) President 2024?",
-            "content": "NO, Not yet, we haven't done this work yet, but this is our team's ultimate goal, so we'll keep moving forward to fullfill this dream. Stay tuned!  :)"
+            "content": "NO, Not yet, we haven't done this work yet, but this is our team's ultimate goal, so we'll keep moving forward to fullfill this dream. Stay tuned!!  :)"
         }
     ]
 }
