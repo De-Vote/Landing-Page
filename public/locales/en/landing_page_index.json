@@ -14,13 +14,13 @@
             "id":2,
             "img":"/justice.png",
             "title":"Justice",
-            "desc": "We only focus on presenting the accurate election results and making your voting process become perfect, and won't participate or record your voting content."
+            "desc": "We focusing on presenting the accurate election results and making your voting process become perfect, and won't participate or record your voting content."
         },
         {
             "id":3,
             "img":"/verify.png",
             "title":"Verifiable",
-            "desc": "If anyone using De.Vote system and want to verify the vote, we have the verification process to satisfy everyone"
+            "desc": "If anyone using De.Vote system and want to verify the vote, we have the verification process to satisfy everyone."
         }
     ],
     "about":{
