@@ -23,6 +23,7 @@ export default function Login() {
     async function init() {
         const { vote_id, role } = router.query
         setId(vote_id)
+        check_cookie(vote_id)
     }
 
     async function logIn(e) {
@@ -37,9 +38,7 @@ export default function Login() {
             // result = await votehelper.getOwnedVote(token)
             // if(result.ok)setOwnedVotes(result.data.data)
             toast("Log in successfully");
-            const { vote_id } = router.query
-            if (vote_id) router.push(`/voter?vote_id=${vote_id}`, `/voter?vote_id=${vote_id}`)
-            else router.push("/vote", `/vote`)
+            route_to_next_page(vote_id)
         }
         else {
             toast.error("The system is under alpha test.")
@@ -69,6 +68,17 @@ export default function Login() {
             toast.error("Oh no something wrong...")
         }
 
+    }
+
+    function check_cookie(voteId){
+        let u = Cookies.get("userinfo");
+        let token = Cookies.get("token")
+        if(u && token)route_to_next_page(voteId)
+    }
+
+    function route_to_next_page(voteId){
+        if (voteId) router.push(`/voter?vote_id=${voteId}`, `/voter?vote_id=${voteId}`)
+        else router.push("/vote", `/vote`)
     }
 
     return (

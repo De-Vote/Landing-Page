@@ -8,6 +8,7 @@ import VoteData from "../public/voteData.json"
 import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next';
 import SSRProvider from 'react-bootstrap/SSRProvider';
+import Cookies from 'js-cookie'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -22,6 +23,8 @@ function MyApp({ Component, pageProps }) {
   function logout(message) {
     setRole(null)
     setUser(null)
+    Cookies.remove('token')
+    Cookies.remove('userinfo')
     toast(message)
     router.push("/")
   }

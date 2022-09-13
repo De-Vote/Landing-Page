@@ -107,7 +107,8 @@ export default function DashBoard() {
 
     function timeToString(Dateinput) {
         try {
-            let str = Dateinput.toISOString();
+            let str =  (new Date(Dateinput.getTime()-Dateinput.getTimezoneOffset()*60*1000)).toISOString()
+            // let str = Dateinput.toISOString();
             return str.slice(0, -1)
         } catch (e) {
             return null

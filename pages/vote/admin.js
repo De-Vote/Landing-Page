@@ -12,22 +12,18 @@ import Cookies from 'js-cookie'
 
 export default function Admin() {
     const { backToHome } = useContext(AppContext);
-    const [votes, setVote] = useState([])
+    const [votes, setVote] = useState([]) // owned vote
+    const [invited_votes, setInVote] = useState([]) // invited vote
+
     useEffect(() => {
         init()
     }, [])
 
     async function init() {
-        const requestOptions = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        };
         const token = Cookies.get('token');
-        let result = await votehelper.getOwnedVote(token)
-        console.log(result)
-        setVote(result.data)
+        let {data} = await votehelper.getOwnedVote(token)
+        setVote(data.owned)
+        setInVote(data.invited)
     }
 
     return (
@@ -60,7 +56,7 @@ export default function Admin() {
                             let detail = vote.data.attributes
                             return (
                                 <tr key={index}>
-                                    <td>{detail.id}</td>
+                                    <td>{index+1}</td>
                                     <td>{detail.title}</td>
                                     <td>{detail.voting_status}</td>
                                     <td>{detail.num_of_voters}</td>
@@ -70,6 +66,38 @@ export default function Admin() {
                         })}
                     </tbody>
                 </Table>
+                <div>
+                    
+                    {(invited_votes.length > 0)?
+                    <>
+                    <h2 style={{ float: "left" }}>Invited</h2>
+                    <Table striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Vote</th>
+                            <th>Status</th>
+                            <th>number of voter</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {invited_votes.map((vote, index)=>{
+                            let detail = vote.data.attributes
+                            return (
+                                <tr key={index}>
+                                    <td>{index+1}</td>
+                                    <td>{detail.title}</td>
+                                    <td>{detail.voting_status}</td>
+                                    <td>{detail.num_of_voters}</td>
+                                    <td><Button><a href={`../voter?vote_id=${detail.id}`} target="_blank">go to vote</a></Button></td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </Table>
+                </>:<></>}
+                </div>
             </Container>
             {/* </section> */}
             <Footer />

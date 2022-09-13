@@ -46,7 +46,8 @@ export default function VoteIndex() {
 
     function GetDateTime(start_time){
         let t = (new Date((start_time)))
-        return (new Date(t.getTime()+t.getTimezoneOffset()*60*1000)).toLocaleString()
+        // return (new Date(t.getTime()+t.getTimezoneOffset()*60*1000)).toLocaleString()
+        return t.toLocaleString()
     }
 
     return (

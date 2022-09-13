@@ -18,7 +18,7 @@ https://github.com/easywebsify/next-landing-page
 * policy: 
     - [ ] implement: 李冠學
 * frontend role修正(晚一點)
-    - [ ] 新增query 選民可以參與的投票api: 蘇子軒
+    - [X] 新增query 選民可以參與的投票api: 蘇子軒
     - [ ] frontend bugfix: 蘇子軒
 
 ## Getting Started
