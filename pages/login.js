@@ -37,9 +37,9 @@ export default function Login() {
             // result = await votehelper.getOwnedVote(token)
             // if(result.ok)setOwnedVotes(result.data.data)
             toast("Log in successfully");
-            const { vote_id, role } = router.query
-            if (role == "admin") router.push("/vote", `/vote`)
-            if (role == "voter") router.push(`/voter?vote_id=${vote_id}`, `/voter?vote_id=${vote_id}`)
+            const { vote_id } = router.query
+            if (vote_id) router.push(`/voter?vote_id=${vote_id}`, `/voter?vote_id=${vote_id}`)
+            else router.push("/vote", `/vote`)
         }
         else {
             toast.error("The system is under alpha test.")

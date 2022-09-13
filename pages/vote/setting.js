@@ -12,7 +12,6 @@ import VoterList from '../../components/Vote/voterList';
 import votehelper from '../../lib/vote'
 import tallyhelper from '../../lib/tally'
 import Cookies from 'js-cookie'
-import { propTypes } from 'react-bootstrap/esm/Image';
 import ResultModal from '../../components/Vote/tallyResultModal';
 
 export default function Setting() {
@@ -83,7 +82,10 @@ export default function Setting() {
                                 </Row>
                                 <Row>
                                     <Col><p>number of voters: {vote.num_of_voters}</p></Col>
+                                </Row>
+                                <Row>
                                     <Col><p><a href={`../login?role=voter&vote_id=${vote_id}`} target="_blank">voter url</a></p></Col>
+                                    <Col><p><a href={`${process.env.INVITATION_URL}/?vote_id=${vote_id}`} target="_blank">invitation url</a></p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
                             </div>

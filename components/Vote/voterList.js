@@ -30,11 +30,10 @@ function VoterList(props) {
   async function RegisterVoter(){
     const token = Cookies.get('token');
     let result = await authhelper.createVoterAccount(token , props.metaData.id)
-    let rows = [["account", "password"]]
+    let rows = ["invitation code"]
     rows = rows.concat(result.data.data)
-    console.log(result.data.data)
     let csvContent = "data:text/csv;charset=utf-8," 
-    + rows.map(e => e.join(",")).join("\n");
+    + rows.map(e => e).join("\n");
     console.log(csvContent)
     var encodedUri = encodeURI(csvContent);
     var link = document.createElement("a");
@@ -66,7 +65,7 @@ function VoterList(props) {
             <input onChange={handleFileDetails} ref={inputRef} className="d-none" type="file" />
             <Button onClick={handleUpload} style={{ padding: 10 }} variant={(uploadFileResult) ? "success" : "primary"} >{(uploadFileResult) ? '上傳成功' : '上傳檔案'}</Button>
           </>} */}
-            <Button onClick={RegisterVoter}>Generate voter</Button>
+            <Button onClick={RegisterVoter}>Generate invite code</Button>
         </Modal.Footer>
       </Modal>
     </Fragment>
