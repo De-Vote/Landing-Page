@@ -38,7 +38,6 @@ export default function DashBoard() {
                     </Row>
                     <Row className="align-items-center">
                         <Col lg={5}>
-                            {/* <div className="pr-lg-5"> */}
                                 <div className={styles.grid}>
                                     <Link href="/vote/meta?action=create" as={`/vote/meta?action=create`}>
                                         <a className={styles.card}>
@@ -50,18 +49,12 @@ export default function DashBoard() {
                                             <h2>Votes &rarr;</h2>
                                         </a>
                                     </Link>
-                                    {/* <Link href="/register" as={"/Vote_Frontend/register"}> */}
                                         <a className={styles.card} onClick={(e)=>{e.preventDefault();logout("Log out successfully")}}>
                                             <h2>Logout &rarr;</h2>
                                         </a>
-                                    {/* </Link> */}
                                 </div>
-                            {/* </div> */}
                         </Col>
                         <Col lg={7}>
-                            {/* <div className="mt-5 mt-lg-0">
-                                <img src={`/devotelogo.png`} alt="" className="img-fluid mx-auto d-block" />
-                            </div> */}
                             <div className={styles.grid}>
                                 <div className={styles.card} style={{width: "100%", maxWidth:"100%", height:"17vh"}}>
                                     <h2>Recent update votes (admin)</h2>

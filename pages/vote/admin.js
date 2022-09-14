@@ -9,6 +9,7 @@ import AppContext from '../../context/AppContext';
 import { toast } from 'react-toastify';
 import votehelper from '../../lib/vote'
 import Cookies from 'js-cookie'
+import VoteTable from '../../components/Vote/VoteTable';
 
 export default function Admin() {
     const { backToHome } = useContext(AppContext);
@@ -31,7 +32,6 @@ export default function Admin() {
             <Header />
             {/* <section className="section position-relative"> */}
             <Container>
-
                 <div>
                     <h2 style={{ float: "left" }}>Administration</h2>
                     <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToHome() }}>
@@ -41,61 +41,12 @@ export default function Admin() {
                 <br />
                 <br />
                 <br />
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Vote</th>
-                            <th>Status</th>
-                            <th>number of voter</th>
-                            <th>action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {votes.map((vote, index)=>{
-                            let detail = vote.data.attributes
-                            return (
-                                <tr key={index}>
-                                    <td>{index+1}</td>
-                                    <td>{detail.title}</td>
-                                    <td>{detail.voting_status}</td>
-                                    <td>{detail.num_of_voters}</td>
-                                    <td><Button><Link href={{pathname:`/vote/setting`, query:{vote_id: detail.id}}} as={`/vote/setting?vote_id=${detail.id}`}>setting</Link></Button></td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </Table>
+                <VoteTable votes={votes} url={"/vote/setting?vote_id="} buttonName={"setting"}/>
                 <div>
-                    
                     {(invited_votes.length > 0)?
                     <>
                     <h2 style={{ float: "left" }}>Invited</h2>
-                    <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Vote</th>
-                            <th>Status</th>
-                            <th>number of voter</th>
-                            <th>action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {invited_votes.map((vote, index)=>{
-                            let detail = vote.data.attributes
-                            return (
-                                <tr key={index}>
-                                    <td>{index+1}</td>
-                                    <td>{detail.title}</td>
-                                    <td>{detail.voting_status}</td>
-                                    <td>{detail.num_of_voters}</td>
-                                    <td><Button><a href={`../voter?vote_id=${detail.id}`} target="_blank">go to vote</a></Button></td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </Table>
+                    <VoteTable votes={invited_votes} url={"../voter?vote_id="} buttonName={"go to vote"}/>
                 </>:<></>}
                 </div>
             </Container>

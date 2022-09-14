@@ -13,6 +13,7 @@ import votehelper from '../../lib/vote'
 import tallyhelper from '../../lib/tally'
 import Cookies from 'js-cookie'
 import ResultModal from '../../components/Vote/tallyResultModal';
+import LogTable from '../../components/Vote/LogTable';
 
 export default function Setting() {
     const router = useRouter()
@@ -20,6 +21,7 @@ export default function Setting() {
     const [vote, setVote] = useState(null)
     const [vote_id, setId] = useState(null)
     const [show, setShow] = useState(false)
+    const [logs, setLogs] = useState(null)
 
     useEffect(() => {
         if (!router.isReady) return;
@@ -33,10 +35,10 @@ export default function Setting() {
         let result = await votehelper.getOneVote(token,vote_id)
         console.log(result.data.data)
         setVote(result.data.data.attributes)
+        setLogs(result.data.logs)
     }
 
     async function go_tally(){
-        // toast.error("has not implement yet")
         const { vote_id } = router.query
         const token = Cookies.get('token');
         await tallyhelper.Tally(token, vote_id)
@@ -54,7 +56,6 @@ export default function Setting() {
     return (
         <Layout>
             <Header />
-            {/* <section className="section position-relative"> */}
             <Container>
             <VoterList role={"admin"} show={show} setShow={setShow} metaData={vote} init={init}/>
                 <div>
@@ -63,10 +64,8 @@ export default function Setting() {
                         &larr;Back to home
                     </Button>
                 </div>
-                <br />
-                <br />
-                <br />
-                {vote && vote_id &&
+                <br /><br /><br />
+                {vote && vote_id && <>
                     <Row>
                         <Col lg={6}>
                             <div className="pr-lg-5">
@@ -94,27 +93,22 @@ export default function Setting() {
                         <Col lg={6}>
                             <div className={styles.grid}>
                                 <Link href={`/vote/meta?action=edit&vote_id=${vote_id}`} as={`/vote/meta?action=edit&vote_id=${vote_id}`}>
-                                    <a className={styles.card} style={{ width: "40%" }}>
-                                        <h2>Edit vote</h2>
-                                    </a>
+                                    <a className={styles.card} style={{ width: "40%" }}><h2>Edit vote</h2></a>
                                 </Link>
                                 <Link href={{pathname:`/vote/question`, query:{vote_id: vote_id}}} as={`/vote/question?vote_id=${vote_id}`}>
-                                    <a className={styles.card} style={{ width: "40%" }}>
-                                        <h2>Edit Question</h2>
-                                    </a>
+                                    <a className={styles.card} style={{ width: "40%" }}><h2>Edit Question</h2></a>
                                 </Link>
                                 <a className={styles.card} style={{ width: "40%" }} onClick={() => { setShow(!show) }}>
                                     <h2>Edit voters</h2>
                                 </a>
-                                {/* <a className={styles.card} style={{ width: "40%" }} onClick={() => { go_tally()}}> */}
-                                    <ResultModal vote_id={vote_id} className={styles.card} style={{width: "40%"}} vote={vote} tally={go_tally} role={"admin"}/>
-                                {/* </a> */}
+                                <ResultModal vote_id={vote_id} className={styles.card} style={{width: "40%"}} vote={vote} tally={go_tally} role={"admin"}/>
                             </div>
                         </Col>
                     </Row>
+                    </>
                 }
+                <LogTable logs={logs}/>
             </Container>
-            {/* </section> */}
             <Footer />
         </Layout>
     )

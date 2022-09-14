@@ -12,6 +12,7 @@ import VoterList from '../../components/Vote/voterList';
 import Cookies from 'js-cookie'
 import votehelper from '../../lib/vote'
 import ResultModal from '../../components/Vote/tallyResultModal';
+import LogTable from '../../components/Vote/LogTable';
 
 export default function VoteIndex() {
     const router = useRouter()
@@ -19,6 +20,7 @@ export default function VoteIndex() {
     const [vote, setVote] = useState(null)
     const [vote_id, setId] = useState(null)
     const [show, setShow] = useState(false)
+    const [logs, setLogs] = useState(null)
 
     useEffect(() => {
         if (!router.isReady) return;
@@ -38,6 +40,7 @@ export default function VoteIndex() {
         let result = await votehelper.getOneVote(token,vote_id)
         console.log(result.data.data)
         setVote(result.data.data.attributes)
+        setLogs(result.data.logs)
     }
 
     async function go_tally(){
@@ -53,7 +56,6 @@ export default function VoteIndex() {
     return (
         <Layout>
             <Header />
-            {/* <section className="section position-relative"> */}
             <Container>
             <VoterList role={"admin"} show={show} setShow={setShow} />
                 <div>
@@ -95,8 +97,8 @@ export default function VoteIndex() {
                         </Col>
                     </Row>
                 }
+                <LogTable logs={logs}/>
             </Container>
-            {/* </section> */}
             <Footer />
         </Layout>
     )

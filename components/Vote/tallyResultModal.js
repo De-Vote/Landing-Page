@@ -15,8 +15,8 @@ export default function ResultModal(props) {
 
     useEffect(() => {
         if (!router.isReady) return;
-        init()
-    }, [router.isReady])
+        if(show)init()
+    }, [router.isReady, show])
 
     async function init(){
         const { vote_id } = router.query
