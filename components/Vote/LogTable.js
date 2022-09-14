@@ -11,6 +11,7 @@ return(<>    {
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>actor</th>
                     <th>action</th>
                     <th>time</th>
                 </tr>
@@ -21,6 +22,7 @@ return(<>    {
                     return (
                         <tr key={index}>
                             <td>{index+1}</td>
+                            <td>admin</td>
                             <td>{detail.event}</td>
                             <td>{detail.created_at}</td>
                         </tr>
