@@ -13,8 +13,8 @@ https://github.com/easywebsify/next-landing-page
    - [x] spec & requirement: 蘇子軒
 ### DEADLINE 9/19
 * log table:
-    - [ ] api: 蘇子軒
-    - [ ] frontend: 彭湘婷 or borhan lee
+    - [X] api: 蘇子軒
+    - [X] frontend: 蘇子軒
 * policy: 
     - [ ] implement: 李冠學
 * frontend role修正(晚一點)
