@@ -158,9 +158,6 @@ export default function Setting() {
                 <br /><br /><br />
                 <div className="container2">
                     <div className="progress2">
-                    <link 
-                        href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
-                        rel="stylesheet"  type='text/css'></link>
                         <div className="progress-track"></div>
                             <div id="step1" className={style1}>
                                 Step One
