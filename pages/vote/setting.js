@@ -54,12 +54,12 @@ export default function Setting() {
         const token = Cookies.get('token');
         await tallyhelper.Tally(token, vote_id)
         let result = await tallyhelper.getTallyResult(token, vote_id)
+        console.log(result)
         if(result.ok){
             toast.info("start tally")
         }else{
             toast.error(result.data.message)
         }
-        console.log(ww)
     }
 
     function GetDateTime(start_time){

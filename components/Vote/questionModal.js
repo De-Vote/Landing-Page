@@ -14,7 +14,7 @@ export default function QuestionModal(props) {
     const [text, SetText] = useState("")
 
     useEffect(() => { if(props.options)setOptions(props.options) }, [props.options])
-    useEffect(() => { SetText(props.detail.title); console.log(props.detail)}, [props.detail.title])
+    useEffect(() => { SetText(props.detail.title);}, [props.detail.title])
     useEffect(() => { 
         if(show && props.buttonName == 'add question'){
             setOptions([])
@@ -23,7 +23,6 @@ export default function QuestionModal(props) {
     }, [show])
 
     function optionSave(index, value) {
-        console.log(index, value)
         options[index] = value;
         setOptions(options)
     }
@@ -42,6 +41,7 @@ export default function QuestionModal(props) {
         }
         const token = Cookies.get('token');
         let result = await votehelper.SetVoteQuestion(token,props.vote_id, body)
+        console.log(result)
         if(result.ok){
             setShow(false)
             props.init()
@@ -60,6 +60,7 @@ export default function QuestionModal(props) {
         }
         const token = Cookies.get('token');
         let result = await votehelper.UpdateVoteQuestion(token,props.vote_id, body)
+        console.log(result)
         if(result.ok){
             setShow(false)
             props.init()
