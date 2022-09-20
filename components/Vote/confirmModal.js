@@ -42,7 +42,7 @@ export default function ConfirmModal(props) {
                 router.push(`/voter?vote_id=${props.vote_id}`,`/voter?vote_id=${props.vote_id}`)
             },1000)
         }else{
-            toast.error(result.data)
+            toast.error(result.data.message)
         }
     }
 

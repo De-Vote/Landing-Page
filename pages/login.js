@@ -41,7 +41,7 @@ export default function Login() {
             route_to_next_page(vote_id)
         }
         else {
-            toast.error("The system is under alpha test.")
+            toast.error("Log in fail")
         }
     }
 
@@ -62,7 +62,7 @@ export default function Login() {
             let result = await fetch('/api/account', requestOptions)
             let response = await result.json();
             console.log(response)
-            toast.info("The system is under alpha test, please contact support@devote.tw for a testing account.");
+            toast.info("create account successfully");
         } catch (e) {
             console.log(e.message)
             toast.error("Oh no something wrong...")

@@ -21,11 +21,17 @@ export default function VoteIndex() {
     const [vote_id, setId] = useState(null)
     const [show, setShow] = useState(false)
     const [logs, setLogs] = useState(null)
+    const [progessStyle, setStyles] = useState(Array(6).fill('progress-step'))
+    const steps = ['Set Vote Questions','generate invite code', 'Vote Started', 'Vote Ended', 'Tally Started', 'Tally Ended']
 
     useEffect(() => {
         if (!router.isReady) return;
         init()
     }, [router.isReady])
+
+    useEffect(()=>{
+        if(vote)checkProgess()
+    }, [vote])
 
     async function init() {
         const { vote_id } = router.query
@@ -38,9 +44,13 @@ export default function VoteIndex() {
         };
         const token = Cookies.get('token');
         let result = await votehelper.getOneVote(token,vote_id)
-        console.log(result.data.data)
-        setVote(result.data.data.attributes)
-        setLogs(result.data.logs)
+        if(result.ok){
+            setVote(result.data.data.attributes)
+            setLogs(result.data.logs)
+        }
+        else{
+            router.push('../login')
+        }
     }
 
     async function go_tally(){
@@ -51,6 +61,54 @@ export default function VoteIndex() {
         let t = (new Date((start_time)))
         // return (new Date(t.getTime()+t.getTimezoneOffset()*60*1000)).toLocaleString()
         return t.toLocaleString()
+    }
+
+    function checkProgess(){
+        if(!vote) return
+        let step = 0;
+        let now = new Date()
+        let start_time = new Date(vote.start_time)
+        let end_time = new Date(vote.end_time)
+        // Set Vote Questions
+        if(vote.num_of_questions > 0)step++
+        else return
+        // generate invite code
+        if(vote.registration_status === 'registered')step++
+        else{
+            setProgess(step)
+            return
+        }
+        // Vote Started
+        if(now > start_time)step++
+        else{
+            setProgess(step)
+            return
+        }
+        // Vote Ended
+        if(now > end_time)step++
+        else{
+            setProgess(step)
+            return
+        }
+        // Tally Started, Tally Ended
+        if(vote.voting_status === "Tally Ended"){
+            step+=2
+            setProgess(step)
+            return
+        }
+    }
+
+    async function setProgess(step){
+        console.log(step)
+        for(let i = 0; i < step; i++){
+            progessStyle[i] += " is-complete"
+            setStyles([...progessStyle])
+            await sleep(500)
+        }
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     return (
@@ -97,6 +155,14 @@ export default function VoteIndex() {
                         </Col>
                     </Row>
                 }
+                <br /><br />
+                <div className="container2">
+                    <div className="progress2">
+                        <div className="progress-track"></div>
+                            {progessStyle.map((s, i)=><div key={i} id={`step${i}`} className={s}>{steps[i]}</div>)}
+                    </div>
+                </div>
+                <br /><br />
                 <LogTable logs={logs}/>
             </Container>
             <Footer />

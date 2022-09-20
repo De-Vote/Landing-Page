@@ -66,14 +66,24 @@ export default function DashBoard() {
                 "voteurl": null
             }
             let result = await votehelper.SetOwnedVotes(token,data)
-            if(result.ok) toast("Create vote succesfully")
-            router.push('/vote/admin')
+            if(result.ok) {
+                toast("Create vote succesfully")
+                router.push('/vote/admin')
+            }
+            else{
+                toast.error(result.data.message)
+            }
         } else if (action == "edit") {
             const data = getFormData()
             let result = await votehelper.UpdateOneVote(token,vote_id,data)
             console.log(result)
-            if(result.ok) toast("Update vote succesfully")
-            router.push('/vote/admin')
+            if(result.ok) {
+                toast("Update vote succesfully")
+                router.push('/vote/admin')
+            }
+            else{
+                toast.error(result.data.message)
+            }
         }
         setTimeout(() => {
             setValidated(false);

@@ -23,17 +23,21 @@ export default function Setting() {
     const [show, setShow] = useState(false)
     const [logs, setLogs] = useState(null)
     const [step, setStep] = useState("step1")
-    const [style1, setStyle1] = useState("progress-step")
-    const [style2, setStyle2] = useState("progress-step")
-    const [style3, setStyle3] = useState("progress-step")
-    const [style4, setStyle4] = useState("progress-step")
-
-
+    // const [style1, setStyle1] = useState("progress-step is-complete")
+    // const [style2, setStyle2] = useState("progress-step")
+    // const [style3, setStyle3] = useState("progress-step")
+    // const [style4, setStyle4] = useState("progress-step")
+    const [progessStyle, setStyles] = useState(Array(6).fill('progress-step'))
+    const steps = ['Set Vote Questions','generate invite code', 'Vote Started', 'Vote Ended', 'Tally Started', 'Tally Ended']
 
     useEffect(() => {
         if (!router.isReady) return;
         init()
     }, [router.isReady])
+
+    useEffect(()=>{
+        if(vote)checkProgess()
+    }, [vote])
 
     async function init() {
         const { vote_id } = router.query
@@ -60,45 +64,93 @@ export default function Setting() {
         return t.toLocaleString()
     }
 
-    function next(){
-        console.log(step)
-        console.log(style1)
-        if (step === 'step1') {
-            setStyle1(remove(style1,"is-active") + " is-complete");
-            setStyle2(style2 +" is-active");
-            setStep("step2");
-        } else if (step === 'step2') {
-            setStyle2(remove(style2, "is-active")+ " is-complete");
-            setStyle3(style3 + " is-active");
-            setStep("step3");
-        } else if (step === 'step3') {
-            setStyle3(remove(style3, "is-active")+ " is-complete");
-            setStyle4(style4 + " is-active");
-            setStep("step4d")
-        } else if (step === 'step4d') {
-            setStyle4(remove(style4, "is-active") + " is-complete");
-            setStep("complete")
-    
-        } else if (step === 'complete') {
-            setStep("step1")
-            setStyle4(remove(style4,"is-complete"));
-            setStyle3(remove(style3,"is-complete"));
-            setStyle2(remove(style2,"is-complete"));
-            setStyle1(remove(style1,"is-complete") + " is-active");
+    function checkProgess(){
+        if(!vote) return
+        let step = 0;
+        let now = new Date()
+        let start_time = new Date(vote.start_time)
+        let end_time = new Date(vote.end_time)
+        // Set Vote Questions
+        if(vote.num_of_questions > 0)step++
+        else return
+        // generate invite code
+        if(vote.registration_status === 'registered')step++
+        else{
+            setProgess(step)
+            return
+        }
+        // Vote Started
+        if(now > start_time)step++
+        else{
+            setProgess(step)
+            return
+        }
+        // Vote Ended
+        if(now > end_time)step++
+        else{
+            setProgess(step)
+            return
+        }
+        // Tally Started, Tally Ended
+        if(vote.voting_status === "Tally Ended"){
+            step+=2
+            setProgess(step)
+            return
         }
     }
 
-    function remove(str, item){
-        let arr = str.split(' ')
-        console.log(arr)
-        console.log(item)
-        let index = arr.indexOf(item)
-        console.log(index)
-        if(index !== -1){
-            arr.splice(index, 1)
+    async function setProgess(step){
+        console.log(step)
+        for(let i = 0; i < step; i++){
+            progessStyle[i] += " is-complete"
+            setStyles([...progessStyle])
+            await sleep(500)
         }
-        return arr.join(' ')
     }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // function next(){
+    //     console.log(step)
+    //     console.log(style1)
+    //     if (step === 'step1') {
+    //         setStyle1(remove(style1,"is-active") + " is-complete");
+    //         setStyle2(style2 +" is-active");
+    //         setStep("step2");
+    //     } else if (step === 'step2') {
+    //         setStyle2(remove(style2, "is-active")+ " is-complete");
+    //         setStyle3(style3 + " is-active");
+    //         setStep("step3");
+    //     } else if (step === 'step3') {
+    //         setStyle3(remove(style3, "is-active")+ " is-complete");
+    //         setStyle4(style4 + " is-active");
+    //         setStep("step4d")
+    //     } else if (step === 'step4d') {
+    //         setStyle4(remove(style4, "is-active") + " is-complete");
+    //         setStep("complete")
+    
+    //     } else if (step === 'complete') {
+    //         setStep("step1")
+    //         setStyle4(remove(style4,"is-complete"));
+    //         setStyle3(remove(style3,"is-complete"));
+    //         setStyle2(remove(style2,"is-complete"));
+    //         setStyle1(remove(style1,"is-complete") + " is-active");
+    //     }
+    // }
+
+    // function remove(str, item){
+    //     let arr = str.split(' ')
+    //     console.log(arr)
+    //     console.log(item)
+    //     let index = arr.indexOf(item)
+    //     console.log(index)
+    //     if(index !== -1){
+    //         arr.splice(index, 1)
+    //     }
+    //     return arr.join(' ')
+    // }
 
     return (
         <Layout>
@@ -155,11 +207,12 @@ export default function Setting() {
                     </>
                 }
                 {/* <div></div> */}
-                <br /><br /><br />
+                <br /><br />
                 <div className="container2">
                     <div className="progress2">
                         <div className="progress-track"></div>
-                            <div id="step1" className={style1}>
+                            {progessStyle.map((s, i)=><div key={i} id={`step${i}`} className={s}>{steps[i]}</div>)}
+                            {/* <div id="step1" className={style1}>
                                 Step One
                             </div>
                             <div id="step2" className={style2}>
@@ -170,12 +223,12 @@ export default function Setting() {
                             </div>
                             <div id="step4" className={style4}>
                             Complete
-                            </div>
+                            </div> */}
                     </div>
 
-                <button onClick={()=>{next()}}>Next Step </button>
+                {/* <button onClick={()=>{next()}}>Next Step </button> */}
                 </div>
-                <br /><br /><br />
+                <br /><br />
                 <LogTable logs={logs}/>
             </Container>
             <Footer />
