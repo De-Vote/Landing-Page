@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next';
 import SSRProvider from 'react-bootstrap/SSRProvider';
 import Cookies from 'js-cookie'
+import '../styles/progressbar.css'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()

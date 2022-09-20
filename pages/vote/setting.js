@@ -22,6 +22,13 @@ export default function Setting() {
     const [vote_id, setId] = useState(null)
     const [show, setShow] = useState(false)
     const [logs, setLogs] = useState(null)
+    const [step, setStep] = useState("step1")
+    const [style1, setStyle1] = useState("progress-step")
+    const [style2, setStyle2] = useState("progress-step")
+    const [style3, setStyle3] = useState("progress-step")
+    const [style4, setStyle4] = useState("progress-step")
+
+
 
     useEffect(() => {
         if (!router.isReady) return;
@@ -51,6 +58,46 @@ export default function Setting() {
         let t = (new Date((start_time)))
         // return (new Date(t.getTime()+t.getTimezoneOffset()*60*1000)).toLocaleString()
         return t.toLocaleString()
+    }
+
+    function next(){
+        console.log(step)
+        console.log(style1)
+        if (step === 'step1') {
+            setStyle1(remove(style1,"is-active") + " is-complete");
+            setStyle2(style2 +" is-active");
+            setStep("step2");
+        } else if (step === 'step2') {
+            setStyle2(remove(style2, "is-active")+ " is-complete");
+            setStyle3(style3 + " is-active");
+            setStep("step3");
+        } else if (step === 'step3') {
+            setStyle3(remove(style3, "is-active")+ " is-complete");
+            setStyle4(style4 + " is-active");
+            setStep("step4d")
+        } else if (step === 'step4d') {
+            setStyle4(remove(style4, "is-active") + " is-complete");
+            setStep("complete")
+    
+        } else if (step === 'complete') {
+            setStep("step1")
+            setStyle4(remove(style4,"is-complete"));
+            setStyle3(remove(style3,"is-complete"));
+            setStyle2(remove(style2,"is-complete"));
+            setStyle1(remove(style1,"is-complete") + " is-active");
+        }
+    }
+
+    function remove(str, item){
+        let arr = str.split(' ')
+        console.log(arr)
+        console.log(item)
+        let index = arr.indexOf(item)
+        console.log(index)
+        if(index !== -1){
+            arr.splice(index, 1)
+        }
+        return arr.join(' ')
     }
 
     return (
@@ -107,6 +154,31 @@ export default function Setting() {
                     </Row>
                     </>
                 }
+                {/* <div></div> */}
+                <br /><br /><br />
+                <div className="container2">
+                    <div className="progress2">
+                    <link 
+                        href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+                        rel="stylesheet"  type='text/css'></link>
+                        <div className="progress-track"></div>
+                            <div id="step1" className={style1}>
+                                Step One
+                            </div>
+                            <div id="step2" className={style2}>
+                                Step Two
+                            </div>
+                            <div id="step3" className={style3}>
+                                Step Three
+                            </div>
+                            <div id="step4" className={style4}>
+                            Complete
+                            </div>
+                    </div>
+
+                <button onClick={()=>{next()}}>Next Step </button>
+                </div>
+                <br /><br /><br />
                 <LogTable logs={logs}/>
             </Container>
             <Footer />
