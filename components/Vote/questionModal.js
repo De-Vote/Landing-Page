@@ -5,6 +5,7 @@ import VoterList from './voterList';
 import VotingItem from './votingItem';
 import votehelper from '../../lib/vote'
 import Cookies from 'js-cookie'
+import { toast } from 'react-toastify';
 
 export default function QuestionModal(props) {
     const [show, setShow] = useState(false)
@@ -40,9 +41,13 @@ export default function QuestionModal(props) {
             counts:JSON.stringify(Array(options.length).fill(0))
         }
         const token = Cookies.get('token');
-        await votehelper.SetVoteQuestion(token,props.vote_id, body)
-        setShow(false)
-        props.init()
+        let result = await votehelper.SetVoteQuestion(token,props.vote_id, body)
+        if(result.ok){
+            setShow(false)
+            props.init()
+        }else{
+            toast.error(result.data.message)
+        }
     }
 
     async function UpdateQuestion(){
@@ -54,9 +59,13 @@ export default function QuestionModal(props) {
             counts:JSON.stringify(Array(options.length).fill(0))
         }
         const token = Cookies.get('token');
-        await votehelper.UpdateVoteQuestion(token,props.vote_id, body)
-        setShow(false)
-        props.init()
+        let result = await votehelper.UpdateVoteQuestion(token,props.vote_id, body)
+        if(result.ok){
+            setShow(false)
+            props.init()
+        }else{
+            toast.error(result.data.message)
+        }
     }
 
     async function save(){
