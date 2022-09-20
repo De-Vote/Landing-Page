@@ -52,9 +52,7 @@ export default function Setting() {
     async function go_tally(){
         const { vote_id } = router.query
         const token = Cookies.get('token');
-        await tallyhelper.Tally(token, vote_id)
-        let result = await tallyhelper.getTallyResult(token, vote_id)
-        console.log(result)
+        let result = await tallyhelper.Tally(token, vote_id)
         if(result.ok){
             toast.info("start tally")
         }else{
