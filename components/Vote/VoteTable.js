@@ -21,7 +21,7 @@ export default function VoteTable({votes, url, buttonName}){
                         <td>{detail.title}</td>
                         <td>{detail.voting_status}</td>
                         <td>{detail.num_of_voters}</td>
-                        <td><Button><a href={`${url}${detail.id}`} target="_blank">{buttonName}</a></Button></td>
+                        <td><Button><a href={`${url}${detail.id}`} target="_blank" rel="noreferrer">{buttonName} </a></Button></td>
                     </tr>
                 )
             })}
