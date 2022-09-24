@@ -1,14 +1,14 @@
-import Layout from '../../components/Layout';
-import Header from '../../components/Header'
+import Layout from '../../../components/Layout';
+import Header from '../../../components/Header'
 import { useState, useContext, useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import styles from '../../styles/Home.module.css'
+import styles from '../../../styles/Home.module.css'
 import Link from 'next/link'
-import Footer from '../../components/Footer';
-import AppContext from '../../context/AppContext';
+import Footer from '../../../components/Footer';
+import AppContext from '../../../context/AppContext';
 import { useRouter } from 'next/router'
-import QuestionModal from '../../components/Vote/questionModal';
-import votehelper from '../../lib/vote'
+import QuestionModal from '../../../components/Vote/questionModal';
+import votehelper from '../../../lib/vote'
 import Cookies from 'js-cookie'
 export default function Question() {
     const router = useRouter()
@@ -30,7 +30,7 @@ export default function Question() {
     }
 
     function backToVote(){
-        router.push(`/vote/setting?vote_id=${vote_id}`, `/vote/setting?vote_id=${vote_id}`)
+        router.push(`/vote/${vote_id}/setting`)
     }
 
     return (

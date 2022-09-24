@@ -56,23 +56,23 @@ export default function DashBoard() {
                         </Col>
                         <Col lg={7}>
                             <div className={styles.grid}>
-                                <div className={styles.card} style={{width: "100%", maxWidth:"100%", height:"17vh"}}>
+                                <div className={styles.card} style={{width: "100%", maxWidth:"100%", height:"20vh"}}>
                                     <h2>Recent update votes (admin)</h2>
                                     {votes.length > 0 ? 
                                     <ul>
                                     {votes.map((vote, index)=>{
                                         let detail = vote.data.attributes
-                                        return (<li key={index}><Link href={`/vote/setting?vote_id=${detail.id}`}>{detail.title}</Link></li>)
+                                        return (<li key={index}><Link href={`/vote/${detail.id}/setting`}>{detail.title}</Link></li>)
                                     })}</ul>
                                     :<><div>no vote recently</div></>}
                                 </div>
-                                <div className={styles.card} style={{width: "100%", maxWidth:"100%", height:"17vh"}}>
+                                <div className={styles.card} style={{width: "100%", maxWidth:"100%", height:"20vh"}}>
                                     <h2>Recent end votes (voter)</h2>
                                     {invited_votes.length > 0 ? 
                                     <ul>
                                     {invited_votes.map((vote, index)=>{
                                         let detail = vote.data.attributes
-                                        return (<li key={index}><Link href={`../voter?vote_id=${detail.id}`}>{detail.title}</Link></li>)
+                                        return (<li key={index}><Link href={`../voter/${detail.id}/setting`}>{detail.title}</Link></li>)
                                     })}</ul>
                                     :<><div>no invited vote recently will end</div></>}
                                 </div>

@@ -1,18 +1,18 @@
-import Layout from '../../components/Layout';
-import Header from '../../components/Header'
+import Layout from '../../../components/Layout';
+import Header from '../../../components/Header'
 import { useState, useContext, useEffect } from 'react';
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
-import Footer from '../../components/Footer';
-import AppContext from '../../context/AppContext';
+import Footer from '../../../components/Footer';
+import AppContext from '../../../context/AppContext';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router'
-import styles from '../../styles/Home.module.css'
+import styles from '../../../styles/Home.module.css'
 import Link from 'next/link'
-import VoterList from '../../components/Vote/voterList';
+import VoterList from '../../../components/Vote/voterList';
 import Cookies from 'js-cookie'
-import votehelper from '../../lib/vote'
-import ResultModal from '../../components/Vote/tallyResultModal';
-import LogTable from '../../components/Vote/LogTable';
+import votehelper from '../../../lib/vote'
+import ResultModal from '../../../components/Vote/tallyResultModal';
+import LogTable from '../../../components/Vote/LogTable';
 
 export default function VoteIndex() {
     const router = useRouter()
@@ -145,7 +145,7 @@ export default function VoteIndex() {
                         </Col>
                         <Col lg={6} >
                             <div className={styles.grid} style={{justifyContent:"center", alignContent:"center"}}>
-                                <Link href={{pathname:`/voter/question`, query:{vote_id: vote_id}}} as={`/voter/question?vote_id=${vote_id}`}>
+                                <Link href={`/vote/${vote_id}/question`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
                                         <h2>Start Voting!</h2>
                                     </a>

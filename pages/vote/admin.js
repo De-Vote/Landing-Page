@@ -41,7 +41,7 @@ export default function Admin() {
                 <br />
                 <br />
                 <br />
-                <VoteTable votes={votes} url={"/vote/setting?vote_id="} buttonName={"setting"}/>
+                <VoteTable votes={votes} url={"/vote/setting/"} buttonName={"setting"}/>
                 <div>
                     {(invited_votes.length > 0)?
                     <>

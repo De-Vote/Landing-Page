@@ -1,14 +1,14 @@
-import Layout from '../../components/Layout';
-import Header from '../../components/Header'
+import Layout from '../../../components/Layout';
+import Header from '../../../components/Header'
 import { useState, useContext, useEffect } from 'react';
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useRouter } from 'next/router'
-import AppContext from '../../context/AppContext';
-import Footer from '../../components/Footer';
-import styles from '../../styles/Home.module.css'
-import ConfirmModal from '../../components/Vote/confirmModal';
+import AppContext from '../../../context/AppContext';
+import Footer from '../../../components/Footer';
+import styles from '../../../styles/Home.module.css'
+import ConfirmModal from '../../../components/Vote/confirmModal';
 import Cookies from 'js-cookie'
-import votehelper from '../../lib/vote'
+import votehelper from '../../../lib/vote'
 export default function QuestionVoter(){
     const router = useRouter()
     const { backToHome, user } = useContext(AppContext);
@@ -43,7 +43,7 @@ export default function QuestionVoter(){
     }
 
     function backToVote(){
-        router.push(`/voter?vote_id=${vote_id}`, `/voter?vote_id=${vote_id}`)
+        router.push(`/vote/${vote_id}/setting`)
     }
 
     function handleSelect(i, j){

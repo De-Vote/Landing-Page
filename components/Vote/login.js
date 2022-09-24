@@ -1,12 +1,11 @@
 import { useState, useContext, useEffect } from 'react';
-import AppContext from '../context/AppContext';
+import AppContext from '../../context/AppContext';
 import { Button, Form, Col, InputGroup, Row, FormControl, Container, Table } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify';
-import Layout from '../components/Layout';
-import Header from '../components/Header'
-import authhelper from '../lib/auth';
-import votehelper from '../lib/vote'
+import Layout from '../Layout';
+import Header from '../Header'
+import authhelper from '../../lib/auth';
 import Cookies from 'js-cookie'
 export default function Login() {
     const router = useRouter()
@@ -70,7 +69,7 @@ export default function Login() {
     }
 
     function route_to_next_page(voteId){
-        if (voteId) router.push(`/voter?vote_id=${voteId}`, `/voter?vote_id=${voteId}`)
+        if (voteId) router.push(`/voter/${voteId}`)
         else router.push("/vote", `/vote`)
     }
 

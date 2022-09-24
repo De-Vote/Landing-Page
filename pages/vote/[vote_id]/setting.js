@@ -1,19 +1,19 @@
-import Layout from '../../components/Layout';
-import Header from '../../components/Header'
+import Layout from '../../../components/Layout';
+import Header from '../../../components/Header'
 import { useState, useContext, useEffect } from 'react';
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
-import Footer from '../../components/Footer';
-import AppContext from '../../context/AppContext';
+import Footer from '../../../components/Footer';
+import AppContext from '../../../context/AppContext';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router'
-import styles from '../../styles/Home.module.css'
+import styles from '../../../styles/Home.module.css'
 import Link from 'next/link'
-import VoterList from '../../components/Vote/voterList';
-import votehelper from '../../lib/vote'
-import tallyhelper from '../../lib/tally'
+import VoterList from '../../../components/Vote/voterList';
+import votehelper from '../../../lib/vote'
+import tallyhelper from '../../../lib/tally'
 import Cookies from 'js-cookie'
-import ResultModal from '../../components/Vote/tallyResultModal';
-import LogTable from '../../components/Vote/LogTable';
+import ResultModal from '../../../components/Vote/tallyResultModal';
+import LogTable from '../../../components/Vote/LogTable';
 
 export default function Setting() {
     const router = useRouter()
@@ -185,7 +185,7 @@ export default function Setting() {
                                     <Col><p>number of voters: {vote.num_of_voters}</p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p><a href={`../login?role=voter&vote_id=${vote_id}`} rel="noreferrer" target="_blank">voter url</a></p></Col>
+                                    <Col><p><a href={`../login/${vote_id}`} rel="noreferrer" target="_blank">voter url</a></p></Col>
                                     <Col><p><a href={`${process.env.INVITATION_URL}/?vote_id=${vote_id}`} rel="noreferrer" target="_blank">invitation url</a></p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
@@ -193,10 +193,10 @@ export default function Setting() {
                         </Col>
                         <Col lg={6}>
                             <div className={styles.grid}>
-                                <Link href={`/vote/meta?action=edit&vote_id=${vote_id}`} as={`/vote/meta?action=edit&vote_id=${vote_id}`}>
+                                <Link href={`/vote/${vote_id}/meta?action=edit`}>
                                     <a className={styles.card} style={{ width: "40%" }}><h2>Edit vote</h2></a>
                                 </Link>
-                                <Link href={{pathname:`/vote/question`, query:{vote_id: vote_id}}} as={`/vote/question?vote_id=${vote_id}`}>
+                                <Link href={`/vote/${vote_id}/question`}>
                                     <a className={styles.card} style={{ width: "40%" }}><h2>Edit Question</h2></a>
                                 </Link>
                                 <a className={styles.card} style={{ width: "40%" }} onClick={() => { setShow(!show) }}>
