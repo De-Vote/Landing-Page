@@ -41,12 +41,12 @@ export default function Admin() {
                 <br />
                 <br />
                 <br />
-                <VoteTable votes={votes} url={"/vote/setting/"} buttonName={"setting"}/>
+                <VoteTable votes={votes} url={"/vote/"} urlEnd={'/setting'} buttonName={"setting"}/>
                 <div>
                     {(invited_votes.length > 0)?
                     <>
                     <h2 style={{ float: "left" }}>Invited</h2>
-                    <VoteTable votes={invited_votes} url={"../voter/"} buttonName={"go to vote"}/>
+                    <VoteTable votes={invited_votes} url={"../voter/"} urlEnd={''} buttonName={"go to vote"}/>
                 </>:<></>}
                 </div>
             </Container>
