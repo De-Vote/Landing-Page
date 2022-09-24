@@ -39,7 +39,7 @@ export default function ConfirmModal(props) {
             setShow(false)
             setTimeout(()=>{
                 toast.info("Thanks for voting!")
-                router.push(`/voter?vote_id=${props.vote_id}`,`/voter?vote_id=${props.vote_id}`)
+                router.push(`/voter/${props.vote_id}`)
             },1000)
         }else{
             toast.error(result.data.message)

@@ -46,7 +46,7 @@ export default function Admin() {
                     {(invited_votes.length > 0)?
                     <>
                     <h2 style={{ float: "left" }}>Invited</h2>
-                    <VoteTable votes={invited_votes} url={"../voter?vote_id="} buttonName={"go to vote"}/>
+                    <VoteTable votes={invited_votes} url={"../voter/"} buttonName={"go to vote"}/>
                 </>:<></>}
                 </div>
             </Container>
