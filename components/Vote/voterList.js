@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState, useRef } from "react";
-import { Table, Modal, Button } from "react-bootstrap";
+import { Table, Modal, Form, Button } from "react-bootstrap";
 import { toast } from 'react-toastify';
 import authhelper from '../../lib/auth'
 import Cookies from "js-cookie";
@@ -45,6 +45,10 @@ function VoterList(props) {
     props.init()
   }
 
+  async function EmailInvitationCode(){
+    
+  }
+
   function init() {
   }
   return (
@@ -57,6 +61,13 @@ function VoterList(props) {
         <Modal.Body>
          {props.metaData&&<div><strong>Register status:</strong> {props.metaData.registration_status}</div>}
          {props.metaData&&<div><strong>Number of voters:</strong> {props.metaData.num_of_voters}</div>}
+         <Form.Group className="mb-3">
+            <strong><Form.Label>Voter Emails</Form.Label></strong>
+            {/* <Form.Control type="text" value={3} onChange={(e) => { setTitle(e.target.value) }} placeholder="Enter the email of the voter" /> */}
+            {[...Array(5)].map((_, i) => {
+              return <Form.Control type="text" key={i} value={''} onChange={(e) => { setTitle(e.target.value) }} placeholder={"Enter the email of voter " + (i+1)} />;
+            })}
+          </Form.Group>
         </Modal.Body>
 
         <Modal.Footer>
@@ -65,7 +76,8 @@ function VoterList(props) {
             <input onChange={handleFileDetails} ref={inputRef} className="d-none" type="file" />
             <Button onClick={handleUpload} style={{ padding: 10 }} variant={(uploadFileResult) ? "success" : "primary"} >{(uploadFileResult) ? '上傳成功' : '上傳檔案'}</Button>
           </>} */}
-            <Button onClick={RegisterVoter}>Generate invite code</Button>
+            <Button onClick={EmailInvitationCode}>Send Invitation Code by Email</Button>
+            <Button onClick={RegisterVoter}>Download Invitation Code</Button>
         </Modal.Footer>
       </Modal>
     </Fragment>
