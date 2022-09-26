@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState, useRef } from "react";
-import { Table, Modal, Form, Button } from "react-bootstrap";
+import { Table, Modal, Form, Button, FormControl } from "react-bootstrap";
 import { toast } from 'react-toastify';
 import authhelper from '../../lib/auth'
 import Cookies from "js-cookie";
@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 function VoterList(props) {
   const [initial, setInit] = useState(false)
   const [voterList, setVoterList] = useState(null)
+  const [emailList, setEmailList] = useState(null)
   const inputRef = useRef(null);
   const [uploadFileResult, setResult] = useState(false);
 
@@ -46,7 +47,21 @@ function VoterList(props) {
   }
 
   async function EmailInvitationCode(){
-    
+    const token = Cookies.get('token');
+    let result = await authhelper.createVoterAccount(token , props.metaData.id);
+    let codes = result.data.data;
+    let components = document.getElementsByTagName("input");
+    let arr = [].slice.call(components);
+    let emails = arr.map(x => x.value);
+
+    console.log(emails)
+
+    let vote_url = `${process.env.INVITATION_URL}/?vote_id=${props.vote_id}`
+
+    codes.map((code, i) => {
+      let res = authhelper.emailInvitationCode(code, vote_url, emails[i]);
+      console.log(res);
+    }) 
   }
 
   function init() {
@@ -65,7 +80,7 @@ function VoterList(props) {
             <strong><Form.Label>Voter Emails</Form.Label></strong>
             {/* <Form.Control type="text" value={3} onChange={(e) => { setTitle(e.target.value) }} placeholder="Enter the email of the voter" /> */}
             {[...Array(5)].map((_, i) => {
-              return <Form.Control type="text" key={i} value={''} onChange={(e) => { setTitle(e.target.value) }} placeholder={"Enter the email of voter " + (i+1)} />;
+              return <FormControl type="text" key={i} defaultValue="" placeholder={"Enter the email of voter " + (i+1)} />;
             })}
           </Form.Group>
         </Modal.Body>

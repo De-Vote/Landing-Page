@@ -158,7 +158,7 @@ export default function Setting() {
         <Layout>
             <Header />
             <Container>
-            <VoterList role={"admin"} show={show} setShow={setShow} metaData={vote} init={init}/>
+            <VoterList role={"admin"} vote_id={vote_id} show={show} setShow={setShow} metaData={vote} init={init}/>
                 <div>
                     <h2 style={{ float: "left" }}>Vote setting</h2>
                     <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToHome() }}>
