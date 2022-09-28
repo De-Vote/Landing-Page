@@ -3,7 +3,7 @@ import { Table, Modal, Form, Button, FormControl } from "react-bootstrap";
 import { toast } from 'react-toastify';
 import authhelper from '../../lib/auth'
 import Cookies from "js-cookie";
-import { ReactMultiEmail, isEmail } from '../mail';
+import { ReactMultiEmailInput } from 'react-multi-email-input';
 
 function VoterList(props) {
   const [initial, setInit] = useState(false)
@@ -80,14 +80,10 @@ function VoterList(props) {
             {/* {[...Array(5)].map((_, i) => {
               return <FormControl type="text" key={i} defaultValue="" placeholder={"Enter the email of voter " + (i+1)} />;
             })} */}
-            <ReactMultiEmail
-              placeholder="placeholder"
-              emails={emailList}
-              onChange={(_emails) => { setEmailList(_emails)}}
-              validateEmail={email => { return isEmail(email);}}// return boolean
-              getLabel={(email,index,removeEmail,) => {
-                return ( <div data-tag key={index}>{email}<span data-tag-handle onClick={() => removeEmail(index)}>  x</span></div>);
-              }}
+            <ReactMultiEmailInput
+                placeholder="placeholder"
+                emails={emailList}
+                setEmails={setEmailList}
             />
           </Form.Group>
         </Modal.Body>
