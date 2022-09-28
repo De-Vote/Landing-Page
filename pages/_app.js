@@ -10,6 +10,7 @@ import { appWithTranslation } from 'next-i18next';
 import SSRProvider from 'react-bootstrap/SSRProvider';
 import Cookies from 'js-cookie'
 import '../styles/progressbar.css'
+import '../styles/multimail.css'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
