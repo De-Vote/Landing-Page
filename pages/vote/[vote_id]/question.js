@@ -33,6 +33,13 @@ export default function Question() {
         router.push(`/vote/${vote_id}/setting`)
     }
 
+    async function removeQuestion(id){
+        const data = {id}
+        const token = Cookies.get('token');
+        await votehelper.DeleteVoteQuestion(token, vote_id, data)
+        init()
+    }
+
     return (
         <Layout>
             <Header />
@@ -53,6 +60,7 @@ export default function Question() {
                     return <li key={index}>
                         {detail.title}
                         <QuestionModal vote_id={vote_id} variant='info' style={{marginLeft:"2%"}} buttonName={"update"} detail={detail} options={options} type={"update"} init={init}/>
+                        <Button variant='danger' onClick={()=>{removeQuestion(detail.id)}}>delete</Button>
                         <ol>
                             {options.map((option, i)=><li key={`options-${index}-${i}`}>{option}</li>)}
                         </ol>
