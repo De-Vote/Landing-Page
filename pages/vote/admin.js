@@ -27,6 +27,12 @@ export default function Admin() {
         setInVote(data.invited)
     }
 
+    async function DeleteVote(vote_id){
+        const token = Cookies.get('token');
+        await votehelper.DeleteOneVote(token, vote_id)
+        init()
+    }
+
     return (
         <Layout>
             <Header />
@@ -41,12 +47,12 @@ export default function Admin() {
                 <br />
                 <br />
                 <br />
-                <VoteTable votes={votes} url={"/vote/"} urlEnd={'/setting'} buttonName={"setting"}/>
+                <VoteTable votes={votes} url={"/vote/"} urlEnd={'/setting'} buttonName={"setting"} deleteapi={DeleteVote}/>
                 <div>
                     {(invited_votes.length > 0)?
                     <>
                     <h2 style={{ float: "left" }}>Invited</h2>
-                    <VoteTable votes={invited_votes} url={"../voter/"} urlEnd={''} buttonName={"go to vote"}/>
+                    <VoteTable votes={invited_votes} url={"../voter/"} urlEnd={''} buttonName={"go to vote"} deleteapi={()=>{}}/>
                 </>:<></>}
                 </div>
             </Container>

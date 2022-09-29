@@ -1,6 +1,6 @@
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 
-export default function VoteTable({votes, url,urlEnd, buttonName}){
+export default function VoteTable({votes, url,urlEnd, buttonName, deleteapi}){
     return (<>
     <Table striped bordered hover size="sm">
         <thead>
@@ -21,7 +21,10 @@ export default function VoteTable({votes, url,urlEnd, buttonName}){
                         <td>{detail.title}</td>
                         <td>{detail.voting_status}</td>
                         <td>{detail.num_of_voters}</td>
-                        <td><Button><a href={`${url}${detail.id}${urlEnd}`} target="_blank" rel="noreferrer">{buttonName} </a></Button></td>
+                        <td>
+                            <Button><a href={`${url}${detail.id}${urlEnd}`} target="_blank" rel="noreferrer">{buttonName} </a></Button> &nbsp;
+                            {buttonName === 'setting'? <Button variant="danger" onClick={()=>{deleteapi(detail.id)}}>delete</Button>:""}
+                        </td>
                     </tr>
                 )
             })}
