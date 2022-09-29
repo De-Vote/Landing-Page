@@ -32,6 +32,10 @@ export default function QuestionModal(props) {
         setOptions([...options])
     }
 
+    function removeOption(index) {
+        setOptions([...options.slice(0, index),...options.slice(index, -1) ])
+    }
+
     async function AddQuestion(){
         let body = {
             title:text,
@@ -94,7 +98,7 @@ export default function QuestionModal(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {options.map((option, index) => <VotingItem text={option} key={index} id={index} action={props.type} handleUpdate={optionSave} />)}
+                    {options.map((option, index) => <VotingItem text={option} key={index} id={index} action={props.type} handleUpdate={optionSave} handleRemove={removeOption} />)}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" style={{ float: 'left' }} onClick={() => { save() }}>

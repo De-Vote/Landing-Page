@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { FaPen, FaCheck, FaChevronRight } from 'react-icons/fa';
+import { FaTrash, FaCheck, FaChevronRight } from 'react-icons/fa';
 import { Button } from 'react-bootstrap'
 
 // import '../../styles/votingItem.module.css';
@@ -13,16 +13,8 @@ function VotingItem(props) {
       // SetText(props.text)
   },[props.text])
 
-  function edit() {
-    console.log("edit")
-    SetEditing(true)
-  }
-  function save() {
-    console.log('save')
-    SetEditing(false)
-    // should write value to DB or file
-    // status,qid,text,index
-    props.handleUpdate(props.id, text)
+  function remove(){
+    props.handleRemove(props.id)
   }
 
   return (
@@ -37,14 +29,9 @@ function VotingItem(props) {
             :
             <>{props.text}</>
         }
-
-        {/* {(props.action == 'update') ?
-          (!editing) ?
-            <><Button onClick={edit} width="sm" style={{ padding: 0, float: "right", backgroundColor: 'transparent', border: 'none' }}><FaPen /></Button></>
-            :
-            <><Button onClick={save} width="sm" style={{ padding: 0, float: "right", backgroundColor: 'transparent', border: 'none' }}><FaCheck /></Button></>
-          :
-          <></>} */}
+        {(props.action == 'update') ?
+          <><Button onClick={remove} width="sm" style={{ padding: 0, float: "right", backgroundColor: 'transparent', border: 'none' }}><FaTrash /></Button></>
+        :<></>}
       </label>
     </div>
   );
