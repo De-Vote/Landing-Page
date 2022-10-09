@@ -21,7 +21,8 @@ export default function NewHeader(props) {
       {/* <div className={`header`}> */}
         <Navbar bg="light" expand="md" sticky="top">
           <Container>
-            <Navbar.Brand>
+            <img alt="" src="favicon-192.png" width="30" height="30" className="d-inline-block align-top"/>{'    '}
+            <Navbar.Brand className="logo-text">
               De.Vote
             </Navbar.Brand>
             <Navbar.Toggle />

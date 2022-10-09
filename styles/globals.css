@@ -24,3 +24,15 @@ a {
 html {
   scroll-behavior: smooth;
 }
+
+@font-face {
+  font-family: "Obrazec";   /*Can be any text*/
+  src: local("Obrazec"),
+    url("../public/fonts/Obrazec.woff") format("woff");
+}
+
+.logo-text{
+  font-family: "Obrazec";
+  font-size: 2.0em;
+  color: #5EA037 !important;
+}
