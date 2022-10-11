@@ -33,7 +33,7 @@ const FeatureBox = (props) => {
                   <div className="my-4">
                     <i className={feature.icon}></i>
                   </div>
-                  <h5 className="text-dark font-weight-normal mb-3 pt-3">{feature.title}</h5>
+                  <h5 className="text-dark font-weight-bold mb-3 pt-3">{feature.title}</h5>
                   <p className="text-muted mb-3 f-15">{feature.desc}</p>
                   {/* <a href={feature.link} className="f-16 text-warning">Read More <span className="right-icon ml-2">&#8594;</span></a> */}
                 </div>
@@ -46,7 +46,7 @@ const FeatureBox = (props) => {
                   <div className="my-4">
                     <i className="mdi mdi-account-group"></i>
                   </div>
-                  <h5 className="text-dark font-weight-normal mb-3 pt-3">{feature.title}</h5>
+                  <h5 className="text-dark font-weight-bold mb-3 pt-3">{feature.title}</h5>
                   <p className="text-muted mb-3 f-15">{feature.desc}</p>
                   {/* <a href={feature.link} className="f-16 text-warning">Read More <span className="right-icon ml-2">&#8594;</span></a> */}
                 </div>
@@ -71,7 +71,7 @@ const Feature = ({ content }) => {
         <Row className="justify-content-center">
           <Col lg={6} md={8}>
             <div className="title text-center mb-5">
-              <h3 className="font-weight-normal text-dark"><span className="text-warning">Features</span></h3>
+              <h3 className="font-weight-bold ubuntu text-dark"><span className="text-warning">Features</span></h3>
               {/* <p className="text-muted"></p> */}
             </div>
           </Col>

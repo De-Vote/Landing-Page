@@ -11,7 +11,7 @@ const About = ({ content }) => {
           <Row className="justify-content-center">
             <Col lg={10} md={10}>
               <div className="title text-center mb-5">
-                <h3 className="font-weight-normal text-dark">About <span className="text-warning">Us</span></h3>
+                <h3 className="font-weight-bold ubuntu text-dark">About <span className="text-warning">Us</span></h3>
                 <p className="text-muted">{content.intro}</p>
               </div>
             </Col>
@@ -35,6 +35,7 @@ const About = ({ content }) => {
           </Row>
         </Container>
       </section>
+      <br/>
       <section >
         <Container>
           <Row >

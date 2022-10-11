@@ -6,6 +6,10 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.ubuntu {
+  font-family: Ubuntu
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -35,4 +39,8 @@ html {
   font-family: "Obrazec";
   font-size: 2.0em;
   color: #5EA037 !important;
+}
+
+.text-warning{
+  color: #5f964c !important;
 }
