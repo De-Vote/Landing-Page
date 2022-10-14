@@ -185,7 +185,7 @@ export default function Setting() {
                                     <Col><p>number of voters: {vote.num_of_voters}</p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p><a href={`../login/${vote_id}`} rel="noreferrer" target="_blank">voter url</a></p></Col>
+                                    <Col><p><a href={`../../login/${vote_id}`} rel="noreferrer" target="_blank">voter url</a></p></Col>
                                     <Col><p><a href={`${process.env.INVITATION_URL}/?vote_id=${vote_id}`} rel="noreferrer" target="_blank">invitation url</a></p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
