@@ -145,7 +145,7 @@ export default function VoteIndex() {
                         </Col>
                         <Col lg={6} >
                             <div className={styles.grid} style={{justifyContent:"center", alignContent:"center"}}>
-                                <Link href={`/vote/${vote_id}/question`}>
+                                <Link href={`/voter/${vote_id}/question`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
                                         <h2>Start Voting!</h2>
                                     </a>
