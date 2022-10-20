@@ -1,5 +1,6 @@
 {
-	"name": "pollo",
+	"name": "De.Vote app",
+    "short_name": "De.Vote",
 	"icons": [
 		{
 			"src": "\/favicon-36.png",
@@ -37,5 +38,10 @@
 			"type": "image\/png",
 			"density": 4
 		}
-	]
+	],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
 }
