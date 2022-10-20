@@ -37,14 +37,14 @@
         "members":{
             "row1":[
                 {"name":"Ren Song Tsay / Instructor","role":"Two high-tech companies founded by him in Silicon Valley was successfully acquired","specialty":"Expertise:Embedded System Verification, Blockchain and Its Applications, Decentralized IoT Architecture","mail":"instructor@devote.tw","src":"/images/song.jpg"},
-                {"name":"Wei En Tsai / CEO","role":"Rich experience in development and entrepreneurship competitions","specialty":"Expertise: Leadership,Technology Development,Information Security Offense and Defense","mail":"ceo@devote.tw","src":"/images/tsai.JPG"},
-                {"name":"Guan Xue Li / COO","role":"Doctoral dissertation on high security, high scalability electronic voting technology","specialty":"Expertise: Cryptography, Blockchain and its applications","mail":"coo@devote.tw","src":"/images/lee.png"}
+                {"name":"Wei En Tsai / CEO","role":"Rich experience in development and entrepreneurship competitions","specialty":"Expertise: Leadership,Technology Development,Information Security Offense and Defense","mail":"wayne.tsai@devote.tw","src":"/images/tsai.JPG"},
+                {"name":"Guan Xue Li / COO","role":"Doctoral dissertation on high security, high scalability electronic voting technology","specialty":"Expertise: Cryptography, Blockchain and its applications","mail":"guanshiue.li@devote.tw","src":"/images/lee.png"}
 
             ],
             "row2":[
-                {"name":"Tzu Hsuan Su / CTO","role":"Good at blockchain project development, scalable system architecture design","specialty":"Expertise: large-scale system design, blockchain technology development","mail":"cto@devote.tw","src":"/images/su.png"},
-                {"name":"Hsiang Ting Peng / CMO","role":"Rich data analysis and integration capabilities","specialty":"Expertise: information security information collection and analysis, project management","mail":"cmo@devote.tw","src":"/images/pon.png"},
-                {"name":"Borhan Lee / Developer","role":"Experiecne in developing bitcoin hardware wallets based on TrustZone, familiar with blockchain and security issues","specialty":"Expertise: Program Development, TrustZone Security Chip Development","mail":"borhanlee@devote.tw","src":"/images/borhan.jpg"}
+                {"name":"Tzu Hsuan Su / CTO","role":"Good at blockchain project development, scalable system architecture design","specialty":"Expertise: large-scale system design, blockchain technology development","mail":"vincent.su@devote.tw","src":"/images/su.png"},
+                {"name":"Hsiang Ting Peng / CMO","role":"Rich data analysis and integration capabilities","specialty":"Expertise: information security information collection and analysis, project management","mail":"ht.peng@devote.tw","src":"/images/pon.png"},
+                {"name":"Borhan Lee / Developer","role":"Experiecne in developing bitcoin hardware wallets based on TrustZone, familiar with blockchain and security issues","specialty":"Expertise: Program Development, TrustZone Security Chip Development","mail":"borhan.lee@devote.tw","src":"/images/borhan.jpg"}
             ]
         }
     }
