@@ -43,6 +43,7 @@ export default function VoteIndex() {
     }, [router.isReady])
 
     useEffect(()=>{
+        console.log(vote)
         if(vote)checkProgess()
     }, [vote])
 
@@ -71,7 +72,7 @@ export default function VoteIndex() {
     }
 
     function GetDateTime(start_time){
-        let t = (new Date((start_time)))
+        let t = (new Date(Date.parse(start_time.replace(/-/g, '/'))))
         // return (new Date(t.getTime()+t.getTimezoneOffset()*60*1000)).toLocaleString()
         return t.toLocaleString()
     }
@@ -80,8 +81,10 @@ export default function VoteIndex() {
         if(!vote) return
         let step = 0;
         let now = new Date()
-        let start_time = new Date(vote.start_time)
-        let end_time = new Date(vote.end_time)
+        // let start_time = new Date(vote.start_time)
+        // let end_time = new Date(vote.end_time)
+        let start_time = new Date(Date.parse(vote.start_time.replace(/-/g, '/')))
+        let end_time = new Date(Date.parse(vote.end_time.replace(/-/g, '/')))
         // Set Vote Questions
         if(vote.num_of_questions > 0)step++
         else return
@@ -106,9 +109,9 @@ export default function VoteIndex() {
         // Tally Started, Tally Ended
         if(vote.voting_status === "Tally Ended"){
             step+=2
-            setProgess(step)
-            return
         }
+        setProgess(step)
+        return
     }
 
     async function setProgess(step){
