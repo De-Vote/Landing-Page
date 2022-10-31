@@ -13,6 +13,17 @@ import Cookies from 'js-cookie'
 import votehelper from '../../../lib/vote'
 import ResultModal from '../../../components/Vote/tallyResultModal';
 import LogTable from '../../../components/Vote/LogTable';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'vote'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 
 export default function VoteIndex() {
     const router = useRouter()
@@ -21,8 +32,10 @@ export default function VoteIndex() {
     const [vote_id, setId] = useState(null)
     const [show, setShow] = useState(false)
     const [logs, setLogs] = useState(null)
+    const { t } = useTranslation('vote');
     const [progessStyle, setStyles] = useState(Array(6).fill('progress-step'))
-    const steps = ['Set Vote Questions','generate invite code', 'Vote Started', 'Vote Ended', 'Tally Started', 'Tally Ended']
+    const steps = [t('setting.bar.1'),t('setting.bar.2'), t('setting.bar.3'),
+                   t('setting.bar.4'), t('setting.bar.5'),t('setting.bar.6')]
 
     useEffect(() => {
         if (!router.isReady) return;
@@ -117,9 +130,9 @@ export default function VoteIndex() {
             <Container>
             <VoterList role={"admin"} show={show} setShow={setShow} />
                 <div>
-                    <h2 style={{ float: "left" }}>Election Dashboard</h2>
+                    <h2 style={{ float: "left" }}>{t('voterindex.header')}</h2>
                     <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToHome() }}>
-                        &larr;Back to home
+                        &larr;{t('setting.button1')}
                     </Button>
                 </div>
                 <br />
@@ -133,12 +146,12 @@ export default function VoteIndex() {
                                     {vote.title}
                                 </span></h1>
                                 <Row>
-                                    <Col><p>start: {GetDateTime(vote.start_time)}</p></Col>
-                                    <Col><p>end: {GetDateTime(vote.end_time)}</p></Col>
+                                    <Col><p>{t('setting.start')}: {GetDateTime(vote.start_time)}</p></Col>
+                                    <Col><p>{t('setting.end')}: {GetDateTime(vote.end_time)}</p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p>vote status: {vote.voting_status}</p></Col>
-                                    <Col><p>voter status: {vote.registration_status}</p></Col>
+                                    <Col><p>{t('setting.voteStatus')}: {vote.voting_status}</p></Col>
+                                    <Col><p>{t('setting.voterStatus')}: {vote.registration_status}</p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
                             </div>
@@ -147,7 +160,7 @@ export default function VoteIndex() {
                             <div className={styles.grid} style={{justifyContent:"center", alignContent:"center"}}>
                                 <Link href={`/voter/${vote_id}/question`}>
                                     <a className={styles.card} style={{ width: "40%" }}>
-                                        <h2>Start Voting!</h2>
+                                        <h2>{t('voterindex.button1')}</h2>
                                     </a>
                                 </Link>
                             <ResultModal vote_id={vote_id} className={styles.card} style={{width: "40%"}} vote={vote} tally={go_tally} role={"voter"}/>

@@ -7,12 +7,15 @@ import Layout from '../Layout';
 import Header from '../Header'
 import authhelper from '../../lib/auth';
 import Cookies from 'js-cookie'
+import { useTranslation } from 'next-i18next';
+
 export default function Login() {
     const router = useRouter()
     const { setUser, setOwnedVotes } = useContext(AppContext);
     const [account, setAccount] = useState("")
     const [password, setPassword] = useState("")
     const [vote_id, setId] = useState(null)
+    const { t } = useTranslation('common');
 
     useEffect(() => {
         if (!router.isReady) return;
@@ -82,21 +85,21 @@ export default function Login() {
                         <div className="modal-body">
                             <Form>
                                 <Form.Group className="mb-3">
-                                    <Form.Label>Account</Form.Label>
+                                    <Form.Label>{t('login.account')}</Form.Label>
                                     <Form.Control type="text" value={account} onChange={(e) => { setAccount(e.target.value) }} placeholder="Enter username" />
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                                    <Form.Label>Password</Form.Label>
+                                    <Form.Label>{t('login.password')}</Form.Label>
                                     <Form.Control type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
                                 </Form.Group>
                                 <div align="center">
                                     <Button style={{ width: "45%" }} variant="primary" type="button" onClick={(e) => { logIn(e) }}>
-                                        Log in
+                                        {t('login.login')}
                                     </Button>
                                     &nbsp;
                                     <Button style={{ width: "45%" }} variant="primary" type="button" onClick={(e) => { createAccount(e) }}>
-                                        Create Account
+                                        {t('login.createAcccount')}
                                     </Button>
                                 </div>
                             </Form>

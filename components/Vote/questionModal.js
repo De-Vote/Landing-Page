@@ -6,12 +6,14 @@ import VotingItem from './votingItem';
 import votehelper from '../../lib/vote'
 import Cookies from 'js-cookie'
 import { toast } from 'react-toastify';
+import { useTranslation } from 'next-i18next';
 
 export default function QuestionModal(props) {
     const [show, setShow] = useState(false)
     const [options, setOptions] = useState([])
     const [editing, SetEditing] = useState(false)
     const [text, SetText] = useState("")
+    const { t } = useTranslation('vote');
 
     useEffect(() => { if(props.options)setOptions(props.options) }, [props.options])
     useEffect(() => { SetText(props.detail.title);}, [props.detail.title])
@@ -80,7 +82,7 @@ export default function QuestionModal(props) {
 
     return (
         <>
-            <Button variant={props.variant} style={props.style} onClick={() => { setShow(true) }}>{props.buttonName}</Button>{' '}
+            <Button variant={props.variant} style={props.style} onClick={() => { setShow(true) }}>{props.buttonName == 'add question'? t('question.modal.action1') : t('question.modal.action2')}</Button>{' '}
             <Modal
                 show={show}
                 onHide={() => { setShow(false) }}
@@ -88,7 +90,7 @@ export default function QuestionModal(props) {
             >
                 <Modal.Header>
                     <Modal.Title>
-                        Q: 
+                        {t('question.modal.q')}: 
                         {
                             (props.type == 'update') ?
                                 <input type="text" value={text} onChange={(e) => { SetText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="25"></input>
@@ -102,10 +104,10 @@ export default function QuestionModal(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" style={{ float: 'left' }} onClick={() => { save() }}>
-                        save
+                        {t('question.modal.button1')}
                     </Button>
                     <Button variant="secondary" style={{ float: 'left' }} onClick={() => { addOption() }}>
-                        add options
+                        {t('question.modal.button2')}
                     </Button>
                 </Modal.Footer>
             </Modal>

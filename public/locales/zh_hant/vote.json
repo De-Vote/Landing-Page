@@ -1,0 +1,87 @@
+{
+    "home":{
+        "welcome":"歡迎",
+        "createVote": "創建投票",
+        "votes": "已存在投票",
+        "logout": "登出",
+        "recentUpdateVote":"最近更新投票 (管理員)",
+        "recentUpdateVoteDefault":"最近沒有投票",
+        "recentendVote":"最近結束投票 (選民)",
+        "recentendVoteDefault":"最近沒有要截止的投票"
+    },
+    "createVote":{
+        "header": "創建投票",
+        "title": "投票名稱",
+        "type": "投票類型",
+        "description": "投票說明",
+        "NumOfVoters": "選民人數",
+        "VoteStartDate": "投票開始時間",
+        "stIllustration": "一旦開始投票，管理員就無法變更",
+        "VoteEndDate": "投票結束時間",
+        "etIllustration": "投票時間結束，管理員才可開票",
+        "button1":"回到主畫面",
+        "button2":"創建",
+        "button3":"回到投票設定",
+        "button4":"編輯投票"
+    },
+    "votes":{
+        "header":"管理",
+        "header2":"邀請",
+        "button1":"回到主畫面",
+        "action1":"設定",
+        "action2":"刪除",
+        "action3":"投票",
+        "column1":"投票名稱",
+        "column2":"投票狀態",
+        "column3":"選民數量",
+        "column4":"動作"
+    },
+    "setting":{
+        "header":"投票設定",
+        "button1":"回到主畫面",
+        "start":"開始時間",
+        "end":"結束時間",
+        "voteStatus":"投票狀態",
+        "voterStatus":"選民狀態",
+        "NumOfVoters":"選民數量",
+        "voter url":"選民登入網址",
+        "invitation url":"換取邀請碼網址",
+        "logs":{
+            "header":"投票變更紀錄",
+            "column1":"行為者",
+            "column2":"動作",
+            "column3":"行動時間"
+        },
+        "dashboard":{
+            "vote":"編輯投票",
+            "question":"編輯問題",
+            "voters":"編輯選民",
+            "result":"投票結果"
+        },
+        "bar":{
+            "1":"設定投票問題",
+            "2":"產生邀請碼",
+            "3":"投票開始",
+            "4":"投票結束",
+            "5":"開票開始",
+            "6":"開票結束"
+        }
+    },
+    "voterindex":{
+        "header": "投票",
+        "button1":"開始投票"
+    },
+    "question":{
+        "header":"設定問題",
+        "button1":"回到主畫面",
+        "button2": "刪除",
+        "modal":{
+            "action1":"新增問題",
+            "action2":"更新問題",
+            "button1":"儲存",
+            "button2": "新增問題",
+            "q": "問題",
+            "default":"新問題"
+        }
+    }
+}

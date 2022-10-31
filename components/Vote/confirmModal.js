@@ -7,10 +7,12 @@ import { toast } from 'react-toastify';
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import votehelper from '../../lib/vote'
+import { useTranslation } from 'next-i18next';
 
 export default function ConfirmModal(props) {
     const [show, setShow] = useState(false)
     const router = useRouter()
+    const { t } = useTranslation('common');
 
     async function CastBallot(){
         // toast.error("has not implement yet")
@@ -56,7 +58,7 @@ export default function ConfirmModal(props) {
             >
                 <Modal.Header>
                     <Modal.Title>
-                        Vote Content Confirmation
+                        {t('confirmModal.header')}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -80,7 +82,7 @@ export default function ConfirmModal(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" style={{ float: 'left' }} onClick={() => { CastBallot() }}>
-                        Vote!
+                        {t('confirmModal.button1')}
                     </Button>
                 </Modal.Footer>
             </Modal>

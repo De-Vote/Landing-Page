@@ -1,0 +1,25 @@
+{
+    "login":{
+        "account":"帳號",
+        "password": "密碼",
+        "login":"登入",
+        "createAcccount":"創帳號"
+    },
+    "voterList":{
+        "header": "選民名單",
+        "RegisterStatus":"註冊狀態",
+        "NumOfVoters":"選民數量",
+        "VoterEmails":"選民email",
+        "Send":"透過信箱接收邀請碼",
+        "Download":"直接下載邀請碼"
+    },
+    "voterQuestion":{
+        "header": "投票議題",
+        "button1":"回投票畫面",
+        "button2":"投票"
+    },
+    "confirmModal":{
+        "header": "投票內容確認",
+        "button1":"投票"
+    }
+}

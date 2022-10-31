@@ -10,11 +10,23 @@ import { toast } from 'react-toastify';
 import votehelper from '../../lib/vote'
 import Cookies from 'js-cookie'
 import VoteTable from '../../components/Vote/VoteTable';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'vote'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 
 export default function Admin() {
     const { backToHome } = useContext(AppContext);
     const [votes, setVote] = useState([]) // owned vote
     const [invited_votes, setInVote] = useState([]) // invited vote
+    const { t } = useTranslation('vote');
 
     useEffect(() => {
         init()
@@ -39,9 +51,9 @@ export default function Admin() {
             {/* <section className="section position-relative"> */}
             <Container>
                 <div>
-                    <h2 style={{ float: "left" }}>Administration</h2>
+                    <h2 style={{ float: "left" }}>{t('votes.header')}</h2>
                     <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToHome() }}>
-                        &larr;Back to home
+                        &larr;{t('votes.button1')}
                     </Button>
                 </div>
                 <br />
@@ -51,7 +63,7 @@ export default function Admin() {
                 <div>
                     {(invited_votes.length > 0)?
                     <>
-                    <h2 style={{ float: "left" }}>Invited</h2>
+                    <h2 style={{ float: "left" }}>{t('votes.header2')}</h2>
                     <VoteTable votes={invited_votes} url={"../voter/"} urlEnd={''} buttonName={"go to vote"} deleteapi={()=>{}}/>
                 </>:<></>}
                 </div>

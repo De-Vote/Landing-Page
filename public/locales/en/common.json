@@ -1,0 +1,21 @@
+{
+    "login":{
+        "account":"Account",
+        "password": "Password",
+        "login":"Log in",
+        "createAcccount":"Create Account"
+    },
+    "voterList":{
+        "header": "Voter List",
+        "RegisterStatus":"Register status",
+        "NumOfVoters":"Number of voters",
+        "VoterEmails":"Voter Emails",
+        "Send":"Send Invitation Code by Email",
+        "Download":"Download Invitation Code"
+    },
+    "voterQuestion":{
+        "header": "Vote Questions",
+        "button1":"Back to vote",
+        "button2":"Vote"
+    }
+}

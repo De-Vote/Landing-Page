@@ -1,15 +1,18 @@
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
+import { useTranslation } from 'next-i18next';
 
 export default function VoteTable({votes, url,urlEnd, buttonName, deleteapi}){
+    const { t } = useTranslation('vote');
+    
     return (<>
     <Table striped bordered hover size="sm">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Vote</th>
-                <th>Status</th>
-                <th>number of voter</th>
-                <th>action</th>
+                <th>{t('votes.column1')}</th>
+                <th>{t('votes.column2')}</th>
+                <th>{t('votes.column3')}</th>
+                <th>{t('votes.column4')}</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +25,8 @@ export default function VoteTable({votes, url,urlEnd, buttonName, deleteapi}){
                         <td>{detail.voting_status}</td>
                         <td>{detail.num_of_voters}</td>
                         <td>
-                            <Button><a href={`${url}${detail.id}${urlEnd}`} target="_blank" rel="noreferrer">{buttonName} </a></Button> &nbsp;
-                            {buttonName === 'setting'? <Button variant="danger" onClick={()=>{deleteapi(detail.id)}}>delete</Button>:""}
+                            <Button><a href={`${url}${detail.id}${urlEnd}`} target="_blank" rel="noreferrer">{buttonName == 'setting' ? t('votes.action1') : t('votes.action3') } </a></Button> &nbsp;
+                            {buttonName === 'setting'? <Button variant="danger" onClick={()=>{deleteapi(detail.id)}}>{t('votes.action2')}</Button>:""}
                         </td>
                     </tr>
                 )

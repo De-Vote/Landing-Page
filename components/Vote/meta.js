@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { useRouter } from 'next/router'
 import votehelper from '../../lib/vote'
 import Cookies from 'js-cookie'
+import { useTranslation } from 'next-i18next';
 
 export default function Meta() {
     const router = useRouter()
@@ -21,6 +22,7 @@ export default function Meta() {
     const [num, setNum] = useState(0)
     const [stime, setstime] = useState(new Date())
     const [etime, setetime] = useState(new Date())
+    const { t } = useTranslation('vote');
 
     useEffect(() => {
         if (!router.isReady) return;
@@ -135,14 +137,14 @@ export default function Meta() {
             <Container>
 
                 <div>
-                    <h2 style={{ float: "left" }}>Create Vote</h2>
+                    <h2 style={{ float: "left" }}>{t('createVote.header')}</h2>
                     {router.query.action == "edit" ?
                         <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToVote() }}>
-                            &larr;Back to Vote
+                            &larr;{t('createVote.button3')}
                         </Button>
                         :
                         <Button variant="primary" type="button" style={{ float: "right" }} onClick={(e) => { backToHome() }}>
-                            &larr;Back to home
+                            &larr;{t('createVote.button1')}
                         </Button>
                     }
                 </div>
@@ -153,43 +155,43 @@ export default function Meta() {
                     <Row>
                         <Col lg={6}>
                             <Form.Group className="mb-3">
-                                <Form.Label>Vote Title</Form.Label>
+                                <Form.Label>{t('createVote.title')}</Form.Label>
                                 <Form.Control type="text" value={title} onChange={(e) => { setTitle(e.target.value) }} placeholder="Enter a vote title" />
                             </Form.Group>
                             <Form.Group className="mb-3">
-                                <Form.Label>Vote type</Form.Label>
+                                <Form.Label>{t('createVote.type')}</Form.Label>
                                 <Form.Select className={"custom-select"} value={type} onChange={(e) => { setType(e.target.value) }}>
                                     <option value={0}>anonymous</option>
                                     <option value={1}>name-based</option>
                                 </Form.Select>
                             </Form.Group>
                             <Form.Group className="mb-3">
-                                <Form.Label>Description</Form.Label>
+                                <Form.Label>{t('createVote.description')}</Form.Label>
                                 <Form.Control as="textarea" value={description} rows={3} onChange={(e) => { setDescription(e.target.value) }} />
                             </Form.Group>
                         </Col>
                         <Col lg={6}>
 
                             <Form.Group className="mb-3">
-                                <Form.Label>Number of voters</Form.Label>
+                                <Form.Label>{t('createVote.NumOfVoters')}</Form.Label>
                                 <Form.Control type="number" value={num} onChange={(e) => { setNum(e.target.value) }} placeholder="Enter a number" />
                             </Form.Group>
                             <Form.Group className="mb-3">
-                                <Form.Label>Vote Start Date</Form.Label>
+                                <Form.Label>{t('createVote.VoteStartDate')}</Form.Label>
                                 <Form.Control type="datetime-local" name="start time" value={timeToString(stime)} onChange={(e) => { setstime(new Date(e.target.value)) }} />
                                 <Form.Text className="text-muted">
-                                    After vote start time, vote admin cannot change the setting
+                                    {t('createVote.stIllustration')}
                                 </Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
-                                <Form.Label>Vote End Date</Form.Label>
+                                <Form.Label>{t('createVote.VoteEndDate')}</Form.Label>
                                 <Form.Control type="datetime-local" name="end time" value={timeToString(etime)} onChange={(e) => { setetime(new Date(e.target.value)) }} />
                                 <Form.Text className="text-muted">
-                                    After vote end time, vote admin can tally
+                                    {t('createVote.etIllustration')}
                                 </Form.Text>
                             </Form.Group>
                             <Button variant="primary" type="submit" style={{ float: "right" }}>
-                                {router.query.action} Vote &rarr;
+                                {router.query.action == 'create' ? t('createVote.button2'): t('createVote.button4')} &rarr;
                             </Button>
                         </Col>
                     </Row>

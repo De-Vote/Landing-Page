@@ -10,11 +10,25 @@ import { useRouter } from 'next/router'
 import QuestionModal from '../../../components/Vote/questionModal';
 import votehelper from '../../../lib/vote'
 import Cookies from 'js-cookie'
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'vote'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
+
 export default function Question() {
     const router = useRouter()
     const { backToHome } = useContext(AppContext);
     const [questions, setQuestions] = useState([])
     const [vote_id, setId] = useState(null)
+    const { t } = useTranslation('vote');
+
     useEffect(() => {
         if (!router.isReady) return;
         init()
@@ -46,9 +60,9 @@ export default function Question() {
             <Container>
                 
                 <div>
-                <h2 style={{float:"left"}}>Setting Questions</h2>
+                <h2 style={{float:"left"}}>{t('question.header')}</h2>
                 <Button variant="primary" type="button" style={{float:"right"}} onClick={(e)=>{backToVote()}}>
-                    &larr;Back to vote
+                    &larr;{t('question.button1')}
                 </Button>
                 <QuestionModal vote_id={vote_id} variant='info' style={{float:"right", marginRight:"1%"}} buttonName={"add question"} detail={{title:"new question"}} options={null} type={"update"} init={init}/>
                 </div>
@@ -60,7 +74,7 @@ export default function Question() {
                     return <li key={index}>
                         {detail.title}
                         <QuestionModal vote_id={vote_id} variant='info' style={{marginLeft:"2%"}} buttonName={"update"} detail={detail} options={options} type={"update"} init={init}/>
-                        <Button variant='danger' onClick={()=>{removeQuestion(detail.id)}}>delete</Button>
+                        <Button variant='danger' onClick={()=>{removeQuestion(detail.id)}}>{t('question.button2')}</Button>
                         <ol>
                             {options.map((option, i)=><li key={`options-${index}-${i}`}>{option}</li>)}
                         </ol>

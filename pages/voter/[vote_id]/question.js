@@ -9,12 +9,25 @@ import styles from '../../../styles/Home.module.css'
 import ConfirmModal from '../../../components/Vote/confirmModal';
 import Cookies from 'js-cookie'
 import votehelper from '../../../lib/vote'
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'vote'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 export default function QuestionVoter(){
     const router = useRouter()
     const { backToHome, user } = useContext(AppContext);
     const [questions, setQuestions] = useState([])
     const [answers, setAnswer] = useState({})
     const [vote_id, setId] = useState(null)
+    const { t } = useTranslation('common');
+
     useEffect(() => {
         if (!router.isReady) return;
         console.log(user)
@@ -71,9 +84,9 @@ export default function QuestionVoter(){
         <Header />
         <Container>
             <div>
-            <h2 style={{float:"left"}}>Vote Questions</h2>
+            <h2 style={{float:"left"}}>{t('voterQuestion.header')}</h2>
             <Button variant="primary" type="button" style={{float:"right"}} onClick={(e)=>{backToVote()}}>
-                &larr;Back to vote
+                &larr;{t('voterQuestion.button1')}
             </Button>
             </div>
             <br/><br/><br/>
@@ -94,7 +107,7 @@ export default function QuestionVoter(){
             </ul>
             <Row>
                 <Col style={{justifyContent:"center", textAlign:"center"}}>
-                    <ConfirmModal style={{width:"30%"}} buttonName="Vote" questions={questions} answers={answers} vote_id={vote_id}/>
+                    <ConfirmModal style={{width:"30%"}} buttonName={t('voterQuestion.button2')} questions={questions} answers={answers} vote_id={vote_id}/>
                 </Col>
             </Row>
         </Container>

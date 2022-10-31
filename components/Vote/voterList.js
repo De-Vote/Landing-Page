@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import authhelper from '../../lib/auth'
 import Cookies from "js-cookie";
 import { ReactMultiEmailInput } from 'react-multi-email-input';
+import { useTranslation } from 'next-i18next';
 
 function VoterList(props) {
   const [initial, setInit] = useState(false)
@@ -11,6 +12,7 @@ function VoterList(props) {
   const [emailList, setEmailList] = useState(null)
   const inputRef = useRef(null);
   const [uploadFileResult, setResult] = useState(false);
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     if (!initial) init()
@@ -68,14 +70,14 @@ function VoterList(props) {
     <Fragment>
       <Modal show={props.show} onHide={() => { props.setShow(false) }} size="lg">
         <Modal.Header>
-          <Modal.Title>Voter List</Modal.Title>
+          <Modal.Title>{t('voterList.header')}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-         {props.metaData&&<div><strong>Register status:</strong> {props.metaData.registration_status}</div>}
-         {props.metaData&&<div><strong>Number of voters:</strong> {props.metaData.num_of_voters}</div>}
+         {props.metaData&&<div><strong>{t('voterList.RegisterStatus')}:</strong> {props.metaData.registration_status}</div>}
+         {props.metaData&&<div><strong>{t('voterList.NumOfVoters')}:</strong> {props.metaData.num_of_voters}</div>}
          <Form.Group className="mb-3">
-            <strong><Form.Label>Voter Emails</Form.Label></strong>
+            <strong><Form.Label>{t('voterList.VoterEmails')}</Form.Label></strong>
             {/* <Form.Control type="text" value={3} onChange={(e) => { setTitle(e.target.value) }} placeholder="Enter the email of the voter" /> */}
             {/* {[...Array(5)].map((_, i) => {
               return <FormControl type="text" key={i} defaultValue="" placeholder={"Enter the email of voter " + (i+1)} />;
@@ -94,8 +96,8 @@ function VoterList(props) {
             <input onChange={handleFileDetails} ref={inputRef} className="d-none" type="file" />
             <Button onClick={handleUpload} style={{ padding: 10 }} variant={(uploadFileResult) ? "success" : "primary"} >{(uploadFileResult) ? '上傳成功' : '上傳檔案'}</Button>
           </>} */}
-            <Button onClick={EmailInvitationCode}>Send Invitation Code by Email</Button>
-            <Button onClick={RegisterVoter}>Download Invitation Code</Button>
+            <Button onClick={EmailInvitationCode}>{t('voterList.Send')}</Button>
+            <Button onClick={RegisterVoter}>{t('voterList.Download')}</Button>
         </Modal.Footer>
       </Modal>
     </Fragment>

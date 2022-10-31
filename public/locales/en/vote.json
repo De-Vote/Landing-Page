@@ -1,0 +1,87 @@
+{
+    "home":{
+        "welcome":"Welcome",
+        "createVote": "Create Vote",
+        "votes": "Votes",
+        "logout": "Log out",
+        "recentUpdateVote":"Recent update votes (admin)",
+        "recentUpdateVoteDefault":"no vote recently",
+        "recentendVote":"Recent end votes (voter)",
+        "recentendVoteDefault":"no invited vote recently will end"
+    },
+    "createVote":{
+        "header": "Create Vote",
+        "title": "Vote Title",
+        "type": "Vote type",
+        "description": "Description",
+        "NumOfVoters": "Number of voters",
+        "VoteStartDate": "Vote Start Date",
+        "stIllustration": "After vote start time, vote admin cannot change the setting",
+        "VoteEndDate": "Vote End Date",
+        "etIllustration": "After vote end time, vote admin can tally",
+        "button1":"Back to home",
+        "button2":"create Vote",
+        "button3":"Back to Vote",
+        "button4":"edit Vote"
+    },
+    "votes":{
+        "header":"Administration",
+        "header2":"Invited",
+        "button1":"Back to home",
+        "action1":"setting",
+        "action2":"delete",
+        "action3":"go to vote",
+        "column1":"Vote",
+        "column2":"Status",
+        "column3":"number of voter",
+        "column4":"action"
+    },
+    "setting":{
+        "header":"Vote setting",
+        "button1":"Back to home",
+        "start":"start",
+        "end":"end",
+        "voteStatus":"vote status",
+        "voterStatus":"voter status",
+        "NumOfVoters":"number of voters",
+        "voter url":"voter url",
+        "invitation url":"invitation url",
+        "logs":{
+            "header":"Logs",
+            "column1":"actor",
+            "column2":"action",
+            "column3":"time"
+        },
+        "dashboard":{
+            "vote":"Edit vote",
+            "question":"Edit Question",
+            "voters":"Edit voters",
+            "result":"Edit Result"
+        },
+        "bar":{
+            "1":"Set Vote Questions",
+            "2":"generate invite code",
+            "3":"Vote Started",
+            "4":"Vote Ended",
+            "5":"Tally Started",
+            "6":"Tally Ended"
+        }
+    },
+    "voterindex":{
+        "header": "Election Dashboard",
+        "button1":"Start Voting!"
+    },
+    "question":{
+        "header":"Setting Questions",
+        "button1":"Back to home",
+        "button2": "delete",
+        "modal":{
+            "action1":"add question",
+            "action2":"update",
+            "button1":"save",
+            "button2": "add options",
+            "q": "Q",
+            "default":"new question"
+        }
+    }
+}

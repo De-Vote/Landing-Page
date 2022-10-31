@@ -33,7 +33,7 @@ export default function ResultModal(props) {
     return (
         <>
             <a className={props.className} style={props.style} onClick={() => { setShow(true) }}>
-                <h2>Vote Result</h2>
+                <h2>{props.buttonName}</h2>
             </a>{' '}
             <Modal
                 show={show}

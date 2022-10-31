@@ -1,9 +1,11 @@
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
+import { useTranslation } from 'next-i18next';
 
 export default function LogTable({logs}){
+    const { t } = useTranslation('vote');
 return(<>    {
         logs? <>
-        <h3>Logs</h3>
+        <h3>{t('setting.logs.header')}</h3>
         <br/>
         <Row>
             <Col>
@@ -11,9 +13,9 @@ return(<>    {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>actor</th>
-                    <th>action</th>
-                    <th>time</th>
+                    <th>{t('setting.logs.column1')}</th>
+                    <th>{t('setting.logs.column2')}</th>
+                    <th>{t('setting.logs.column3')}</th>
                 </tr>
             </thead>
             <tbody>
