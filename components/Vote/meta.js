@@ -161,8 +161,8 @@ export default function Meta() {
                             <Form.Group className="mb-3">
                                 <Form.Label>{t('createVote.type')}</Form.Label>
                                 <Form.Select className={"custom-select"} value={type} onChange={(e) => { setType(e.target.value) }}>
-                                    <option value={0}>anonymous</option>
-                                    <option value={1}>name-based</option>
+                                    <option value={0}>投票帳號</option>
+                                    <option value={1}>邀請碼</option>
                                 </Form.Select>
                             </Form.Group>
                             <Form.Group className="mb-3">

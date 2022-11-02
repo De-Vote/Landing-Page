@@ -166,7 +166,7 @@ export default function VoteIndex() {
                                         <h2>{t('voterindex.button1')}</h2>
                                     </a>
                                 </Link>
-                            <ResultModal vote_id={vote_id} className={styles.card} style={{width: "40%"}} vote={vote} tally={go_tally} role={"voter"}/>
+                            <ResultModal vote_id={vote_id} className={styles.card} style={{width: "40%"}} vote={vote} tally={go_tally} role={"voter"} buttonName={t('setting.dashboard.result')}/>
                             </div>
                         </Col>
                     </Row>
