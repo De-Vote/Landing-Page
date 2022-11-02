@@ -73,24 +73,47 @@ function VoterList(props) {
         return
       }
       const token = Cookies.get('token');
-      let result = await authhelper.createVoterAccount(token, props.metaData.id);
-      let codes = result.data.data;
-      let vote_url = `${process.env.INVITATION_URL}/?vote_id=${props.vote_id}`
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/csv',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({vote_id:props.metaData.id})
+      };
+      let result = await fetch(`/api/qrcode`, requestOptions)
+      let response = await result.blob();
+      const url = URL.createObjectURL(response)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = "qq.xlsx"
+      a.click()
+      URL.revokeObjectURL(url)
+      // const token = Cookies.get('token');
+      // let result = await authhelper.createVoterAccount(token, props.metaData.id);
+      // let codes = result.data.data;
+      // let vote_url = `${process.env.INVITATION_URL}/?vote_id=${props.vote_id}`
 
-      let requestArr = []
-      codes.map((code, i) => {
-        let res = authhelper.invitation_query(props.vote_id, code);
-        requestArr.push(res)
-      })
-      let accounts = await Promise.all(requestArr)
-      console.log(accounts)
-      genCsv(accounts)
+      // let requestArr = []
+      // codes.map((code, i) => {
+      //   let res = authhelper.invitation_query(props.vote_id, code);
+      //   requestArr.push(res)
+      // })
+      // let accounts = await Promise.all(requestArr)
+      // let qrcodeArr = []
+      // accounts.map((account)=>{
+      //   let qrcode = createQRCode(account.data[0],account.data[1]);
+      //   qrcodeArr.push(qrcode)
+      // })
+      // let alldata = await Promise.all(qrcodeArr)
+      // console.log(alldata)
+      // genCsv(alldata)
   }
 
   function genCsv(data) {
-    let rows = ["account, password"]
+    let rows = ["account, password, qrcode"]
     let content = data.map((account) => {
-      return account.data.join(',')
+      return account.join(',')
     })
     rows = rows.concat(content)
     let csvContent = "data:text/csv;charset=utf-8,"
