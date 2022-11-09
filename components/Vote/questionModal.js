@@ -13,6 +13,7 @@ export default function QuestionModal(props) {
     const [options, setOptions] = useState([])
     const [editing, SetEditing] = useState(false)
     const [text, SetText] = useState("")
+    const [max, SetMax] = useState(1)
     const { t } = useTranslation('vote');
 
     useEffect(() => { if(props.options)setOptions(props.options) }, [props.options])
@@ -62,7 +63,8 @@ export default function QuestionModal(props) {
             title:text,
             illustration:"This is a illustration.",
             options:JSON.stringify(options),
-            counts:JSON.stringify(Array(options.length).fill(0))
+            counts:JSON.stringify(Array(options.length).fill(0)),
+            max: max
         }
         const token = Cookies.get('token');
         let result = await votehelper.UpdateVoteQuestion(token,props.vote_id, body)
@@ -100,7 +102,11 @@ export default function QuestionModal(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {options.map((option, index) => <VotingItem text={option} key={index} id={index} action={props.type} handleUpdate={optionSave} handleRemove={removeOption} />)}
+                    {
+                    options.map((option, index) => <VotingItem text={option} key={index} id={index} action={props.type} handleUpdate={optionSave} handleRemove={removeOption} />)
+                    }
+                    Maximum Number of Selection (最多投幾票): 
+                    <input type="text" value={max} onChange={(e) => { SetMax(e.target.value) }} style={{ backgroundColor: "#00000" }} size="5" />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" style={{ float: 'left' }} onClick={() => { save() }}>
