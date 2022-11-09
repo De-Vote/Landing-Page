@@ -8,7 +8,8 @@
                     "title": "你最喜歡的清大學餐？1",
                     "illustration": "This is a illustration.",
                     "options": "[\"The Loft\",\"MeTime\",\"鳳荷三鮮\"]",
-                    "counts": "[0,0,0]"
+                    "counts": "[0,0,0]",
+                    "max": 1
                 }
             }
         },
@@ -20,7 +21,8 @@
                     "title": "你是否同意拆除光復路前天橋？",
                     "illustration": "This is a illustration.",
                     "options": "[\"OK\",\"NotOK\"]",
-                    "counts": "[0,0]"
+                    "counts": "[0,0]",
+                    "max": 1
                 }
             }
         }

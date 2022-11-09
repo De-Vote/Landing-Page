@@ -78,6 +78,7 @@ export default function Question() {
                         <ol>
                             {options.map((option, i)=><li key={`options-${index}-${i}`}>{option}</li>)}
                         </ol>
+                        Maximum Number of Selection (最多投幾票): {detail.max}
                     </li>
                 })}
                 </ol>
