@@ -17,5 +17,9 @@
         "header": "Vote Questions",
         "button1":"Back to vote",
         "button2":"Vote"
+    },
+    "confirmModal":{
+        "header":"Vote content confirmation",
+        "button1":"Confirm"
     }
 }
