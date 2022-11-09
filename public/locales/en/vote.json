@@ -56,7 +56,7 @@
             "vote":"Edit vote",
             "question":"Edit Question",
             "voters":"Edit voters",
-            "result":"Edit Result"
+            "result":"Result"
         },
         "bar":{
             "1":"Set Vote Questions",
