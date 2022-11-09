@@ -56,7 +56,7 @@ export default function QuestionVoter(){
     }
 
     function backToVote(){
-        router.push(`/vote/${vote_id}/setting`)
+        router.push(`/voter/${vote_id}`)
     }
 
     function handleSelect(i, j){
