@@ -70,7 +70,7 @@ export default function DashBoard() {
                             <div className={styles.grid}>
                                 <div className={styles.card} style={{width: "100%", maxWidth:"100%", height:"20vh"}}>
                                     <h2>{t('home.recentUpdateVote')}</h2>
-                                    {votes.length > 0 ? 
+                                    {votes && votes.length > 0 ? 
                                     <ul>
                                     {votes.map((vote, index)=>{
                                         let detail = vote.data.attributes
@@ -80,7 +80,7 @@ export default function DashBoard() {
                                 </div>
                                 <div className={styles.card} style={{width: "100%", maxWidth:"100%", height:"20vh"}}>
                                     <h2>{t('home.recentendVote')}</h2>
-                                    {invited_votes.length > 0 ? 
+                                    {invited_votes&&invited_votes.length > 0 ? 
                                     <ul>
                                     {invited_votes.map((vote, index)=>{
                                         let detail = vote.data.attributes

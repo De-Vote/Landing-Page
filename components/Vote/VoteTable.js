@@ -16,7 +16,7 @@ export default function VoteTable({votes, url,urlEnd, buttonName, deleteapi}){
             </tr>
         </thead>
         <tbody>
-            {votes.map((vote, index)=>{
+            {votes && votes.map((vote, index)=>{
                 let detail = vote.data.attributes
                 return (
                     <tr key={index}>
