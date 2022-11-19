@@ -44,7 +44,8 @@ export default function QuestionModal(props) {
             title:text,
             illustration:"This is a illustration.",
             options:JSON.stringify(options),
-            counts:JSON.stringify(Array(options.length).fill(0))
+            counts:JSON.stringify(Array(options.length).fill(0)),
+            max
         }
         const token = Cookies.get('token');
         let result = await votehelper.SetVoteQuestion(token,props.vote_id, body)

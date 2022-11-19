@@ -61,7 +61,7 @@ export default function Admin() {
                 <br />
                 <VoteTable votes={votes} url={"/vote/"} urlEnd={'/setting'} buttonName={"setting"} deleteapi={DeleteVote}/>
                 <div>
-                    {(invited_votes.length > 0)?
+                    {(invited_votes && invited_votes.length > 0)?
                     <>
                     <h2 style={{ float: "left" }}>{t('votes.header2')}</h2>
                     <VoteTable votes={invited_votes} url={"../voter/"} urlEnd={''} buttonName={"go to vote"} deleteapi={()=>{}}/>
