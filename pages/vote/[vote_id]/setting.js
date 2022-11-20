@@ -33,7 +33,7 @@ export default function Setting() {
     const [vote_id, setId] = useState(null)
     const [show, setShow] = useState(false)
     const [logs, setLogs] = useState(null)
-    const [step, setStep] = useState("step1")
+    const [step, setStep] = useState(0)
     const { t } = useTranslation('vote');
     const [progessStyle, setStyles] = useState(Array(6).fill('progress-step'))
     const steps = [t('setting.bar.1'),t('setting.bar.2'), t('setting.bar.3'),
@@ -112,7 +112,7 @@ export default function Setting() {
     }
 
     async function setProgess(step){
-        console.log(step)
+        setStep(step)
         for(let i = 0; i < step; i++){
             progessStyle[i] += " is-complete"
             setStyles([...progessStyle])
@@ -122,6 +122,39 @@ export default function Setting() {
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function controlVoteTime(){
+        // step
+        var data
+        if(step == 2 ){ // start vote
+            data = {
+                "start_time": new Date().toISOString(),
+            }
+        }else if (step < 4){ // end vote
+            data = {
+                "end_time": new Date().toUTCString(),
+            }
+        }
+        const token = Cookies.get('token');
+        let result = await votehelper.UpdateOneVote(token,vote_id,data)
+        if(result.ok) {
+            toast("Update vote succesfully")
+            window.location.reload()
+        }
+    }
+
+    function showButton(){
+        if(step ==1){
+            return 'hide'
+        }else if(step == 2 ){ // start vote
+            return 'start vote now!'
+        }else if (step == 3){ // end vote
+            return 'end vote now!'
+        }else{
+            // dont show the button
+            return 'hide'
+        }
     }
 
     return (
@@ -148,15 +181,16 @@ export default function Setting() {
                                     <Col><p>{t('setting.end')}: {GetDateTime(vote.end_time)}</p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p>{t('setting.voteStatus')}: {vote.voting_status}</p></Col>
+                                    <Col><p>{t('setting.voteStatus')}: {steps[(step==0)?0:step-1]}</p></Col>
                                     <Col><p>{t('setting.voterStatus')}: {vote.registration_status}</p></Col>
                                 </Row>
                                 <Row>
                                     <Col><p>{t('setting.NumOfVoters')}: {vote.num_of_voters}</p></Col>
+                                    <Col><p><a href={`../../login/${vote_id}`} rel="noreferrer" target="_blank">{t('setting.voter url')}</a> &nbsp;/&nbsp;
+                                    <a href={`${process.env.INVITATION_URL}/?vote_id=${vote_id}`} rel="noreferrer" target="_blank">{t('setting.invitation url')}</a></p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p><a href={`../../login/${vote_id}`} rel="noreferrer" target="_blank">{t('setting.voter url')}</a></p></Col>
-                                    <Col><p><a href={`${process.env.INVITATION_URL}/?vote_id=${vote_id}`} rel="noreferrer" target="_blank">{t('setting.invitation url')}</a></p></Col>
+                                    <Col><p><Button style={{visibility:(showButton() === 'hide')?'hidden':'visible'}} onClick={controlVoteTime}>{showButton()}</Button></p></Col>
                                 </Row>
                                 <p className="text-muted mb-4 pb-2">{vote.description}</p>
                             </div>
