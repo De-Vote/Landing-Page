@@ -19,12 +19,13 @@ export default async function handler(req, res) {
         let response = await result.json();
         let codes = response.data;
     
-        let requestArr = []
-        codes.map((code, i) => {
-            let res = authhelper.invitation_query(vote_id, code);
-            requestArr.push(res)
+        let accounts = []
+        codes.map(async (code, i) => {
+            let res = await authhelper.invitation_query(vote_id, code);
+            accounts.push(res)
         })
-        let accounts = await Promise.all(requestArr)
+        // remove promise all
+        // let accounts = await Promise.all(requestArr)
         // console.log(accounts)
         let qrcodeArr = []
         accounts.map((account)=>{

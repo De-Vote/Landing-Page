@@ -30,6 +30,13 @@ export default function ResultModal(props) {
         props.tally()
     }
 
+    function VoteEnded(){
+        let t = (new Date(Date.parse(props.vote.end_time.replace(/-/g, '/'))))
+        // return (new Date(t.getTime()+t.getTimezoneOffset()*60*1000)).toLocaleString()
+        let now = new Date()
+        return t.getTime() < now.getTime()
+    }
+
     return (
         <>
             <a className={props.className} style={props.style} onClick={() => { setShow(true) }}>
@@ -46,7 +53,8 @@ export default function ResultModal(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {questions && <ol>
+                    { props.vote.voting_status == 'Tally Ended' && questions ?
+                    <ol>
                     {questions.map((question,index)=>{
                         let detail = question.data.attributes
                         console.log(detail)
@@ -61,7 +69,8 @@ export default function ResultModal(props) {
                             </ul>
                         </li>
                     })}
-                    </ol>}
+                    </ol>
+                    :(VoteEnded())? "Admin has not tally ballots!\n(管理員尚未開票)":"Vote has not ended!\n(投票尚未結束)"}
                 </Modal.Body>
                 <Modal.Footer>
                     {props.role == 'admin'?
