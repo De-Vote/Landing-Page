@@ -47,7 +47,9 @@ export default function QuestionModal(props) {
             illustration:"This is a illustration.",
             options:JSON.stringify(options),
             counts:JSON.stringify(Array(options.length).fill(0)),
-            max
+            max,
+            numerator,
+            denominator,
         }
         const token = Cookies.get('token');
         let result = await votehelper.SetVoteQuestion(token,props.vote_id, body)
@@ -67,7 +69,9 @@ export default function QuestionModal(props) {
             illustration:"This is a illustration.",
             options:JSON.stringify(options),
             counts:JSON.stringify(Array(options.length).fill(0)),
-            max: max
+            max,
+            numerator,
+            denominator,
         }
         const token = Cookies.get('token');
         let result = await votehelper.UpdateVoteQuestion(token,props.vote_id, body)
