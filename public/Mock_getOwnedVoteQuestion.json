@@ -9,7 +9,9 @@
                     "illustration": "This is a illustration.",
                     "options": "[\"The Loft\",\"MeTime\",\"鳳荷三鮮\"]",
                     "counts": "[0,0,0]",
-                    "max": 1
+                    "max": 1,
+                    "numerator": 0,
+                    "denominator": 1
                 }
             }
         },
@@ -22,7 +24,9 @@
                     "illustration": "This is a illustration.",
                     "options": "[\"OK\",\"NotOK\"]",
                     "counts": "[0,0]",
-                    "max": 1
+                    "max": 1,
+                    "numerator": 0,
+                    "denominator": 1
                 }
             }
         }

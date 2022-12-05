@@ -148,9 +148,9 @@ export default function Setting() {
         if(step ==1){
             return 'hide'
         }else if(step == 2 ){ // start vote
-            return 'start vote now!'
+            return 'Start Vote Now!'
         }else if (step == 3){ // end vote
-            return 'end vote now!'
+            return 'End Vote Now!'
         }else{
             // dont show the button
             return 'hide'
@@ -177,17 +177,18 @@ export default function Setting() {
                                     {vote.title}
                                 </span></h1>
                                 <Row>
-                                    <Col><p>{t('setting.start')}: {GetDateTime(vote.start_time)}</p></Col>
-                                    <Col><p>{t('setting.end')}: {GetDateTime(vote.end_time)}</p></Col>
+                                    <Col><p><b>{t('setting.start')}:</b> {GetDateTime(vote.start_time)}</p></Col>
+                                    <Col><p><b>{t('setting.end')}:</b> {GetDateTime(vote.end_time)}</p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p>{t('setting.voteStatus')}: {steps[(step==0)?0:step-1]}</p></Col>
-                                    <Col><p>{t('setting.voterStatus')}: {vote.registration_status}</p></Col>
+                                    <Col><p><b>{t('setting.voteStatus')}:</b> {steps[(step==0)?0:step-1]}</p></Col>
+                                    <Col><p><b>{t('setting.voterStatus')}:</b> {vote.registration_status}</p></Col>
                                 </Row>
                                 <Row>
-                                    <Col><p>{t('setting.NumOfVoters')}: {vote.num_of_voters}</p></Col>
-                                    <Col><p><a href={`../../login/${vote_id}`} rel="noreferrer" target="_blank">{t('setting.voter url')}</a> &nbsp;/&nbsp;
-                                    <a href={`${process.env.INVITATION_URL}/?vote_id=${vote_id}`} rel="noreferrer" target="_blank">{t('setting.invitation url')}</a></p></Col>
+                                    <Col><p><b>{t('setting.NumOfVoters')}</b>: {vote.num_of_voters}</p></Col>
+                                    <Col><p>
+                                        <a href={`../../login/${vote_id}`} rel="noreferrer" target="_blank">{t('setting.voter url')}</a> &nbsp;/&nbsp;
+                                        <a href={`${process.env.INVITATION_URL}/?vote_id=${vote_id}`} rel="noreferrer" target="_blank">{t('setting.invitation url')}</a></p></Col>
                                 </Row>
                                 <Row>
                                     <Col><p><Button style={{visibility:(showButton() === 'hide')?'hidden':'visible'}} onClick={controlVoteTime}>{showButton()}</Button></p></Col>

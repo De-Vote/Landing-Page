@@ -9,11 +9,13 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 
 export default function QuestionModal(props) {
-    const [show, setShow] = useState(false)
-    const [options, setOptions] = useState([])
-    const [editing, SetEditing] = useState(false)
-    const [text, SetText] = useState("")
-    const [max, SetMax] = useState(1)
+    const [show, setShow] = useState(false);
+    const [options, setOptions] = useState([]);
+    const [editing, SetEditing] = useState(false);
+    const [text, SetText] = useState("");
+    const [max, SetMax] = useState(1);
+    const [numerator, SetNumerator] = useState(0);
+    const [denominator, SetDenominator] = useState(1);
     const { t } = useTranslation('vote');
 
     useEffect(() => { if(props.options)setOptions(props.options) }, [props.options])
@@ -45,7 +47,9 @@ export default function QuestionModal(props) {
             illustration:"This is a illustration.",
             options:JSON.stringify(options),
             counts:JSON.stringify(Array(options.length).fill(0)),
-            max
+            max,
+            numerator,
+            denominator,
         }
         const token = Cookies.get('token');
         let result = await votehelper.SetVoteQuestion(token,props.vote_id, body)
@@ -65,7 +69,9 @@ export default function QuestionModal(props) {
             illustration:"This is a illustration.",
             options:JSON.stringify(options),
             counts:JSON.stringify(Array(options.length).fill(0)),
-            max: max
+            max,
+            numerator,
+            denominator,
         }
         const token = Cookies.get('token');
         let result = await votehelper.UpdateVoteQuestion(token,props.vote_id, body)
@@ -96,7 +102,7 @@ export default function QuestionModal(props) {
                         {t('question.modal.q')}: 
                         {
                             (props.type == 'update') ?
-                                <input type="text" value={text} onChange={(e) => { SetText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="25"></input>
+                                <input type="text" placeholder ={text} onChange={(e) => { SetText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="25"></input>
                                 :
                                 <>{props.text}</>
                         }
@@ -106,8 +112,13 @@ export default function QuestionModal(props) {
                     {
                     options.map((option, index) => <VotingItem text={option} key={index} id={index} action={props.type} handleUpdate={optionSave} handleRemove={removeOption} />)
                     }
-                    Maximum Number of Selection (最多投幾票): 
-                    <input type="text" value={max} onChange={(e) => { SetMax(e.target.value) }} style={{ backgroundColor: "#00000" }} size="5" />
+                    Maximum Number of Selection（最多投幾票）： 
+                    <input type="text" placeholder={max} onChange={(e) => { SetMax(e.target.value) }} style={{ backgroundColor: "#00000" }} size="5" />
+                    <br/>
+                    Electoral Threshold（通過門檻）：
+                    <input type="text" placeholder={numerator} onChange={(e) => { SetNumerator(e.target.value) }} style={{ backgroundColor: "#00000" }} size="5" />
+                    &emsp;/&emsp;&thinsp;&thinsp;&thinsp;
+                    <input type="text" placeholder={denominator} onChange={(e) => { SetDenominator(e.target.value) }} style={{ backgroundColor: "#00000" }} size="5" />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" style={{ float: 'left' }} onClick={() => { save() }}>

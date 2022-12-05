@@ -64,7 +64,7 @@ export default function Question() {
                 <Button variant="primary" type="button" style={{float:"right"}} onClick={(e)=>{backToVote()}}>
                     &larr;{t('question.button1')}
                 </Button>
-                <QuestionModal vote_id={vote_id} variant='info' style={{float:"right", marginRight:"1%"}} buttonName={"add question"} detail={{title:"new question"}} options={null} type={"update"} init={init}/>
+                <QuestionModal vote_id={vote_id} variant='info' style={{float:"right", marginRight:"1%"}} buttonName={"add question"} detail={{title:"New Question"}} options={null} type={"update"} init={init}/>
                 </div>
                 <br/><br/><br/>
                 <ol>
@@ -72,13 +72,19 @@ export default function Question() {
                     let detail = question.data.attributes
                     let options = JSON.parse(detail.options)
                     return <li key={index}>
-                        {detail.title}
-                        <QuestionModal vote_id={vote_id} variant='info' style={{marginLeft:"2%"}} buttonName={"update"} detail={detail} options={options} type={"update"} init={init}/>
+                        <b>{detail.title}</b>
+                        <QuestionModal vote_id={vote_id} variant='info' style={{marginLeft:"2%"}} buttonName={"Update"} detail={detail} options={options} type={"update"} init={init}/>
                         <Button variant='danger' onClick={()=>{removeQuestion(detail.id)}}>{t('question.button2')}</Button>
                         <ol>
                             {options.map((option, i)=><li key={`options-${index}-${i}`}>{option}</li>)}
                         </ol>
-                        Maximum Number of Selection (最多投幾票): {detail.max}
+                        <br/>
+                        Maximum Number of Selection (最多投幾票)：  {detail.max}
+                        <br/>
+                        Electoral Threshold（通過門檻）：{detail.numerator}
+                        &emsp;/&emsp;&thinsp;&thinsp;&thinsp;
+                        {detail.denominator}
+                        <br/><br/>
                     </li>
                 })}
                 </ol>
