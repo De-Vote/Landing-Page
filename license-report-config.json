@@ -1,0 +1,14 @@
+{
+  "fields": [
+    "department",
+    "relatedTo",
+    "name",
+    "licensePeriod",
+    "material",
+    "licenseType",
+    "link",
+    "comment",
+    "installedVersion",
+    "author"
+  ]
+}

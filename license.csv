@@ -1,0 +1,19 @@
+"department","relatedTo","name","licensePeriod","material","licenseType","link","comment","installedVersion","author"
+kessler,stuff,@noble/ed25519,perpetual,material,MIT,git+https://github.com/paulmillr/noble-ed25519.git,1.7.1,1.6.1,Paul Miller (https://paulmillr.com)
+kessler,stuff,canvas,perpetual,material,MIT,git://github.com/Automattic/node-canvas.git,2.10.2,2.10.2,TJ Holowaychuk <tj@learnboost.com>
+kessler,stuff,exceljs,perpetual,material,MIT,git+https://github.com/exceljs/exceljs.git,4.3.0,4.3.0,Guyon Roche guyon@live.com
+kessler,stuff,js-cookie,perpetual,material,MIT,git://github.com/js-cookie/js-cookie.git,3.0.1,3.0.1,Klaus Hartl
+kessler,stuff,license-report,perpetual,material,MIT,git+https://github.com/ironSource/license-report.git,6.3.0,6.3.0,Yaniv Kessler
+kessler,stuff,next,perpetual,material,MIT,git+https://github.com/vercel/next.js.git,12.3.4,12.2.2,n/a
+kessler,stuff,next-i18next,perpetual,material,MIT,git+ssh://git@github.com/i18next/next-i18next.git,11.3.0,11.3.0,i18next
+kessler,stuff,qrcode,perpetual,material,MIT,git://github.com/soldair/node-qrcode.git,1.5.1,1.5.1,Ryan Day <soldair@gmail.com>
+kessler,stuff,react,perpetual,material,MIT,git+https://github.com/facebook/react.git,18.2.0,18.2.0,n/a
+kessler,stuff,react-bootstrap,perpetual,material,MIT,git+https://github.com/react-bootstrap/react-bootstrap.git,2.6.0,2.4.0,Stephen J. Collings stevoland@gmail.com
+kessler,stuff,react-dom,perpetual,material,MIT,git+https://github.com/facebook/react.git,18.2.0,18.2.0,n/a
+kessler,stuff,react-faq-component,perpetual,material,MIT,git+https://github.com/binodswain/react-faq-component.git,1.3.4,1.3.4,Binod <binodkumarswain94@gmail.com> (binodswain@github.io)
+kessler,stuff,react-icons,perpetual,material,MIT,git+ssh://git@github.com/react-icons/react-icons.git,4.6.0,4.4.0,Goran Gajic
+kessler,stuff,react-multi-email-input,perpetual,material,n/a,git+https://github.com/suvincent/react-multi-email-input.git,0.1.3,0.1.3,suvincent
+kessler,stuff,react-toastify,perpetual,material,MIT,git+https://github.com/fkhadra/react-toastify.git,9.1.1,9.0.7,Fadi Khadra  <fdkhadra@gmail.com> (https://fkhadra.github.io)
+kessler,stuff,tweetnacl-util,perpetual,material,Unlicense,git+https://github.com/dchest/tweetnacl-util-js.git,0.15.1,0.15.1,TweetNaCl-js contributors
+kessler,stuff,eslint,perpetual,material,MIT,git+https://github.com/eslint/eslint.git,8.20.0,8.20.0,Nicholas C. Zakas <nicholas+npm@nczconsulting.com>
+kessler,stuff,eslint-config-next,perpetual,material,MIT,git+https://github.com/vercel/next.js.git,12.2.3,12.2.3,n/a

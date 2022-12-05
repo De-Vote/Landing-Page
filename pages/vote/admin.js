@@ -45,6 +45,12 @@ export default function Admin() {
         init()
     }
 
+    async function CopyVote(vote_id){
+        const token = Cookies.get('token');
+        await votehelper.CopyVote(token, vote_id)
+        init()
+    }
+
     return (
         <Layout>
             <Header />
@@ -59,7 +65,7 @@ export default function Admin() {
                 <br />
                 <br />
                 <br />
-                <VoteTable votes={votes} url={"/vote/"} urlEnd={'/setting'} buttonName={"setting"} deleteapi={DeleteVote}/>
+                <VoteTable votes={votes} url={"/vote/"} urlEnd={'/setting'} buttonName={"setting"} deleteapi={DeleteVote} copyapi={CopyVote}/>
                 <div>
                     {(invited_votes && invited_votes.length > 0)?
                     <>

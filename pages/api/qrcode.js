@@ -15,21 +15,19 @@ export default async function handler(req, res) {
                 'Authorization': req.headers.authorization
             },
         };
-        let result = await fetch(process.env.API_URL + `/api/v1/voter/${vote_id}`, requestOptions)
+        let generateAccount = await fetch(process.env.API_URL + `/api/v1/voter/${vote_id}`, requestOptions)
+        // console.log(await generateAccount.json())
+        let result = await fetch(process.env.API_URL + `/api/v1/votes/${vote_id}/batch`, requestOptions)
         let response = await result.json();
-        let codes = response.data;
+        let accounts = response.data;
     
-        let accounts = []
-        codes.map(async (code, i) => {
-            let res = await authhelper.invitation_query(vote_id, code);
-            accounts.push(res)
-        })
+        
         // remove promise all
         // let accounts = await Promise.all(requestArr)
         // console.log(accounts)
         let qrcodeArr = []
         accounts.map((account)=>{
-            let qrcode = createQRCode(account.data[0],account.data[1]);
+            let qrcode = createQRCode(account[0],account[1]);
             qrcodeArr.push(qrcode)
         })
         let alldata = await Promise.all(qrcodeArr)
