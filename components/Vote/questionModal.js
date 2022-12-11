@@ -8,6 +8,10 @@ import Cookies from 'js-cookie'
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 
+import dynamic from "next/dynamic";
+import 'react-quill/dist/quill.snow.css';
+
+
 export default function QuestionModal(props) {
     const [show, setShow] = useState(false);
     const [options, setOptions] = useState([]);
@@ -16,6 +20,24 @@ export default function QuestionModal(props) {
     const [max, SetMax] = useState(1);
     const [numerator, SetNumerator] = useState(0);
     const [denominator, SetDenominator] = useState(1);
+
+    const ReactQuill = dynamic(import('react-quill'), { ssr: false })
+    const [value, setValue] = useState('');
+    const  modules  = {
+        toolbar: [
+            [{ font: [] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            ["bold", "italic", "underline", "strike"],
+            [{ color: [] }, { background: [] }],
+            [{ script:  "sub" }, { script:  "super" }],
+            ["blockquote", "code-block"],
+            [{ list:  "ordered" }, { list:  "bullet" }],
+            [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
+            ["link", "image", "video"],
+            ["clean"],
+        ],
+    };
+
     const { t } = useTranslation('vote');
 
     useEffect(() => { if(props.options)setOptions(props.options) }, [props.options])
@@ -102,7 +124,7 @@ export default function QuestionModal(props) {
                         {t('question.modal.q')}: 
                         {
                             (props.type == 'update') ?
-                                <input type="text" placeholder ={text} onChange={(e) => { SetText(e.target.value) }} style={{ backgroundColor: "#00000" }} size="25"></input>
+                            <ReactQuill theme="snow" modules={modules} value={text} onChange={SetText} />
                                 :
                                 <>{props.text}</>
                         }

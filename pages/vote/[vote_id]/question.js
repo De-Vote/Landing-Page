@@ -72,7 +72,8 @@ export default function Question() {
                     let detail = question.data.attributes
                     let options = JSON.parse(detail.options)
                     return <li key={index}>
-                        <b>{detail.title}</b>
+                        {/* <b>{detail.title}</b> */}
+                        <div className="content" dangerouslySetInnerHTML={{__html: detail.title}}></div>
                         <QuestionModal vote_id={vote_id} variant='info' style={{marginLeft:"2%"}} buttonName={"Update"} detail={detail} options={options} type={"update"} init={init}/>
                         <Button variant='danger' onClick={()=>{removeQuestion(detail.id)}}>{t('question.button2')}</Button>
                         <ol>
