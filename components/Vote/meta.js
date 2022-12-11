@@ -20,8 +20,12 @@ export default function Meta() {
     const [description, setDescription] = useState("")
     const [type, setType] = useState(0)
     const [num, setNum] = useState(0)
-    const [stime, setstime] = useState(new Date())
-    const [etime, setetime] = useState(new Date())
+    var day5 = new Date();
+    day5.setDate(day5.getDate()+5);
+    var day10 = new Date();
+    day10.setDate(day10.getDate()+10);
+    const [stime, setstime] = useState(day5)
+    const [etime, setetime] = useState(day10)
     const { t } = useTranslation('vote');
 
     useEffect(() => {
