@@ -1,51 +1,87 @@
 {
-    "hero":{
-        "title":["隱私、公平、信任","打造一個去中心化的投票社會"],
-        "description":"提供所有人具有 TrustZone 專利支持的可信賴運算技術及區塊鏈去中心化投票系統"
+    "hero": {
+      "title": ["隱私、公平、信任", "構築去中心化的投票社會"],
+      "description": "我們為所有人提供一種基於 TrustZone 專利的可信賴運算技術，並搭配區塊鏈去中心化投票系統。"
     },
-    "feature":[
-        {
-            "id":1,
-            "img":"/privacy.png",
-            "title":"隱私",
-            "desc":"匿名情況下沒有人能追蹤你的投票，包括我們"
-        },
-        {
-            "id":2,
-            "img":"/justice.png",
-            "title":"公正",
-            "desc":"提供完善與優良的選舉體驗，不參與投票內容"
-        },
-        {
-            "id":3,
-            "img":"/verify.png",
-            "title":"可驗證",
-            "desc":"提供所有使用者驗證選票機制"
-        }
+    "feature": [
+      {
+        "id": 1,
+        "img": "/privacy.png",
+        "title": "隱私",
+        "desc": "在匿名的情況下，沒有人能追蹤你的投票，包括我們。"
+      },
+      {
+        "id": 2,
+        "img": "/justice.png",
+        "title": "公正",
+        "desc": "我們致力於提供完善且優質的選舉體驗，並且不參與投票內容。"
+      },
+      {
+        "id": 3,
+        "img": "/verify.png",
+        "title": "可驗證",
+        "desc": "我們為所有使用者提供選票驗證機制。"
+      }
     ],
-    "about":{
-        "intro":"De.Vote 是一個由國立清華大學 Logos Lab 的蔡仁松教授所領導的無黨派組織。",
-        "left":"最值得信賴的安全匿名投票解決方案提供商",
-        "middle":{
-            "title":"我們的團隊",
-            "content":"我們是來自於國立清華大學由資訊安全專家、區塊鏈研究人員和經驗豐富的產品設計師所組成的團隊。"
-        },
-        "right":{
-            "title":"我們的目標",
-            "content":"利用我們的De.Vote系統為每場投票帶來具備高度公正性、高效率與絕對安全無法被追蹤的特性。"
-        },
-        "members":{
-            "row1":[
-                {"name":"蔡仁松 / Instructor","role":"曾在矽谷創立兩間高科技公司成功獲併購","specialty":"專長:嵌入式系統驗證 / 區塊鏈及其應用 / 高科技創業與營運 / 分散式 IoT 架構","mail":"instructor@devote.tw","src":"/images/song.jpg"},
-                {"name":"蔡惟恩 / CEO","role":"具豐富開發經歷,在新創相關競賽帶領團隊屢獲佳績","specialty":"專長:領導 / 技術開發 / 資安攻防","mail":"ceo@devote.tw","src":"/images/tsai.JPG"},
-                {"name":"李冠學 / COO","role":"博士論文鑽研高安全、高延展性的電子投票技術","specialty":"專長:密碼學/區塊鏈及其應用","mail":"coo@devote.tw","src":"/images/lee.png"}
-
-            ],
-            "row2":[
-                {"name":"蘇子軒 / CTO","role":"具豐富開發經歷,擅長區塊鏈項目開發、可延展系統架構設計","specialty":"專長:規模化系統設計/區塊鏈技術開發","mail":"cto@devote.tw","src":"/images/su.png"},
-                {"name":"彭湘婷 / CMO","role":"具豐富資料分析能力與統合能力","specialty":"專長:資安情資搜集分析/專案管理/分析市場現況能力","mail":"cmo@devote.tw","src":"/images/pon.png"},
-                {"name":"李柏漢 / CFO","role":"TrustZone 開發硬體錢包,熟悉區塊鏈應用與相關資安能力","specialty":"專長:資訊安全/程式開發/TrustZone 安全晶片開發","mail":"borhanlee@devote.tw","src":"/images/borhan.jpg"}
-            ]
-        }
+    "about": {
+      "intro": "De.Vote 是由國立清華大學 Logos Lab 的蔡仁松教授所領導的新創團隊。",
+      "left": "我們是最值得信賴的安全匿名投票解決方案提供商。",
+      "middle": {
+        "title": "我們的團隊",
+        "content": "我們的團隊由國立清華大學的資訊安全專家、區塊鏈研究人員和經驗豐富的產品設計師組成。"
+      },
+      "right": {
+        "title": "我們的目標",
+        "content": "我們的目標是利用 De.Vote 系統，讓每一場投票都具有高度的公正性、高效率，並且絕對安全且無法被追蹤。"
+      },
+      "members": {
+        "row1": [
+          {
+            "name": "蔡仁松 / Instructor",
+            "role": "曾在矽谷創立兩間高科技公司，並成功獲得併購",
+            "specialty": "專長：嵌入式系統驗證、區塊鏈及其應用、高科技創業與營運、分散式 IoT 架構",
+            "mail": "instructor@devote.tw",
+            "src": "/images/song.jpg"
+          },
+          {
+            "name": "蔡惟恩 / CEO",
+            "role": "具有豐富的開發經驗，並在新創相關競賽中帶領團隊屢獲佳績",
+            "specialty": "專長：領導、技術開發、資安攻防",
+            "mail": "ceo@devote.tw",
+            "src": "/images/tsai.JPG"
+          },
+          {
+            "name": "李冠學 / COO",
+            "role": "博士論文專注於高安全、高延展性的電子投票技術。",
+            "specialty": "專長：密碼學、區塊鏈及其應用",
+            "mail": "coo@devote.tw",
+            "src": "/images/lee.png"
+          }
+        ],
+        "row2": [
+          {
+            "name": "蘇子軒 / CTO",
+            "role": "在開發領域有豐富的經驗，擅長區塊鏈項目開發和可延展系統架構設計",
+            "specialty": "專長：規模化系統設計、區塊鏈技術開發",
+            "mail": "cto@devote.tw",
+            "src": "/images/su.png"
+          },
+          {
+            "name": "彭湘婷 / CMO",
+            "role": "具有豐富的資料分析能力和整合能力",
+            "specialty": "專長：資安情資搜集分析、專案管理、市場現況分析能力",
+            "mail": "cmo@devote.tw",
+            "src": "/images/pon.png"
+          },
+          {
+            "name": "李柏漢 / CFO",
+            "role": "專精於 TrustZone 開發硬體錢包，並對區塊鏈應用與相關的資安問題有深入的了解",
+            "specialty": "專長：資訊安全、程式開發、TrustZone 安全晶片開發",
+            "mail": "borhanlee@devote.tw",
+            "src": "/images/borhan.jpg"
+          }
+        ]
+      }
     }
-}
+  }
+  

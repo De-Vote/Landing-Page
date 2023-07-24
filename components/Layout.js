@@ -5,7 +5,7 @@ const Layout = (props) => {
   return (
     <div>
       <Head>
-        <title>De.Vote</title>
+        <title>De.Vote 塊區投科技股份有限公司</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
