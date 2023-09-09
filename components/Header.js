@@ -14,6 +14,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next'
 import LanguageSwitchLink from './LanguageSwitchLink'
 import i18nextConfig from '../next-i18next.config'
+import { assetPath } from '../lib/publicPath';
 
 export default function NewHeader(props) {
   const { t } = useTranslation('common')
@@ -26,7 +27,7 @@ export default function NewHeader(props) {
       {/* <div className={`header`}> */}
         <Navbar bg="light" expand="md" sticky="top">
           <Container>
-            <img alt="" src="/favicon-192.png" width="30" height="30" className="d-inline-block align-top"/>{' '}
+            <img alt="" src={assetPath("/favicon-192.png")} width="30" height="30" className="d-inline-block align-top"/>{' '}
             <Navbar.Brand className="logo-text">
               De.Vote
             </Navbar.Brand>

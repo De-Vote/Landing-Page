@@ -5,7 +5,7 @@ const nextConfig = {
   // i18n,
   reactStrictMode: true,
   swcMinify: true,
-  assetPrefix: process.env.NODE_ENV === 'production' ? `./Landing-Page` : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? `/Landing-Page` : '',
   images: {
     loader: "custom",
   },
