@@ -47,7 +47,7 @@ const Footer = () => {
               
               <Col md={4}>
                 <h6 className="text-dark mb-3">Contact Us</h6>
-                <p className="text-muted f-14">General Building II Office 737, No.101, Sec. 2, Guangfu Rd., East Dist., Hsinchu City, Hsinchu, Hsinchu City, Taiwan 300</p>
+                <p className="text-muted f-14">General Building II Office 738, No.101, Sec. 2, Guangfu Rd., East Dist., Hsinchu City, Hsinchu, Hsinchu City, Taiwan 300</p>
                 <h6 className="text-muted pb-2">Email: contact@devote.tw</h6>
                 <ul className="list-unstyled footer-social-list mt-4">
                   <li className="list-inline-item"><a href="#"><i className="mdi mdi-facebook"></i></a></li>
@@ -62,7 +62,7 @@ const Footer = () => {
         <Row className="mt-5">
           <Col md={12}>
             <div className="text-center text-muted">
-              <p className="mb-0 f-15">Copyright © 2022 De.Vote</p>
+              <p className="mb-0 f-15">Copyright © 2023 De.Vote 塊區投科技股份有限公司</p>
             </div>
           </Col>
         </Row>
