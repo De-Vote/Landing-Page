@@ -5,7 +5,7 @@ const nextConfig = {
   // i18n,
   reactStrictMode: true,
   swcMinify: true,
-  assetPrefix: process.env.NODE_ENV === 'production' ? '.' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? `/${process.env.GHPAGE_ROUTE}` : '',
   images: {
     loader: "custom",
   },
