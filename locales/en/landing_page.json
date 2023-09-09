@@ -1,0 +1,47 @@
+{
+    "title":"",
+    "type":"object list",
+    "content":[
+        {
+            "title":"Who we are",
+            "type": "string paragraph",
+            "content":["At Devote, we are committed to maintaining the trust and confidence of all visitors to our website. In particular, we want you to know that De.Vote is not in the business of selling, renting or trading email lists with other companies and businesses for marketing purposes.",
+                       "In this Privacy Policy, we’ve provided detailed information on when and why we collect personal information, how we use it, the limited conditions under which we may disclose it to others, and how we keep it secure.",
+                       "We take your privacy seriously and take measures to provide all visitors and users of De.Vote with a safe and secure environment."]
+        },
+        {
+            "title":"Google Analytics ",
+            "type": "string",
+            "content": "When someone visits De.Vote we use a third-party service, Google Analytics, to collect standard internet log information and details of visitor behavior patterns. We do this to track things such as the number of visitors to the various parts of the site and interactions with the site. This information is processed in a way that does not identify anyone. We do not make, and do not allow Google to make, any attempt to find out the identities of visitors to our website."
+        },
+        {
+            "title":"Website Comments",
+            "type": "string",
+            "content": "When someone visits De.Vote, there may be an ability to submit comments on particular articles or pages. When comments are submitted, you are entitled to use aliases or information that completely hides your identity. When a comment is submitted, the relevant details (name, email, website) that you provide are stored. These details are stored so that we can display your comment back to you, and anyone viewing the comment sections on the site. We do not verify information entered nor do we require verification."
+        },
+        {
+            "title": "Access to Your Personal Information",
+            "type": "string",
+            "content": "You are entitled to view, amend, or delete the personal information that we hold. Email your request to our data protection officer [YOUR FIRST NAME] at [EMAIL ADDRESS] and we will work with you to remove any of your personal data we may have."
+        },
+        {
+            "title":"Voting Machine Service",
+            "type":"object",
+            "content": {
+                "title": "Devote is designed with built-in privacy features, we only collect the information needed to provide a safe and trustworthy election and never sell any user's personal information.",
+                "type":"string list",
+                "content":[
+                    "For establishing election administrators: As the establishment election administrator, you have the right to specify who can vote, when to start, when to stop, and when to announce results. You don't have any powers other than establishing a vote.",
+                    "For voters: We use SSL to transfer data between your browser and our servers. Your vote is encrypted with an election key. Our servers will never see your vote. We also do not give any power to decrypt your vote, only the election results, not individual votes."
+                ]
+            }
+        },
+        {
+            "title":"Changes to Our Privacy Policy",
+            "type": "string paragraph",
+            "content":["We may make changes to our Privacy Policy in the future, however, the most current version of the policy will govern our processing of your personal data and will always be available to you.",
+                       "If we make a change to this policy that, in our sole discretion, is material, we will notify you by an update or email, where possible.",
+                       "By continuing to access or use our services, you agree to be bound to the terms of our Privacy Policy."]
+        }
+    ]
+}

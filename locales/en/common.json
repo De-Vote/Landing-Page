@@ -1,0 +1,22 @@
+{
+    "nav":{
+        "Home": "Home",
+        "Feature": "Feature",
+        "About": "About",
+        "Privacy": "Privacy",
+        "FAQs":"FAQs",
+        "Language": "Language"
+    },
+    "footer":{
+        "Feature": "Feature",
+        "About": "About Us",
+        "Contact": "Contact Us",
+        "Email":"Email",
+        "Private": "Private",
+        "Justice":"Justice",
+        "Verifiable": "Verifiable",
+        "FAQs": "FAQs",
+        "PrivacyPolicy": "Privacy Policy",
+        "address":"General Building II Office 738, No.101, Sec. 2, Guangfu Rd., East Dist., Hsinchu City, Hsinchu, Hsinchu City, Taiwan 300"
+    }
+}
