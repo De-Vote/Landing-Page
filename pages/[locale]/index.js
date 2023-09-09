@@ -14,24 +14,6 @@ export { getStaticPaths, getStaticProps }
 export default function HomePage() {
   const { query, locale } = useRouter();
   const { t } = useTranslation('landing_page_index')
-  const [hero, setHero] = useState({})
-  const [feature, setFeature] = useState([])
-  const [about, setAbout] = useState({})
-
-  useEffect(() => {
-    init()
-  }, [locale]);
-
-  async function init() {
-    try {
-      console.log(t('hero.title'))
-      setHero(result.hero)
-      setFeature(result.feature)
-      setAbout(result.about)
-    } catch (e) {
-      console.log(e.message)
-    }
-  }
 
   return (
     <Layout>

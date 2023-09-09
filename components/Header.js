@@ -53,10 +53,9 @@ export default function NewHeader(props) {
                 <NavDropdown title={t('nav.Language')} style={{ padding: 0 }}>
                 {i18nextConfig.i18n.locales.map((locale) => {
                   return (
-                    <NavDropdown.Item style={{ textAlign: "center",padding: 0  }}>
+                    <NavDropdown.Item key={locale} style={{ textAlign: "center",padding: 0  }}>
                       <LanguageSwitchLink
                         locale={locale}
-                        key={locale}
                       />
                     </NavDropdown.Item>
                   )
