@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useContext, useEffect } from 'react';
 import { useTranslation } from 'next-i18next'
+import { assetPath } from '../lib/publicPath';
 
 const features = [
   {
