@@ -10,6 +10,9 @@ const nextConfig = {
     loader: "custom",
   },
   env:{
+    // if dev use this 
+    // GHPAGE_ROUTE: process.env.NODE_ENV === 'production' ? `/Landing-Page` : '',
+    // if production use this
     GHPAGE_ROUTE: 'Landing-Page',
   }
 }

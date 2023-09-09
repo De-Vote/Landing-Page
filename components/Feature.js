@@ -80,7 +80,7 @@ const FeatureBox = ({t}) => {
   );
 }
 
-const Feature = ({ }) => {
+const Feature = () => {
   const { t } = useTranslation('landing_page_index')
 
   return (

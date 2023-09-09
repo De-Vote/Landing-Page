@@ -18,10 +18,8 @@ import { assetPath } from '../lib/publicPath';
 
 export default function NewHeader(props) {
   const { t } = useTranslation('common')
-  const router = useRouter()
-  const { query, locale, asPath } = useRouter();
+  const { locale } = useRouter();
 
-  const isSlug = query.slug;
   return (
     <>
       {/* <div className={`header`}> */}

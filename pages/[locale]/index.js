@@ -12,9 +12,6 @@ const getStaticProps = makeStaticProps(['landing_page_index', "common"])
 export { getStaticPaths, getStaticProps }
 // Landing page
 export default function HomePage() {
-  const { query, locale } = useRouter();
-  const { t } = useTranslation('landing_page_index')
-
   return (
     <Layout>
       <Header />
