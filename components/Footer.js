@@ -1,7 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
+import { useTranslation } from 'next-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation('common')
+
   const links = [
     { id : 1, title : "Feature",
       child : [
@@ -10,10 +13,10 @@ const Footer = () => {
           { title : "Verifiable", link : "/#feature" },
       ]
     },
-    { id : 2, title : "About Us",
+    { id : 2, title : "About",
       child : [
           { title : "FAQs", link : "/faq" },
-          { title : "Privacy Policy", link : "/privacy" },
+          { title : "PrivacyPolicy", link : "/privacy" },
       ]
     },
   ];
@@ -33,11 +36,11 @@ const Footer = () => {
               {
                 links.map((link, key) =>
                   <Col key={key} md={4}>
-                    <h6 className="text-dark mb-3">{link.title}</h6>
+                    <h6 className="text-dark mb-3">{t(`footer.${link.title}`)}</h6>
                     <ul className="list-unstyled company-sub-menu">
                       {
                         link.child.map((fLink, key) =>
-                          <li key={key}><a href={fLink.link}>{fLink.title}</a></li>
+                          <li key={key}><a href={fLink.link}>{t(`footer.${fLink.title}`)}</a></li>
                         )
                       }
                     </ul>
@@ -46,9 +49,9 @@ const Footer = () => {
               }
               
               <Col md={4}>
-                <h6 className="text-dark mb-3">Contact Us</h6>
-                <p className="text-muted f-14">General Building II Office 738, No.101, Sec. 2, Guangfu Rd., East Dist., Hsinchu City, Hsinchu, Hsinchu City, Taiwan 300</p>
-                <h6 className="text-muted pb-2">Email: contact@devote.tw</h6>
+                <h6 className="text-dark mb-3">{t('footer.Contact')}</h6>
+                <p className="text-muted f-14">{t('footer.address')}</p>
+                <h6 className="text-muted pb-2">{t('footer.Email')}: contact@devote.tw</h6>
                 <ul className="list-unstyled footer-social-list mt-4">
                   <li className="list-inline-item"><a href="#"><i className="mdi mdi-facebook"></i></a></li>
                   <li className="list-inline-item"><a href="#"><i className="mdi mdi-instagram"></i></a></li>

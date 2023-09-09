@@ -1,8 +1,24 @@
 import React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'next-i18next'
 
-const FeatureBox = (props) => {
+const features = [
+  {
+    "id": 1,
+    "img": "/privacy.png",
+  },
+  {
+    "id": 2,
+    "img": "/justice.png",
+  },
+  {
+    "id": 3,
+    "img": "/verify.png",
+  }
+]
+
+const FeatureBox = ({t}) => {
   const [width, setWidth] = useState(0);
   const isMobile = width <= 768;
 
@@ -20,7 +36,7 @@ const FeatureBox = (props) => {
   return (
     <>
       {
-        props.features.map((feature, key) =>
+        features.map((feature, key) =>
           ((feature.id % 2 !== 0)&&!isMobile) ?
             <Row key={key} className={feature.id === 1 ? "align-items-center" : "align-items-center mt-5"}>
               <Col md={5} >
@@ -33,8 +49,8 @@ const FeatureBox = (props) => {
                   <div className="my-4">
                     <i className={feature.icon}></i>
                   </div>
-                  <h5 className="text-dark font-weight-bold mb-3 pt-3">{feature.title}</h5>
-                  <p className="text-muted mb-3 f-15">{feature.desc}</p>
+                  <h5 className="text-dark font-weight-bold mb-3 pt-3">{t(`feature.${key}.title`)}</h5>
+                  <p className="text-muted mb-3 f-15">{t(`feature.${key}.desc`)}</p>
                   {/* <a href={feature.link} className="f-16 text-warning">Read More <span className="right-icon ml-2">&#8594;</span></a> */}
                 </div>
               </Col>
@@ -46,8 +62,8 @@ const FeatureBox = (props) => {
                   <div className="my-4">
                     <i className="mdi mdi-account-group"></i>
                   </div>
-                  <h5 className="text-dark font-weight-bold mb-3 pt-3">{feature.title}</h5>
-                  <p className="text-muted mb-3 f-15">{feature.desc}</p>
+                  <h5 className="text-dark font-weight-bold mb-3 pt-3">{t(`feature.${key}.title`)}</h5>
+                  <p className="text-muted mb-3 f-15">{t(`feature.${key}.desc`)}</p>
                   {/* <a href={feature.link} className="f-16 text-warning">Read More <span className="right-icon ml-2">&#8594;</span></a> */}
                 </div>
               </Col>
@@ -63,7 +79,8 @@ const FeatureBox = (props) => {
   );
 }
 
-const Feature = ({ content }) => {
+const Feature = ({ }) => {
+  const { t } = useTranslation('landing_page_index')
 
   return (
     <section className="section" id="feature">
@@ -71,12 +88,12 @@ const Feature = ({ content }) => {
         <Row className="justify-content-center">
           <Col lg={6} md={8}>
             <div className="title text-center mb-5">
-              <h3 className="font-weight-bold ubuntu text-dark"><span className="text-warning">Features</span></h3>
+              <h3 className="font-weight-bold ubuntu text-dark"><span className="text-warning">{t('featureTitle')}</span></h3>
               {/* <p className="text-muted"></p> */}
             </div>
           </Col>
         </Row>
-        <FeatureBox features={content} />
+        <FeatureBox t={t} />
       </Container>
     </section>
   );
