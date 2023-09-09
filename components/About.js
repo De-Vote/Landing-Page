@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import Link from "./Link";
 import { useTranslation } from 'next-i18next'
+import { assetPath } from '../lib/publicPath';
 
 const About = () => {
   const { t } = useTranslation('landing_page_index')
@@ -59,7 +60,7 @@ function Member({member}) {
     <Card style={{width: '21rem', justifyContent:'center', alignItems:'center'}}>
       {/* <Card.Img variant="top" src={} className="rounded"/> */}
       <br/>
-      <Image src={member.src} roundedCircle className="w-50"/>
+      <Image src={assetPath(member.src)} roundedCircle className="w-50"/>
       <Card.Body>
         <Card.Title>{member.name}</Card.Title>
         <Card.Text>{member.role}</Card.Text>
