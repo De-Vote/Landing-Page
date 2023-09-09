@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import React, { useEffect, useState } from "react";
-import AppContext from '../context/AppContext';
 import '../styles/header.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,20 +28,6 @@ function MyApp({ Component, pageProps }) {
     router.push("/vote", `/vote`)
   }
   return (
-      <AppContext.Provider value={{
-        user: user,
-        setUser: setUser,
-        role: role,
-        setRole: setRole,
-        voting: voting,
-        result: result,
-        ownedVotes: ownedVotes,
-        setOwnedVotes: setOwnedVotes,
-        logout: logout,
-        voteId: voteId,
-        setVoteId: setVoteId,
-        backToHome: backToHome
-      }}>
     <SSRProvider>
     {getLayout( <>
         <ToastContainer position="top-center"
@@ -57,7 +42,6 @@ function MyApp({ Component, pageProps }) {
         {/* <Component {...pageProps} /> */}
         <Component {...pageProps} /></>)}
       </SSRProvider>
-      </AppContext.Provider>
   )
 }
 

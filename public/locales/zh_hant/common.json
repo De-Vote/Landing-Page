@@ -1,0 +1,22 @@
+{
+  "nav":{
+      "Home": "首頁",
+      "Feature": "特點",
+      "About": "關於",
+      "Privacy": "隱私",
+      "FAQs":"常見問題",
+      "Language": "語言"
+  },
+  "footer":{
+      "Feature": "特點",
+      "About": "關於我們",
+      "Contact": "聯繫我們",
+      "Email":"電子郵件",
+      "Private": "私密性",
+      "Justice": "公正性",
+      "Verifiable": "可驗證性",
+      "FAQs": "常見問題",
+      "PrivacyPolicy": "隱私政策",
+      "address":"300新竹市東區光復路二段101號第二綜合大樓738室"
+  }
+}

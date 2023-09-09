@@ -1,8 +1,10 @@
 {
     "hero": {
       "title": ["A Decentralized Voting System for a Better World"],
-      "description": "Introducing a blockchain-based, decentralized voting system, fortified by our patented TrustZone-backed trusted computing technology."
+      "description": "Introducing a blockchain-based, decentralized voting system, fortified by our patented TrustZone-backed trusted computing technology.",
+      "try": "Try out our voting system!"
     },
+    "featureTitle":"Feature",
     "feature": [
       {
         "id": 1,
@@ -24,6 +26,7 @@
       }
     ],
     "about": {
+      "title":["About","Us"],
       "intro": "De.Vote is a nonpartisan organization spearheaded by Professor Ren-Song Tsay of the Logos Lab at National Tsing Hua University.",
       "left": "We are the most trusted provider of secure and anonymous voting solutions.",
       "middle": {

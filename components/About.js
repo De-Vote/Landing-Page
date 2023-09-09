@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import Link from "next/link";
+import { useTranslation } from 'next-i18next'
 
-const About = ({ content }) => {
+const About = () => {
+  const { t } = useTranslation('landing_page_index')
 
   return (
     <>
@@ -11,24 +13,24 @@ const About = ({ content }) => {
           <Row className="justify-content-center">
             <Col lg={10} md={10}>
               <div className="title text-center mb-5">
-                <h3 className="font-weight-bold ubuntu text-dark">About <span className="text-warning">Us</span></h3>
-                <p className="text-muted">{content.intro}</p>
+                <h3 className="font-weight-bold ubuntu text-dark">{t('about.title.0')} <span className="text-warning">{t('about.title.1')}</span></h3>
+                <p className="text-muted">{t('about.intro')}</p>
               </div>
             </Col>
           </Row>
           <Row>
             <Col md={4}>
-              <h2 className="font-weight-light line-height-1_6 text-dark mb-4">{content.left}</h2>
+              <h2 className="font-weight-light line-height-1_6 text-dark mb-4">{t('about.left')}</h2>
             </Col>
             <Col md={{ size: 7, offset: 1 }}>
               <Row>
                 <Col md={6}>
-                  <h6 className="text-dark font-weight-light f-20 mb-3">{content.middle?.title}</h6>
-                  <p className="text-muted font-weight-light">{content.middle?.content}</p>
+                  <h6 className="text-dark font-weight-light f-20 mb-3">{t('about.middle.title')}</h6>
+                  <p className="text-muted font-weight-light">{t('about.middle.content')}</p>
                 </Col>
                 <Col md={6}>
-                  <h6 className="text-dark font-weight-light f-20 mb-3">{content.right?.title}</h6>
-                  <p className="text-muted font-weight-light">{content.right?.content}</p>
+                  <h6 className="text-dark font-weight-light f-20 mb-3">{t('about.right.title')}</h6>
+                  <p className="text-muted font-weight-light">{t('about.right.content')}</p>
                 </Col>
               </Row>
             </Col>
@@ -39,10 +41,10 @@ const About = ({ content }) => {
       <section >
         <Container>
           <Row >
-            {content.members?.row1.map((member, index)=><Col key={index}><Member member={member}/></Col>)}
+            {t('about.members.row1', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
           </Row>
           <Row >
-            {content.members?.row2.map((member, index)=><Col key={index}><Member member={member}/></Col>)}
+            {t('about.members.row2', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
           </Row>
         </Container>
       </section>
