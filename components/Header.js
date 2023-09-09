@@ -8,23 +8,25 @@ import {
   Nav,
   NavItem
 } from 'react-bootstrap';
-import Link from 'next/link'
+import Link from './Link'
 const base = process.env.NODE_ENV === 'production' ? "." : "";
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next'
-
+import LanguageSwitchLink from './LanguageSwitchLink'
+import i18nextConfig from '../next-i18next.config'
 
 export default function NewHeader(props) {
   const { t } = useTranslation('common')
-
+  const router = useRouter()
   const { query, locale, asPath } = useRouter();
+
   const isSlug = query.slug;
   return (
     <>
       {/* <div className={`header`}> */}
         <Navbar bg="light" expand="md" sticky="top">
           <Container>
-            <img alt="" src="favicon-192.png" width="30" height="30" className="d-inline-block align-top"/>{' '}
+            <img alt="" src="/favicon-192.png" width="30" height="30" className="d-inline-block align-top"/>{' '}
             <Navbar.Brand className="logo-text">
               De.Vote
             </Navbar.Brand>
@@ -49,7 +51,17 @@ export default function NewHeader(props) {
                   <Link href="/faq" as={`/faq`}>{t('nav.FAQs')}</Link>
                 </NavItem>
                 <NavDropdown title={t('nav.Language')} style={{ padding: 0 }}>
-                  <NavDropdown.Item style={{ textAlign: "center",padding: 0  }}>
+                {i18nextConfig.i18n.locales.map((locale) => {
+                  return (
+                    <NavDropdown.Item style={{ textAlign: "center",padding: 0  }}>
+                      <LanguageSwitchLink
+                        locale={locale}
+                        key={locale}
+                      />
+                    </NavDropdown.Item>
+                  )
+                })}
+                  {/* <NavDropdown.Item style={{ textAlign: "center",padding: 0  }}>
                     <Link href={'/en'} locale="en">
                       <a style={{display:"inline-block", width:"100%"}}>EN</a>
                     </Link>
@@ -61,7 +73,7 @@ export default function NewHeader(props) {
                     >
                       <a style={{display:"inline-block", width:"100%"}}>繁</a>
                     </Link>
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

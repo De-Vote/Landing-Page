@@ -4,8 +4,14 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-toastify';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header'
+import { getStaticPaths, makeStaticProps } from '../../lib/getStatic'
+import { useTranslation } from 'next-i18next'
+const getStaticProps = makeStaticProps(["common"])
+export { getStaticPaths, getStaticProps }
+
 export default function Login() {
     const router = useRouter()
+    const { t } = useTranslation('common')
     const [account, setAccount] = useState("")
     const [password, setPassword] = useState("")
 
@@ -40,14 +46,14 @@ export default function Login() {
                                     <Form.Check type="checkbox" label="Is Admin ?" checked={admin} onChange={(e) => {setAdmin(e.target.checked)}} />
                                 </Form.Group> */}
                                 <div align="center">
-                                    <Button style={{ width: "45%" }} variant="primary" type="button" onClick={(e) => { logIn(e) }}>
+                                    <Button className='btn btn-success' style={{ width: "45%" }} variant="primary" type="button" onClick={(e) => { logIn(e) }}>
                                         Log in
                                     </Button>
                                     &nbsp;
                                     {/* </div>
                                 <br/>
                                 <div align="center"> */}
-                                    <Button style={{ width: "45%" }} variant="primary" type="button" onClick={(e) => { createAccount(e) }}>
+                                    <Button className='btn btn-success' style={{ width: "45%" }} variant="primary" type="button" onClick={(e) => { createAccount(e) }}>
                                         Create Account
                                     </Button>
                                 </div>
@@ -59,31 +65,3 @@ export default function Login() {
         </Layout>
     )
 }
-
-const getPathSlugs = () => {
-    // We fetched locales from our API once at build time
-    return [ "en", "zh_hant"].map((locale) => ({
-      params: {
-        locale
-      },
-      // locale: locale
-    }));
-  }
-    
-  
-  export async function getStaticPaths(...args) {
-    const pathsWithLocale = getPathSlugs();
-    console.log(pathsWithLocale)
-    return {
-      paths: pathsWithLocale,
-      fallback: true,
-    };
-  }
-  
-  export async function getStaticProps({ params }) {
-    return {
-      props: {
-        ...params
-      }
-    };
-  }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import Link from 'next/link'
+import Link from './Link'
 import { useTranslation } from 'next-i18next'
 
 const Hero = ({ locale }) => {
@@ -16,7 +16,7 @@ const Hero = ({ locale }) => {
                 <>
                   {t('hero.title',{returnObjects: true}).map((t, index)=>(<h1 key={index} className="mb-4 font-weight-bold ubuntu line-height-1_4">{t}</h1>))}
                   <p className="text-muted mb-4 pb-2">{t('hero.description')}</p>
-                  <Link href={"login?"} as={`/login?`}>
+                  <Link href={"/login?"} as={`/login?`}>
                     <a href="login" className="btn btn-success"> 
                     {t('hero.try')} <span className="ml-2 right-icon">&#8594;</span>
                     </a>

@@ -4,9 +4,13 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useRouter } from 'next/router';
 import { useState, useContext, useEffect } from 'react';
 import Footer from '../../components/Footer';
-
+import { getStaticPaths, makeStaticProps } from '../../lib/getStatic'
+import { useTranslation } from 'next-i18next'
+const getStaticProps = makeStaticProps(['landing_page', "common"])
+export { getStaticPaths, getStaticProps }
 export default function Privacy() {
-    const { query, locale } = useRouter();
+    const { i18n } = useTranslation('landing_page')
+    const {locale} = useRouter();
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -15,8 +19,7 @@ export default function Privacy() {
 
     async function init() {
         try {
-            let result = await fetch(`/locales/${locale}/landing_page.json`)
-            result = await result.json();
+            let result = (i18n.store.getResourceBundle(i18n.language, 'landing_page'))
             console.log(result)
             setData(result)
         } catch (e) {
@@ -97,31 +100,3 @@ function TypeObjList(props){
         </ul>
     </>)
 }
-
-const getPathSlugs = () => {
-    // We fetched locales from our API once at build time
-    return [ "en", "zh_hant"].map((locale) => ({
-      params: {
-        locale
-      },
-      // locale: locale
-    }));
-  }
-    
-  
-  export async function getStaticPaths(...args) {
-    const pathsWithLocale = getPathSlugs();
-    console.log(pathsWithLocale)
-    return {
-      paths: pathsWithLocale,
-      fallback: true,
-    };
-  }
-  
-  export async function getStaticProps({ params }) {
-    return {
-      props: {
-        ...params
-      }
-    };
-  }

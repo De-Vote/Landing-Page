@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
-import Link from "next/link";
+import Link from "./Link";
 import { useTranslation } from 'next-i18next'
 
 const About = () => {
