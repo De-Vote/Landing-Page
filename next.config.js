@@ -5,14 +5,12 @@ const nextConfig = {
   // i18n,
   reactStrictMode: true,
   swcMinify: true,
-  assetPrefix: process.env.NODE_ENV === 'production' ? `/${process.env.GHPAGE_ROUTE}` : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? `/Landing-Page` : '',
   images: {
     loader: "custom",
   },
   env:{
-    GHPAGE_ROUTE: process.env.GHPAGE_ROUTE,
-    API_URL: process.env.API_URL
-
+    GHPAGE_ROUTE: 'Landing-Page',
   }
 }
 
