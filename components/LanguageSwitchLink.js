@@ -15,7 +15,7 @@ const LanguageSwitchLink = ({ locale, ...rest }) => {
     pName = pName.replace(`[${k}]`, router.query[k])
   })
   if (locale) {
-    href = rest.href ? `/${locale}${rest.href}` : pName
+    href = rest.href ? `/${process.env.GHPAGE_ROUTE}/${locale}${rest.href}` : pName
   }
 
   return (

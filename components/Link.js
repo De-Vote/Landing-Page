@@ -10,7 +10,7 @@ const LinkComponent = ({ children, skipLocaleHandling, ...rest }) => {
   if (href.indexOf('http') === 0) skipLocaleHandling = true
   if (locale && !skipLocaleHandling) {
     href = href
-      ? `/${locale}${href}`
+      ? `/${process.env.GHPAGE_ROUTE}/${locale}${href}`
       : router.pathname.replace('[locale]', locale)
   }
 
