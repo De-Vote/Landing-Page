@@ -44,21 +44,21 @@
             "role": "Founder of two high-tech companies in Silicon Valley, both of which were successfully acquired.",
             "specialty": "Expertise: Embedded System Verification, Blockchain and Its Applications, Decentralized IoT Architecture",
             "mail": "instructor@devote.tw",
-            "src": "/images/song.jpg"
+            "src": "/images/song.webp"
           },
           {
             "name": "Wei En Tsai / CEO",
             "role": "Brings a wealth of experience in development and entrepreneurship competitions.",
             "specialty": "Expertise: Leadership, Tech Development, Information Security",
             "mail": "wayne.tsai@devote.tw",
-            "src": "/images/tsai.JPG"
+            "src": "/images/tsai.webp"
           },
           {
             "name": "Guan Xue Li / COO",
             "role": "Doctoral dissertation on high security, high scalability electronic voting technology.",
             "specialty": "Expertise: Cryptography, Blockchain and its applications",
             "mail": "guanshiue.li@devote.tw",
-            "src": "/images/lee.png"
+            "src": "/images/lee.webp"
           }
         ],
         "row2": [
@@ -67,21 +67,21 @@
             "role": "Specializes in blockchain project development and scalable system architecture design.",
             "specialty": "Expertise: Large-scale system design, blockchain technology development",
             "mail": "vincent.su@devote.tw",
-            "src": "/images/su.png"
+            "src": "/images/su.webp"
           },
           {
             "name": "Hsiang Ting Peng / CMO",
             "role": "Possesses rich capabilities in data analysis and integration.",
             "specialty": "Expertise: Information security information collection and analysis, project management",
             "mail": "ht.peng@devote.tw",
-            "src": "/images/pon.png"
+            "src": "/images/pon.webp"
           },
           {
             "name": "Borhan Lee / CFO",
             "role": "Experienced in developing bitcoin hardware wallets based on TrustZone, with a deep understanding of blockchain and security issues.",
             "specialty": "Expertise: Program Development, TrustZone Security Chip Development",
             "mail": "borhan.lee@devote.tw",
-            "src": "/images/borhan.jpg"
+            "src": "/images/borhan.webp"
           }
         ]
       }

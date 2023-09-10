@@ -43,21 +43,21 @@
             "role": "曾在矽谷創立兩間高科技公司，並成功獲得併購",
             "specialty": "專長：嵌入式系統驗證、區塊鏈及其應用、高科技創業與營運、分散式 IoT 架構",
             "mail": "instructor@devote.tw",
-            "src": "/images/song.jpg"
+            "src": "/images/song.webp"
           },
           {
             "name": "蔡惟恩 / CEO",
             "role": "具有豐富的開發經驗，並在新創相關競賽中帶領團隊屢獲佳績",
             "specialty": "專長：領導、技術開發、資安攻防",
             "mail": "ceo@devote.tw",
-            "src": "/images/tsai.JPG"
+            "src": "/images/tsai.webp"
           },
           {
             "name": "李冠學 / COO",
             "role": "博士論文專注於高安全、高延展性的電子投票技術。",
             "specialty": "專長：密碼學、區塊鏈及其應用",
             "mail": "coo@devote.tw",
-            "src": "/images/lee.png"
+            "src": "/images/lee.webp"
           }
         ],
         "row2": [
@@ -66,21 +66,21 @@
             "role": "在開發領域有豐富的經驗，擅長區塊鏈項目開發和可延展系統架構設計",
             "specialty": "專長：規模化系統設計、區塊鏈技術開發",
             "mail": "cto@devote.tw",
-            "src": "/images/su.png"
+            "src": "/images/su.webp"
           },
           {
             "name": "彭湘婷 / CMO",
             "role": "具有豐富的資料分析能力和整合能力",
             "specialty": "專長：資安情資搜集分析、專案管理、市場現況分析能力",
             "mail": "cmo@devote.tw",
-            "src": "/images/pon.png"
+            "src": "/images/pon.webp"
           },
           {
             "name": "李柏漢 / CFO",
             "role": "專精於 TrustZone 開發硬體錢包，並對區塊鏈應用與相關的資安問題有深入的了解",
             "specialty": "專長：資訊安全、程式開發、TrustZone 安全晶片開發",
             "mail": "borhanlee@devote.tw",
-            "src": "/images/borhan.jpg"
+            "src": "/images/borhan.webp"
           }
         ]
       }
