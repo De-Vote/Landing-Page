@@ -30,18 +30,19 @@ export default function FaqView() {
     const [data, setData] = useState({"title": "FAQs","rows": []})
 
     useEffect(() => {
+        async function init() {
+            try {
+                let result = (i18n.store.getResourceBundle(i18n.language, 'landing_page_faq'))
+                setData(result)
+            } catch (e) {
+                console.log(e.message)
+            }
+        }
         init()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router.isReady]);
 
-    async function init() {
-        try {
-            let result = (i18n.store.getResourceBundle(i18n.language, 'landing_page_faq'))
-            console.log(result)
-            setData(result)
-        } catch (e) {
-            console.log(e.message)
-        }
-    }
+    
     return (
         <div>
             <Layout>

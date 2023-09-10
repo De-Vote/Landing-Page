@@ -14,18 +14,18 @@ export default function Privacy() {
     const [data, setData] = useState([])
 
     useEffect(() => {
+        async function init() {
+            try {
+                let result = (i18n.store.getResourceBundle(i18n.language, 'landing_page'))
+                setData(result)
+            } catch (e) {
+                console.log(e.message)
+            }
+        }
         init()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [locale]);
 
-    async function init() {
-        try {
-            let result = (i18n.store.getResourceBundle(i18n.language, 'landing_page'))
-            console.log(result)
-            setData(result)
-        } catch (e) {
-            console.log(e.message)
-        }
-    }
     return (
         <Layout>
             <Header />

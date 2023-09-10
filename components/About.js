@@ -59,7 +59,7 @@ function Member({member}) {
     <Card style={{width: '21rem', justifyContent:'center', alignItems:'center'}}>
       {/* <Card.Img variant="top" src={} className="rounded"/> */}
       <br/>
-      <Image src={assetPath(member.src)} roundedCircle className="w-50"/>
+      <Image src={assetPath(member.src)} alt="Loading" roundedCircle className="w-50"/>
       <Card.Body>
         <Card.Title>{member.name}</Card.Title>
         <Card.Text>{member.role}</Card.Text>
