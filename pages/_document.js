@@ -1,8 +1,10 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import { assetPath } from '../lib/publicPath'
-export default function Document() {
+import i18nextConfig from '../next-i18next.config'
+export default function Document(props) {
+  const currentLocale = props.__NEXT_DATA__.query.locale || i18nextConfig.i18n.defaultLocale
   return (
-    <Html>
+    <Html lang={currentLocale}>
       <Head>
         <meta name="application-name" content="De.Vote App" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

@@ -21,9 +21,9 @@ const LanguageSwitchLink = ({ locale, ...rest }) => {
   return (
     <Link
       href={href}
-      onClick={() => languageDetector.cache(locale)}
-    >
-      <button style={{ all:'unset' }}>{locale}</button>
+      passHref legacyBehavior
+      style={{boxSizing:'border-box'}}>
+      <button style={{ all:'unset', width:'100%' }} onClick={() => languageDetector.cache(locale)}>{locale}</button>
     </Link>
   );
 };
