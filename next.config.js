@@ -5,7 +5,7 @@ const nextConfig = {
   // i18n,
   reactStrictMode: true,
   swcMinify: true,
-  assetPrefix: process.env.NODE_ENV === 'production' ? `.` : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? `` : '',
   images: {
     loader: "custom",
   },
@@ -13,7 +13,7 @@ const nextConfig = {
     // if dev use this 
     // GHPAGE_ROUTE: process.env.NODE_ENV === 'production' ? `/Landing-Page` : '',
     // if production use this
-    GHPAGE_ROUTE: '.',
+    GHPAGE_ROUTE: '',
   }
 }
 
