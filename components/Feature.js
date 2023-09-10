@@ -94,7 +94,7 @@ const Feature = () => {
             </div>
           </Col>
         </Row>
-        <FeatureBox t={t} />
+        {/* <FeatureBox t={t} /> */}
       </Container>
     </section>
   );
