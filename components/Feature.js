@@ -86,14 +86,13 @@ const Feature = () => {
   return (
     <section className="section" id="feature">
       <Container>
-        <Row className="justify-content-center">
+        {/* <Row className="justify-content-center">
           <Col lg={6} md={8}>
             <div className="title text-center mb-5">
               <h3 className="font-weight-bold ubuntu text-dark"><span className="text-warning">{t('featureTitle')}</span></h3>
-              {/* <p className="text-muted"></p> */}
             </div>
           </Col>
-        </Row>
+        </Row> */}
         {/* <FeatureBox t={t} /> */}
       </Container>
     </section>
