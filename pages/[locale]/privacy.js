@@ -1,8 +1,8 @@
 import Layout from '../../components/Layout';
 import Header from '../../components/Header'
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useRouter } from 'next/router';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer';
 import { getStaticPaths, makeStaticProps } from '../../lib/getStatic'
 import { useTranslation } from 'next-i18next'
@@ -10,7 +10,7 @@ const getStaticProps = makeStaticProps(['landing_page', "common"])
 export { getStaticPaths, getStaticProps }
 export default function Privacy() {
     const { i18n } = useTranslation('landing_page')
-    const {locale} = useRouter();
+    const router = useRouter();
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -24,28 +24,34 @@ export default function Privacy() {
         }
         init()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [locale]);
+    }, [router.isReady]);
 
     return (
         <Layout>
             <Header />
             <Container>
-                <h2>{(locale == "zh_hant")?"隱私":"Privacy"}</h2>
                 {data && data.content?
                     <>
+                        <h2>{data.header}</h2>
                         <p>{data.title}</p>
-                        {console.log(data.content)}
-                        {data.content.map((item) => {
-                            console.log(data.content)
+                        {data.content.map((item, index) => {
                             switch (item.type) {
                                 case "string":
-                                    return <TypeStr title={item.title} content={item.content} />
+                                    return (<div key={index}>
+                                        <TypeStr index={index} title={item.title} content={item.content} />
+                                    </div>)
                                 case "string list":
-                                    return <TypeStrList title={item.title} content={item.content} type={"li"}/>
+                                    return (<div key={index}>
+                                        <TypeStrList index={index} title={item.title} content={item.content} type={"li"}/>
+                                    </div>)
                                 case "string paragraph":
-                                    return <TypeStrList title={item.title} content={item.content} type={"p"}/>
+                                    return (<div key={index}>
+                                        <TypeStrList index={index} title={item.title} content={item.content} type={"p"}/>
+                                    </div>)
                                 case "object":
-                                    return <TypeObj title={item.title} content={item.content} />
+                                    return (<div key={index}>
+                                        <TypeObj index={index} title={item.title} content={item.content} />
+                                    </div>)
                                 default:
                                     return <></>
                             }
@@ -71,7 +77,7 @@ function TypeStrList(props) {
         <>
             {(props.small)?<h5>{props.title}</h5>:<h3>{props.title}</h3>}
             <ul>
-                {props.content.map((item) => (props.type == "p")?<p>{item}</p>:<li>{item}</li>)}
+                {props.content.map((item, index) => (props.type == "p")?<p key={index}>{item}</p>:<li key={index}>{item}</li>)}
             </ul>
         </>)
 }

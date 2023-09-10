@@ -7,8 +7,18 @@ import About from '../../components/About';
 import { getStaticPaths, makeStaticProps } from '../../lib/getStatic'
 const getStaticProps = makeStaticProps(['landing_page_index', "common"])
 export { getStaticPaths, getStaticProps }
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
 // Landing page
 export default function HomePage() {
+  const router = useRouter();
+  const [isReady, setIsReady] = useState(false)
+  useEffect(()=>{
+    if(router.isReady) setIsReady(true)
+  },[router.isReady])
+
+  if(!isReady)return <></>
   return (
     <Layout>
       <Header />
