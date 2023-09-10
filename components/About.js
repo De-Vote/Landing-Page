@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
-import Link from "./Link";
+import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import { useTranslation } from 'next-i18next'
 import { assetPath } from '../lib/publicPath';
 

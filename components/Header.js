@@ -1,28 +1,23 @@
-import { useState, useEffect } from 'react';
 import {
   Container,
-  Collapse,
   Navbar,
   NavDropdown,
-  NavbarBrand,
   Nav,
   NavItem
 } from 'react-bootstrap';
 import Link from './Link'
-const base = process.env.NODE_ENV === 'production' ? "." : "";
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next'
 import LanguageSwitchLink from './LanguageSwitchLink'
 import i18nextConfig from '../next-i18next.config'
 import { assetPath } from '../lib/publicPath';
 
-export default function NewHeader(props) {
+export default function NewHeader() {
   const { t } = useTranslation('common')
   const { locale } = useRouter();
 
   return (
     <>
-      {/* <div className={`header`}> */}
         <Navbar bg="light" expand="md" sticky="top">
           <Container>
             <img alt="" src={assetPath("/favicon-192.png")} width="30" height="30" className="d-inline-block align-top"/>{' '}
@@ -33,9 +28,7 @@ export default function NewHeader(props) {
             <Navbar.Collapse>
               <Nav className="ml-auto">
                 <NavItem className="nav-link" style={{ marginRight: "1%"}}>
-                  <Link href="/#" as={`/#`}>
-                    {(locale=="zh_hant")?"主頁":"Home"}
-                  </Link>
+                  <Link href="/#" as={`/#`}>{t('nav.Home')}</Link>
                 </NavItem>
                 <NavItem className="nav-link" style={{ marginRight: "1%" }}>
                   <Link href="/#feature" as={`/#feature`}>{t('nav.Feature')}</Link>

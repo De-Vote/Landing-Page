@@ -25,12 +25,6 @@ const Footer = () => {
     <section className="footer section">
       <Container>
         <Row>
-          {/* <Col lg={4}>
-              <div className="mb-4">
-                <p className="text-muted mt-4 mb-2">email@email.com</p>
-                <h6 className="text-muted font-weight-normal">+99 1234-5678-9</h6>
-              </div>
-          </Col> */}
           <Col lg={12}>
             <Row>
               {
