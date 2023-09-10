@@ -16,8 +16,8 @@ export default function HomePage() {
     <Layout>
       <Header />
       <Hero/>
-      <Feature/>
-      <About/>
+      {/* <Feature/>
+      <About/> */}
       <Footer />
     </Layout>
   )
