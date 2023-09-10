@@ -66,7 +66,7 @@ function Member({member}) {
         <Card.Text>{member.role}</Card.Text>
         <Card.Text>{member.specialty}</Card.Text>
         {/* <Button variant="secondary" style={{justifyContent:'center'}}> */}
-          <Link href={`mailto:${member.mail}`} style={{color:"blue"}}>{member.mail}</Link>
+          <a href={`mailto:${member.mail}`} style={{color:"blue"}}>{member.mail}</a>
         {/* </Button> */}
       </Card.Body>
     </Card>
