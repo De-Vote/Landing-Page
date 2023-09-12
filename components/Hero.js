@@ -24,7 +24,7 @@ const Hero = () => {
           </Col>
           <Col lg={5}>
             <div className="mt-5 mt-lg-0">
-              <img src={assetPath("/product.png")} alt="" className="img-fluid mx-auto d-block" />
+              <img src={assetPath("/product.webp")} alt="" className="img-fluid mx-auto d-block" />
             </div>
           </Col>
         </Row>

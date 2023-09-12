@@ -8,19 +8,19 @@
     "feature": [
       {
         "id": 1,
-        "img": "/privacy.png",
+        "img": "/privacy.webp",
         "title": "隱私",
         "desc": "在匿名的情況下，沒有人能追蹤你的投票，包括我們。"
       },
       {
         "id": 2,
-        "img": "/justice.png",
+        "img": "/justice.webp",
         "title": "公正",
         "desc": "我們致力於提供完善且優質的選舉體驗，並且不參與投票內容。"
       },
       {
         "id": 3,
-        "img": "/verify.png",
+        "img": "/verify.webp",
         "title": "可驗證",
         "desc": "我們為所有使用者提供選票驗證機制。"
       }

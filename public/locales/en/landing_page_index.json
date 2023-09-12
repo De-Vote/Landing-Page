@@ -8,19 +8,19 @@
     "feature": [
       {
         "id": 1,
-        "img": "/privacy.png",
+        "img": "/privacy.webp",
         "title": "Privacy",
         "desc": "De.Vote is engineered with privacy at its core. Our commitment is to ensure your votes and personal data remain untraceable, even to system administrators."
       },
       {
         "id": 2,
-        "img": "/justice.png",
+        "img": "/justice.webp",
         "title": "Justice",
         "desc": "We guarantee that every piece of data originates from its claimed source, thereby contributing to authentic election results."
       },
       {
         "id": 3,
-        "img": "/verify.png",
+        "img": "/verify.webp",
         "title": "Verifiable",
         "desc": "With De.Vote, you can verify your votes to ensure your voice is truly counted."
       }

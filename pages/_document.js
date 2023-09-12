@@ -20,7 +20,7 @@ export default function Document(props) {
         <meta property="og:description" content="Best De.Vote App in the world" />
         <meta property="og:site_name" content="De.Vote App" />
         <meta property="og:url" content="https://devote.tw" />
-        <meta property="og:image" content="favicon-192.png" />
+        <meta property="og:image" content="favicon-192.webp" />
 
         {/* <!-- For old IEs --> */}
         <link rel="shortcut icon" href={assetPath("/favicon.ico")} />
@@ -29,37 +29,37 @@ export default function Document(props) {
         <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href={assetPath("/favicon.ico")} />
 
         {/* <!-- For iPad with high-resolution Retina display running iOS ≥ 7: --> */}
-        <link rel="apple-touch-icon" sizes="152x152" href={assetPath("/favicon-152-precomposed.png")} />
+        <link rel="apple-touch-icon" sizes="152x152" href={assetPath("/favicon-152-precomposed.webp")} />
 
         {/* <!-- For iPad with high-resolution Retina display running iOS ≤ 6: --> */}
-        <link rel="apple-touch-icon" sizes="144x144" href={assetPath("/favicon-144-precomposed.png")} />
+        <link rel="apple-touch-icon" sizes="144x144" href={assetPath("/favicon-144-precomposed.webp")} />
 
         {/* <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: --> */}
-        <link rel="apple-touch-icon" sizes="120x120" href={assetPath("/favicon-120-precomposed.png")} />
+        <link rel="apple-touch-icon" sizes="120x120" href={assetPath("/favicon-120-precomposed.webp")} />
 
         {/* <!-- For iPhone with high-resolution Retina display running iOS ≤ 6: --> */}
-        <link rel="apple-touch-icon" sizes="114x114" href={assetPath("/favicon-114-precomposed.png")} />
+        <link rel="apple-touch-icon" sizes="114x114" href={assetPath("/favicon-114-precomposed.webp")} />
 
         {/* <!-- For iPhone 6+ --> */}
-        <link rel="apple-touch-icon" sizes="180x180" href={assetPath("/favicon-180-precomposed.png")} />
+        <link rel="apple-touch-icon" sizes="180x180" href={assetPath("/favicon-180-precomposed.webp")} />
 
         {/* <!-- For first- and second-generation iPad: --> */}
-        <link rel="apple-touch-icon" sizes="72x72" href={assetPath("/favicon-72-precomposed.png")} />
+        <link rel="apple-touch-icon" sizes="72x72" href={assetPath("/favicon-72-precomposed.webp")} />
 
         {/* <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: --> */}
-        <link rel="apple-touch-icon" sizes="57x57" href={assetPath("/favicon-57.png")} />
+        <link rel="apple-touch-icon" sizes="57x57" href={assetPath("/favicon-57.webp")} />
 
         {/* <!-- For Old Chrome --> */}
-        <link rel="icon" sizes="32x32" href={assetPath("/favicon-32.png")} />
+        <link rel="icon" sizes="32x32" href={assetPath("/favicon-32.webp")} />
 
         {/* <!-- For IE10 Metro --> */}
         <meta name="msapplication-TileColor" content="#FFFFFF" />
-        <meta name="msapplication-TileImage" content={assetPath("/favicon-144-precomposed.png")} />
+        <meta name="msapplication-TileImage" content={assetPath("/favicon-144-precomposed.webp")} />
         <meta name="theme-color" content="#ffffff" />
 
         {/* <!-- Chrome for Android --> */}
         <link rel="manifest" href={assetPath("/manifest.json")} />
-        <link rel="icon" sizes="192x192" href={assetPath("/favicon-192.png")}/>
+        <link rel="icon" sizes="192x192" href={assetPath("/favicon-192.webp")}/>
 
         <link
           rel="stylesheet"

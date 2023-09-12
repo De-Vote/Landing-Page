@@ -7,15 +7,15 @@ import { assetPath } from '../lib/publicPath';
 const features = [
   {
     "id": 1,
-    "img": "/privacy.png",
+    "img": "/privacy.webp",
   },
   {
     "id": 2,
-    "img": "/justice.png",
+    "img": "/justice.webp",
   },
   {
     "id": 3,
-    "img": "/verify.png",
+    "img": "/verify.webp",
   }
 ]
 
