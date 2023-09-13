@@ -1,10 +1,12 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import { assetPath } from '../lib/publicPath'
 import i18nextConfig from '../next-i18next.config'
+import Script from 'next/script'
+
 export default function Document(props) {
   const currentLocale = props.__NEXT_DATA__.query.locale || i18nextConfig.i18n.defaultLocale
-  const title = "De.Vote App"
-  const description = "Best De.Vote App in the world"
+  const title = "De.Vote 塊區投科技股份有限公司"
+  const description = "塊區投為所有人提供一種基於TrustZone專利的可信賴運算技術，並搭配區塊鏈打造兼具隱私、公平、信任的投票系統"
   const url= "https://devote.tw"
   const image = "https://devote.tw/favicon-192.webp"
   return (
@@ -85,6 +87,19 @@ export default function Document(props) {
           type='text/css'/> */}
       </Head>
       <body>
+      <Script
+          id="sturcture-data"
+          type="application/ld+json"
+          strategy="beforeInteractive">
+          {JSON.stringify(
+            {
+              "@context" : "https://schema.org",
+              "@type" : "WebSite",
+              "name" : "De.Vote 塊區投科技股份有限公司",
+              "alternateName" : "De.Vote App",
+              "url" : "https://devote.tw",
+            })}
+        </Script>
         <Main />
         <NextScript />
       </body>
