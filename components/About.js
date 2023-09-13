@@ -41,12 +41,12 @@ const About = () => {
       <br/>
       <section >
         <Container>
-          <LazyLoad height={450}>
+          <LazyLoad height={1200}>
             <Row >
                 {t('about.members.row1', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
             </Row>
           </LazyLoad>
-          <LazyLoad height={450}>
+          <LazyLoad height={1200}>
             <Row >
               {t('about.members.row2', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
             </Row>

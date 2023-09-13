@@ -40,8 +40,8 @@ const FeatureBox = ({t}) => {
       {
         features.map((feature, key) =>
           ((feature.id % 2 !== 0)&&!isMobile) ?
-            <LazyLoad height={176}>
-            <Row key={key} className={feature.id === 1 ? "align-items-center" : "align-items-center mt-5"}>
+            <LazyLoad height={(width <= 768)?350:176} key={key}>
+            <Row className={feature.id === 1 ? "align-items-center" : "align-items-center mt-5"}>
               <Col md={5} >
                 <div>
                   <img src={assetPath(feature.img)} alt="" className="img-fluid d-block mx-auto  w-25" loading="lazy"/>
@@ -60,8 +60,8 @@ const FeatureBox = ({t}) => {
             </Row>
             </LazyLoad>
             :
-            <LazyLoad height={176}>
-            <Row key={key} className="align-items-center mt-5">
+            <LazyLoad height={(width <= 768)?350:176} key={key}>
+            <Row className="align-items-center mt-5">
               <Col md={6}>
                 <div className="mb-4">
                   <div className="my-4">
