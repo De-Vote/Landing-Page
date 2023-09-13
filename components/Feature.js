@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next'
 import { assetPath } from '../lib/publicPath';
-import LazyLoad from 'react-lazyload';
+import LazyLoad from 'react-lazy-load';
 
 const features = [
   {
