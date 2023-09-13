@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import { useTranslation } from 'next-i18next'
 import { assetPath } from '../lib/publicPath';
+import LazyLoad from 'react-lazyload';
 
 const About = () => {
   const { t } = useTranslation('landing_page_index')
@@ -40,12 +41,16 @@ const About = () => {
       <br/>
       <section >
         <Container>
-          <Row >
-            {t('about.members.row1', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
-          </Row>
-          <Row >
-            {t('about.members.row2', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
-          </Row>
+          <LazyLoad height={450}>
+            <Row >
+                {t('about.members.row1', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
+            </Row>
+          </LazyLoad>
+          <LazyLoad height={450}>
+            <Row >
+              {t('about.members.row2', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
+            </Row>
+          </LazyLoad>
         </Container>
       </section>
     </>
@@ -59,7 +64,7 @@ function Member({member}) {
     <Card style={{width: '21rem', justifyContent:'center', alignItems:'center'}}>
       {/* <Card.Img variant="top" src={} className="rounded"/> */}
       <br/>
-      <Image src={assetPath(member.src)} alt="Loading" roundedCircle className="w-50"/>
+      <Image src={assetPath(member.src)} alt="Loading" roundedCircle className="w-50" loading="lazy"/>
       <Card.Body>
         <Card.Title>{member.name}</Card.Title>
         <Card.Text>{member.role}</Card.Text>

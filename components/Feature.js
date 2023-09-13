@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next'
 import { assetPath } from '../lib/publicPath';
+import LazyLoad from 'react-lazyload';
 
 const features = [
   {
@@ -39,10 +40,11 @@ const FeatureBox = ({t}) => {
       {
         features.map((feature, key) =>
           ((feature.id % 2 !== 0)&&!isMobile) ?
+            <LazyLoad height={176}>
             <Row key={key} className={feature.id === 1 ? "align-items-center" : "align-items-center mt-5"}>
               <Col md={5} >
                 <div>
-                  <img src={assetPath(feature.img)} alt="" className="img-fluid d-block mx-auto  w-25" />
+                  <img src={assetPath(feature.img)} alt="" className="img-fluid d-block mx-auto  w-25" loading="lazy"/>
                 </div>
               </Col>
               <Col md={{ size: 6, offset: 1 }}>
@@ -56,7 +58,9 @@ const FeatureBox = ({t}) => {
                 </div>
               </Col>
             </Row>
+            </LazyLoad>
             :
+            <LazyLoad height={176}>
             <Row key={key} className="align-items-center mt-5">
               <Col md={6}>
                 <div className="mb-4">
@@ -70,10 +74,11 @@ const FeatureBox = ({t}) => {
               </Col>
               <Col md={{ size: 5, offset: 1 }} className="mt-5 mt-sm-0">
                 <div>
-                  <img src={assetPath(feature.img)} alt="" className="img-fluid d-block mx-auto  w-25" />
+                  <img src={assetPath(feature.img)} alt="" className="img-fluid d-block mx-auto  w-25" loading="lazy"/>
                 </div>
               </Col>
             </Row>
+            </LazyLoad>
         )
       }
     </>
