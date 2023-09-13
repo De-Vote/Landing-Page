@@ -20,7 +20,7 @@ export default function NewHeader() {
     <>
         <Navbar bg="light" expand="md" sticky="top">
           <Container>
-            <img alt="" src={assetPath("/favicon-192.webp")} width="30" height="30" className="d-inline-block align-top"/>{' '}
+            <img alt="" src={assetPath("/favicon-192.webp")} width="30" height="30"/>{' '}
             <Navbar.Brand className="logo-text">
               De.Vote
             </Navbar.Brand>

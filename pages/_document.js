@@ -6,7 +6,7 @@ export default function Document(props) {
   const title = "De.Vote App"
   const description = "Best De.Vote App in the world"
   const url= "https://devote.tw"
-  const image = assetPath("/favicon-192.webp")
+  const image = "https://devote.tw/favicon-192.webp"
   return (
     <Html lang={currentLocale}>
       <Head>
@@ -71,7 +71,7 @@ export default function Document(props) {
         <link rel="manifest" href={assetPath("/manifest.json")} />
         <link rel="icon" sizes="192x192" href={assetPath("/favicon-192.webp")}/>
 
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link
@@ -82,7 +82,7 @@ export default function Document(props) {
         <link 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
           rel="stylesheet"  
-          type='text/css'/>
+          type='text/css'/> */}
       </Head>
       <body>
         <Main />

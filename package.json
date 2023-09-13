@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@noble/ed25519": "^1.6.1",
+    "bootstrap": "^4.3.1",
     "js-cookie": "^3.0.1",
     "next": "^12.2.2",
     "next-i18next": "^11.3.0",
@@ -22,6 +23,7 @@
     "react-icons": "^4.4.0",
     "react-lazy-load": "^4.0.1",
     "react-toastify": "^9.0.7",
+    "sass": "^1.66.1",
     "tweetnacl-util": "^0.15.1"
   },
   "devDependencies": {

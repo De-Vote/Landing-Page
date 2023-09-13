@@ -1,4 +1,5 @@
 // const { i18n } = require('./next-i18next.config');
+const path = require('path');
 /** @type {import('next').NextConfig} */
 const debug = process.env.NODE_ENV !== 'production';
 const nextConfig = {
@@ -14,7 +15,10 @@ const nextConfig = {
     // GHPAGE_ROUTE: process.env.NODE_ENV === 'production' ? `/Landing-Page` : '',
     // if production use this
     GHPAGE_ROUTE: '',
-  }
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
 }
 
 module.exports =(nextConfig)
