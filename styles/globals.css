@@ -33,6 +33,7 @@ html {
   font-family: "Obrazec";   /*Can be any text*/
   src: local("Obrazec"),
     url("../public/fonts/Obrazec.woff") format("woff");
+  font-display: swap;
 }
 
 .logo-text{

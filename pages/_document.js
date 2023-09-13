@@ -3,24 +3,33 @@ import { assetPath } from '../lib/publicPath'
 import i18nextConfig from '../next-i18next.config'
 export default function Document(props) {
   const currentLocale = props.__NEXT_DATA__.query.locale || i18nextConfig.i18n.defaultLocale
+  const title = "De.Vote App"
+  const description = "Best De.Vote App in the world"
+  const url= "https://devote.tw"
   return (
     <Html lang={currentLocale}>
       <Head>
-        <meta name="application-name" content="De.Vote App" />
+        <meta name="application-name" content={title} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="De.Vote App" />
-        <meta name="description" content="Best De.Vote App in the world" />
+        <meta name="apple-mobile-web-app-title" content={title} />
+        <meta name="description" content={description} />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-config" content="/icons/browserconfig.xml" />
         <meta name="msapplication-tap-highlight" content="no" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="De.Vote App" />
-        <meta property="og:description" content="Best De.Vote App in the world" />
-        <meta property="og:site_name" content="De.Vote App" />
-        <meta property="og:url" content="https://devote.tw" />
-        <meta property="og:image" content="favicon-192.webp" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:url" content={url} />
+        <meta property="og:image" content={assetPath("favicon-192.webp")} />
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content={url}/>
+        <meta name="twitter:title" content={title}/>
+        <meta name="twitter:description" content={description}/>
+        <meta name="twitter:image" content={assetPath("favicon-192.webp")} />
+        <meta name="twitter:url" content={url} />
 
         {/* <!-- For old IEs --> */}
         <link rel="shortcut icon" href={assetPath("/favicon.ico")} />
