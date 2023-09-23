@@ -100,15 +100,6 @@ export default function Document(props) {
               "url" : "https://devote.tw",
             })}
         </Script>
-        {/* <!-- Global site tag (gtag.js) - Google Analytics */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-E3JR90S2N3"></Script>
-        <Script id="google-analytics" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-E3JR90S2N3');
-          `}</Script>
         <Main />
         <NextScript />
       </body>
