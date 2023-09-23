@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
-import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next'
 import { assetPath } from '../lib/publicPath';
 import LazyLoad from 'react-lazy-load';
@@ -20,20 +19,8 @@ const features = [
   }
 ]
 
-const FeatureBox = ({t}) => {
-  const [width, setWidth] = useState(0);
+const FeatureBox = ({t, width}) => {
   const isMobile = width <= 768;
-
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange);
-    }
-  }, []);
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
 
   return (
     <>
@@ -85,7 +72,7 @@ const FeatureBox = ({t}) => {
   );
 }
 
-const Feature = () => {
+const Feature = ({width}) => {
   const { t } = useTranslation('landing_page_index')
 
   return (
@@ -98,7 +85,7 @@ const Feature = () => {
             </div>
           </Col>
         </Row>
-        <FeatureBox t={t} />
+        <FeatureBox t={t} width={width}/>
       </Container>
     </section>
   );

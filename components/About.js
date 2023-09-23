@@ -1,10 +1,11 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import { useTranslation } from 'next-i18next'
 import { assetPath } from '../lib/publicPath';
 import LazyLoad from 'react-lazy-load';
 
-const About = () => {
+const About = ({width}) => {
   const { t } = useTranslation('landing_page_index')
 
   return (
@@ -41,12 +42,12 @@ const About = () => {
       <br/>
       <section >
         <Container>
-          <LazyLoad height={1200}>
+          <LazyLoad height={(width <= 768)?1200:400}>
             <Row >
                 {t('about.members.row1', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
             </Row>
           </LazyLoad>
-          <LazyLoad height={1200}>
+          <LazyLoad height={(width <= 768)?1200:400}>
             <Row >
               {t('about.members.row2', {returnObjects: true}).map((member, index)=><Col key={index}><Member member={member}/></Col>)}
             </Row>

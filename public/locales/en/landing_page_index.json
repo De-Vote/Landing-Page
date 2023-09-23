@@ -4,6 +4,7 @@
       "description": "Introducing a blockchain-based, decentralized voting system, fortified by our patented TrustZone-backed trusted computing technology.",
       "try": "Try out our voting system!"
     },
+    "newsTitle":"News",
     "featureTitle":"Feature",
     "feature": [
       {

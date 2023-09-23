@@ -4,6 +4,7 @@ import Hero from '../../components/Hero';
 import Feature from '../../components/Feature';
 import Footer from '../../components/Footer';
 import About from '../../components/About';
+import News from '../../components/News';
 import { getStaticPaths, makeStaticProps } from '../../lib/getStatic'
 const getStaticProps = makeStaticProps(['landing_page_index', "common"])
 export { getStaticPaths, getStaticProps }
@@ -14,8 +15,24 @@ import { useEffect, useState } from 'react';
 export default function HomePage() {
   const router = useRouter();
   const [isReady, setIsReady] = useState(false)
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+
   useEffect(()=>{
-    if(router.isReady) setIsReady(true)
+    if(router.isReady){
+      setIsReady(true)
+      handleWindowSizeChange()
+    }
   },[router.isReady])
 
   if(!isReady)return <></>
@@ -23,9 +40,10 @@ export default function HomePage() {
     <Layout>
       <Header />
       <Hero/>
-      <Feature/>
-      <About/>
-      <Footer />
+      <News/>
+      <Feature width={width}/>
+      <About width={width}/>
+      <Footer width={width}/>
     </Layout>
   )
 }

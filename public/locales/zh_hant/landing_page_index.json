@@ -4,6 +4,7 @@
       "description": "我們為所有人提供一種基於 TrustZone 專利的可信賴運算技術，並搭配區塊鏈去中心化投票系統。",
       "try": "立即試用我們的投票系統"
     },
+    "newsTitle":"最新消息",
     "featureTitle":"特色",
     "feature": [
       {
@@ -26,6 +27,7 @@
       }
     ],
     "about": {
+      "title":["關於","塊區投"],
       "intro": "De.Vote 是由國立清華大學 Logos Lab 的蔡仁松教授所領導的新創團隊。",
       "left": "我們是最值得信賴的安全匿名投票解決方案提供商。",
       "middle": {

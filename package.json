@@ -23,6 +23,7 @@
     "react-icons": "^4.4.0",
     "react-lazy-load": "^4.0.1",
     "react-toastify": "^9.0.7",
+    "react-youtube": "^10.1.0",
     "sass": "^1.66.1",
     "tweetnacl-util": "^0.15.1"
   },

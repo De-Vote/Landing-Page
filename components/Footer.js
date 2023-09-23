@@ -25,7 +25,7 @@ const Footer = () => {
     <section className="footer section">
       <Container>
         <Row>
-          <Col lg={12}>
+          <Col md={12}>
             <Row>
               {
                 links.map((link, key) =>
@@ -44,13 +44,9 @@ const Footer = () => {
               
               <Col md={4}>
                 <h6 className="text-dark mb-3">{t('footer.Contact')}</h6>
+                <h6 className="text-muted pb-2"><a href="https://www.facebook.com/devote.tw">facebook</a></h6>
+                <h6 className="text-muted pb-2">{t('footer.Email')}: <a href="mailto:contact@devote.tw">contact@devote.tw</a></h6>
                 <p className="text-muted f-14">{t('footer.address')}</p>
-                <h6 className="text-muted pb-2">{t('footer.Email')}: contact@devote.tw</h6>
-                <ul className="list-unstyled footer-social-list mt-4">
-                  <li className="list-inline-item"><a href="#"><i className="mdi mdi-facebook"></i></a></li>
-                  <li className="list-inline-item"><a href="#"><i className="mdi mdi-instagram"></i></a></li>
-                  <li className="list-inline-item"><a href="#"><i className="mdi mdi-linkedin"></i></a></li>
-                </ul>
               </Col>
             </Row>
           </Col>
