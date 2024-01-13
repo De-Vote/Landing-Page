@@ -1,6 +1,6 @@
-import React from 'react';
-import Head from 'next/head';
-import Script from 'next/script'
+import React from "react";
+import Head from "next/head";
+import Script from "next/script";
 
 const Layout = (props) => {
   return (
@@ -12,19 +12,35 @@ const Layout = (props) => {
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       </Head>
       {/* <!-- Global site tag (gtag.js) - Google Analytics */}
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-E3JR90S2N3"></Script>
-        <Script id="google-analytics" strategy="afterInteractive">{`
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-E3JR90S2N3"
+      ></Script>
+      <Script id="google-analytics" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'G-E3JR90S2N3');
-          `}</Script>
-      <div>
-        {props.children}
-      </div>
 
+          var _paq = window._paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.devote.tw"]);
+          _paq.push(["setDomains", ["*.devote.tw","*.devote.tw"]]);
+          _paq.push(["enableCrossDomainLinking"]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//t.idlab.tw/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '3']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+          <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="//t.idlab.tw/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+          `}</Script>
+      <div>{props.children}</div>
     </div>
-  )
-}
+  );
+};
 export default Layout;
