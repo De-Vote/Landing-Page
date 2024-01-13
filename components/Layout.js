@@ -38,7 +38,6 @@ const Layout = (props) => {
             g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
           })();
           `}</Script>
-          <
       <div>{props.children}</div>
     </div>
   );
