@@ -37,8 +37,8 @@ const Layout = (props) => {
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
             g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
           })();
-          <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="//t.idlab.tw/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
           `}</Script>
+          <
       <div>{props.children}</div>
     </div>
   );
