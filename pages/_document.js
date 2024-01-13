@@ -95,7 +95,7 @@ export default function Document(props) {
             {
               "@context" : "https://schema.org",
               "@type" : "WebSite",
-              "name" : "De.Vote 塊區投科技股份有限公司",
+              "name" : "De.Vote 塊區投科技",
               "alternateName" : "De.Vote App",
               "url" : "https://devote.tw",
             })}

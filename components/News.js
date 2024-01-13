@@ -24,7 +24,7 @@ const News = () => {
         </Row>
       <Row>
         <Col xs={12} md={7}>
-            <p>* <a href="https://www.zeczec.com/projects/de-vote"><strong>De.Vote 上嘖嘖募資拉! 讓每個聲音都被真實聽見</strong></a></p>
+            <p>* <a href="https://www.zeczec.com/projects/de-vote"><strong>De.Vote 上嘖嘖募資啦! 讓每個聲音都被真實聽見</strong></a></p>
             <p>* <a href="https://100.adi.gov.tw/post1?id=15"><strong>塊區投入選公益創新．徵案100-第二階段50案!</strong></a></p>
             <p>* <a href="https://www.thehubnews.net/archives/206035"><strong>公益創新的起點，入選公益100第一階段!</strong></a></p>
 		</Col>
