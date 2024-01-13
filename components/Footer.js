@@ -44,7 +44,7 @@ const Footer = () => {
               
               <Col md={4}>
                 <h6 className="text-dark mb-3">{t('footer.Contact')}</h6>
-                <h6 className="text-muted pb-2"><a href="https://www.facebook.com/devote.tw">facebook</a></h6>
+                <h6 className="text-muted pb-2"><a href="https://www.facebook.com/devote.tw">Facebook</a></h6>
                 <h6 className="text-muted pb-2">{t('footer.Email')}: <a href="mailto:contact@devote.tw">contact@devote.tw</a></h6>
                 <p className="text-muted f-14">{t('footer.address')}</p>
               </Col>
