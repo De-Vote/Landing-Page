@@ -5,10 +5,10 @@ const debug = process.env.NODE_ENV !== 'production';
 const nextConfig = {
   // i18n,
   reactStrictMode: true,
-  swcMinify: true,
+  output: 'export',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
   images: {
-    loader: "custom",
+    unoptimized: true,
   },
   env:{
     // if dev use this 
