@@ -1,91 +1,100 @@
 {
-    "hero": {
-      "title": ["A Decentralized Voting System for a Better World"],
-      "description": "Introducing a blockchain-based, decentralized voting system, fortified by our patented TrustZone-backed trusted computing technology.",
-      "try": "Try out our voting system!"
+  "hero": {
+    "title": ["Elections You Can Trust."],
+    "description": "De.Vote is a blockchain-powered, privacy-first voting platform secured by our patented TrustZone technology — making every election transparent, anonymous, and tamper-proof.",
+    "try": "Start Voting",
+    "learnMore": "See How It Works",
+    "pills": ["Anonymous", "Fair", "Verifiable"]
+  },
+  "newsTitle": "In the News",
+  "featureTitle": "Features",
+  "featureSectionTitle": "Built for trust at every step",
+  "featureSectionSubtitle": "Every vote is private, fair, and independently verifiable — backed by the strongest cryptographic guarantees.",
+  "feature": [
+    {
+      "id": 1,
+      "img": "/privacy.webp",
+      "title": "Anonymous by Design",
+      "desc": "Your ballot is completely untraceable. Not even system administrators can link a vote to a voter — guaranteed by cryptography, not just policy."
     },
-    "newsTitle":"News",
-    "featureTitle":"Feature",
-    "feature": [
-      {
-        "id": 1,
-        "img": "/privacy.webp",
-        "title": "Privacy",
-        "desc": "De.Vote is engineered with privacy at its core. Our commitment is to ensure your votes and personal data remain untraceable, even to system administrators."
-      },
-      {
-        "id": 2,
-        "img": "/justice.webp",
-        "title": "Justice",
-        "desc": "We guarantee that every piece of data originates from its claimed source, thereby contributing to authentic election results."
-      },
-      {
-        "id": 3,
-        "img": "/verify.webp",
-        "title": "Verifiable",
-        "desc": "With De.Vote, you can verify your votes to ensure your voice is truly counted."
-      }
-    ],
-    "about": {
-      "title":["About","Us"],
-      "intro": "De.Vote is a nonpartisan organization spearheaded by Professor Ren-Song Tsay of the Logos Lab at National Tsing Hua University.",
-      "left": "We are the most trusted provider of secure and anonymous voting solutions.",
-      "middle": {
-        "title": "Our Team",
-        "content": "Our team comprises information security experts, blockchain researchers, and seasoned product designers from National Tsing Hua University."
-      },
-      "right": {
-        "title": "Our Goal",
-        "content": "Our mission is to make every vote and election trustworthy, highly efficient, and secure with the De.Vote system."
-      },
-      "members": {
-        "row1": [
-          {
-            "name": "Ren Song Tsay / Instructor",
-            "role": "Founder of two high-tech companies in Silicon Valley, both of which were successfully acquired.",
-            "specialty": "Expertise: Embedded System Verification, Blockchain and Its Applications, Decentralized IoT Architecture",
-            "mail": "instructor@devote.tw",
-            "src": "/images/song.webp"
-          },
-          {
-            "name": "Wei En Tsai / CEO",
-            "role": "Brings a wealth of experience in development and entrepreneurship competitions.",
-            "specialty": "Expertise: Leadership, Tech Development, Information Security",
-            "mail": "wayne.tsai@devote.tw",
-            "src": "/images/tsai.webp"
-          },
-          {
-            "name": "Guan Xue Li / COO",
-            "role": "Doctoral dissertation on high security, high scalability electronic voting technology.",
-            "specialty": "Expertise: Cryptography, Blockchain and its applications",
-            "mail": "guanshiue.li@devote.tw",
-            "src": "/images/lee.webp"
-          }
-        ],
-        "row2": [
-          {
-            "name": "Tzu Hsuan Su / CTO",
-            "role": "Specializes in blockchain project development and scalable system architecture design.",
-            "specialty": "Expertise: Large-scale system design, blockchain technology development",
-            "mail": "vincent.su@devote.tw",
-            "src": "/images/su.webp"
-          },
-          {
-            "name": "Hsiang Ting Peng / CMO",
-            "role": "Possesses rich capabilities in data analysis and integration.",
-            "specialty": "Expertise: Information security information collection and analysis, project management",
-            "mail": "ht.peng@devote.tw",
-            "src": "/images/pon.webp"
-          },
-          {
-            "name": "Borhan Lee / CFO",
-            "role": "Experienced in developing bitcoin hardware wallets based on TrustZone, with a deep understanding of blockchain and security issues.",
-            "specialty": "Expertise: Program Development, TrustZone Security Chip Development",
-            "mail": "borhan.lee@devote.tw",
-            "src": "/images/borhan.webp"
-          }
-        ]
-      }
+    {
+      "id": 2,
+      "img": "/justice.webp",
+      "title": "Tamper-Proof Results",
+      "desc": "Every vote is cryptographically verified to originate from a legitimate source, ensuring election outcomes are authentic and manipulation-free."
+    },
+    {
+      "id": 3,
+      "img": "/verify.webp",
+      "title": "Verify Your Own Vote",
+      "desc": "After casting your ballot, independently confirm that your vote was recorded and counted exactly as intended — no blind trust required."
+    }
+  ],
+  "about": {
+    "title": ["About", "Us"],
+    "intro": "De.Vote is a nonpartisan spin-off startup of the Logos Lab at National Tsing Hua University, founded under the guidance of Prof. Ren-Song Tsay. We're on a mission to make elections more trustworthy, private, and fair for everyone.",
+    "left": "The most trusted platform for secure, anonymous elections.",
+    "middle": {
+      "title": "Our Team",
+      "content": "A multidisciplinary team of information security experts, blockchain researchers, and product engineers from National Tsing Hua University."
+    },
+    "right": {
+      "title": "Our Mission",
+      "content": "To make every election trustworthy, efficient, and secure — empowering voters and institutions with technology they can rely on."
+    },
+    "members": {
+      "row1": [
+        {
+          "name": "Ren Song Tsay",
+          "title": "Mentor",
+          "role": "Serial entrepreneur with two Silicon Valley companies, both successfully acquired.",
+          "specialty": "Embedded systems, blockchain, decentralized IoT",
+          "mail": "instructor@devote.tw",
+          "src": "/images/song.webp"
+        },
+        {
+          "name": "Wei En Tsai",
+          "title": "CEO",
+          "role": "Champion of multiple national entrepreneurship competitions; led De.Vote from a university lab prototype to a funded, production-ready startup.",
+          "specialty": "Leadership, tech development, information security",
+          "mail": "wayne.tsai@devote.tw",
+          "src": "/images/tsai.webp"
+        },
+        {
+          "name": "Guan Xue Li",
+          "title": "COO",
+          "role": "Doctoral research in high-security, high-scalability electronic voting systems.",
+          "specialty": "Cryptography, blockchain applications",
+          "mail": "guanshiue.li@devote.tw",
+          "src": "/images/lee.webp"
+        }
+      ],
+      "row2": [
+        {
+          "name": "Tzu Hsuan Su",
+          "title": "CTO",
+          "role": "Specializes in blockchain development and scalable distributed system architecture.",
+          "specialty": "Large-scale system design, blockchain development",
+          "mail": "vincent.su@devote.tw",
+          "src": "/images/su.webp"
+        },
+        {
+          "name": "Hsiang Ting Peng",
+          "title": "CMO",
+          "role": "Expert in data analysis, information security intelligence, and project coordination.",
+          "specialty": "Security intelligence, project management",
+          "mail": "ht.peng@devote.tw",
+          "src": "/images/pon.webp"
+        },
+        {
+          "name": "Borhan Lee",
+          "title": "CFO",
+          "role": "Developed Bitcoin hardware wallets on TrustZone; deep expertise in blockchain security.",
+          "specialty": "TrustZone security, hardware wallet development",
+          "mail": "borhan.lee@devote.tw",
+          "src": "/images/borhan.webp"
+        }
+      ]
     }
   }
-  
+}

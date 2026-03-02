@@ -1,67 +1,107 @@
 import React from 'react';
-import { Container, Row, Col } from "react-bootstrap";
-import { useTranslation } from 'next-i18next'
+import { Container, Row, Col } from 'react-bootstrap';
+import { useTranslation } from 'next-i18next';
+import { assetPath } from '../lib/publicPath';
 
 const Footer = () => {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation('common');
 
-  const links = [
-    { id : 1, title : "Feature",
-      child : [
-          { title : "Private", link : "/#feature" },
-          { title : "Justice", link : "/#feature" },
-          { title : "Verifiable", link : "/#feature" },
-      ]
-    },
-    { id : 2, title : "About",
-      child : [
-          { title : "FAQs", link : "/faq" },
-          { title : "PrivacyPolicy", link : "/privacy" },
-      ]
-    },
+  const productLinks = [
+    { label: t('footer.Private'), href: '/#feature' },
+    { label: t('footer.Justice'), href: '/#feature' },
+    { label: t('footer.Verifiable'), href: '/#feature' },
   ];
-  
-  return (
-    <section className="footer section">
-      <Container>
-        <Row>
-          <Col md={12}>
-            <Row>
-              {
-                links.map((link, key) =>
-                  <Col key={key} md={4}>
-                    <h6 className="text-dark mb-3">{t(`footer.${link.title}`)}</h6>
-                    <ul className="list-unstyled company-sub-menu">
-                      {
-                        link.child.map((fLink, key) =>
-                          <li key={key}><a href={fLink.link}>{t(`footer.${fLink.title}`)}</a></li>
-                        )
-                      }
-                    </ul>
-                  </Col>
-                )
-              }
-              
-              <Col md={4}>
-                <h6 className="text-dark mb-3">{t('footer.Contact')}</h6>
-                <h6 className="text-muted pb-2"><a href="https://www.facebook.com/devote.tw">Facebook</a></h6>
-                <h6 className="text-muted pb-2">{t('footer.Email')}: <a href="mailto:contact@devote.tw">contact@devote.tw</a></h6>
-                <p className="text-muted f-14">{t('footer.address')}</p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
 
-        <Row className="mt-5">
-          <Col md={12}>
-            <div className="text-center text-muted">
-              <p className="mb-0 f-15">Copyright © 2023 De.Vote 塊區投科技股份有限公司</p>
+  const companyLinks = [
+    { label: t('footer.FAQs'), href: '/faq' },
+    { label: t('footer.PrivacyPolicy'), href: '/privacy' },
+  ];
+
+  return (
+    <footer style={{ background: '#111', color: '#aaa', padding: '60px 0 0' }}>
+      <Container>
+        <Row style={{ paddingBottom: '48px' }}>
+
+          {/* Brand column */}
+          <Col md={4} style={{ marginBottom: '32px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+              <img src={assetPath('/favicon-192.webp')} width={24} height={24} alt="De.Vote" style={{ borderRadius: '4px' }} />
+              <span className="logo-text" style={{ fontSize: '1.3em' }}>De.Vote</span>
+            </div>
+            <p style={{ fontSize: '0.87rem', lineHeight: 1.75, maxWidth: '240px', color: '#888', margin: '0 0 20px' }}>
+              Blockchain-powered voting for a more democratic and trustworthy world.
+            </p>
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <a href="https://www.facebook.com/devote.tw" target="_blank" rel="noopener noreferrer" style={{ color: '#666', fontSize: '0.85rem', transition: 'color 0.15s' }}
+                onMouseOver={e => e.currentTarget.style.color = '#5EA037'}
+                onMouseOut={e => e.currentTarget.style.color = '#666'}>
+                Facebook
+              </a>
+              <a href="mailto:contact@devote.tw" style={{ color: '#666', fontSize: '0.85rem', transition: 'color 0.15s' }}
+                onMouseOver={e => e.currentTarget.style.color = '#5EA037'}
+                onMouseOut={e => e.currentTarget.style.color = '#666'}>
+                contact@devote.tw
+              </a>
             </div>
           </Col>
+
+          {/* Product links */}
+          <Col md={2} sm={6} style={{ marginBottom: '32px' }}>
+            <h6 style={{ color: '#fff', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
+              {t('footer.Feature')}
+            </h6>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {productLinks.map((link, i) => (
+                <li key={i} style={{ marginBottom: '10px' }}>
+                  <a href={link.href} style={{ color: '#888', fontSize: '0.88rem', transition: 'color 0.15s' }}
+                    onMouseOver={e => e.currentTarget.style.color = '#ccc'}
+                    onMouseOut={e => e.currentTarget.style.color = '#888'}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Col>
+
+          {/* Company links */}
+          <Col md={2} sm={6} style={{ marginBottom: '32px' }}>
+            <h6 style={{ color: '#fff', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
+              {t('footer.About')}
+            </h6>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {companyLinks.map((link, i) => (
+                <li key={i} style={{ marginBottom: '10px' }}>
+                  <a href={link.href} style={{ color: '#888', fontSize: '0.88rem', transition: 'color 0.15s' }}
+                    onMouseOver={e => e.currentTarget.style.color = '#ccc'}
+                    onMouseOut={e => e.currentTarget.style.color = '#888'}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Col>
+
+          {/* Contact / Address */}
+          <Col md={4} style={{ marginBottom: '32px' }}>
+            <h6 style={{ color: '#fff', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
+              {t('footer.Contact')}
+            </h6>
+            <p style={{ color: '#888', fontSize: '0.83rem', lineHeight: 1.7, margin: 0 }}>
+              {t('footer.address')}
+            </p>
+          </Col>
+
         </Row>
+
+        {/* Bottom bar */}
+        <div style={{ borderTop: '1px solid #222', padding: '20px 0' }}>
+          <p style={{ margin: 0, fontSize: '0.8rem', color: '#555', textAlign: 'center' }}>
+            © 2026 De.Vote 塊區投科技股份有限公司. All rights reserved.
+          </p>
+        </div>
       </Container>
-    </section>
+    </footer>
   );
-}
+};
 
 export default Footer;
